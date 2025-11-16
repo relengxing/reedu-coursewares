@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>环形道路相遇问题</title>
+    <title>环形道路相遇问题 - 增强版课件</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
@@ -14,17 +14,18 @@
             padding: 0;
             font-family: 'Microsoft YaHei', sans-serif;
         }
-        
+
         body {
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        
+
         section {
             width: 100%;
             min-height: 100vh;
-            padding: 40px;
+            padding: 60px 80px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -33,134 +34,155 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 30px;
+            font-size: 4.5rem;
+            margin-bottom: 40px;
             color: #2c3e50;
             text-align: center;
+            width: 100%;
         }
-        
+
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-size: 3.5rem;
+            margin-bottom: 35px;
             color: #3498db;
             text-align: center;
+            width: 100%;
         }
-        
+
         p {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            max-width: 900px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
             text-align: center;
+            max-width: 1200px;
+            width: 100%;
         }
-        
+
         .problem-container {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-            margin: 20px 0;
-        }
-        
-        .interactive-container {
-            margin: 30px 0;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
             width: 100%;
-            max-width: 900px;
+            margin: 30px 0;
         }
-        
+
+        .interactive-container {
+            margin: 40px 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+
         .toggle-btn {
-            padding: 15px 25px;
+            padding: 20px 30px;
             background: #3498db;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 1.6rem;
+            font-size: 2.2rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .toggle-btn:hover {
             background: #2980b9;
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
-        
+
         .toggle-btn:active {
             transform: translateY(0);
         }
-        
+
         .toggle-btn::after {
             content: "▶";
-            font-size: 1.4rem;
+            font-size: 2rem;
             transition: transform 0.3s ease;
         }
-        
+
         .toggle-btn.expanded::after {
             transform: rotate(90deg);
         }
-        
+
         .content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
             background: #f5f5f5;
-            border-radius: 8px;
-            border-left: 5px solid #3498db;
+            border-radius: 10px;
+            border-left: 6px solid #3498db;
             opacity: 0;
         }
-        
+
         .content.expanded {
-            max-height: 1000px;
-            padding: 25px;
-            margin-top: 20px;
+            max-height: 2000px;
+            padding: 35px;
+            margin-top: 25px;
             opacity: 1;
         }
-        
+
         .content p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: left;
         }
-        
+
         .content p:last-child {
             margin-bottom: 0;
         }
-        
+
         .math {
             font-family: 'Times New Roman', serif;
             font-style: italic;
         }
-        
+
         .solution {
-            margin-top: 20px;
-            padding: 20px;
+            margin-top: 25px;
+            padding: 25px;
             background: #e8f4fc;
-            border-radius: 8px;
+            border-radius: 10px;
         }
-        
+
         .solution h3 {
             color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
         }
-        
+
         .animation-container {
             width: 100%;
-            max-width: 800px;
-            height: 400px;
-            margin: 30px auto;
+            max-width: 1200px;
+            height: 500px;
+            margin: 40px auto;
             position: relative;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: #f9f9f9;
+            display: flex;
         }
-        
+
+        .track-area {
+            flex: 3;
+            position: relative;
+            border-right: 2px dashed #ddd;
+        }
+
+        .distance-area {
+            flex: 2;
+            position: relative;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
         .track {
             position: absolute;
             top: 50%;
@@ -168,450 +190,809 @@
             transform: translate(-50%, -50%);
             width: 300px;
             height: 300px;
-            border: 5px dashed #7f8c8d;
+            border: 8px dashed #7f8c8d;
             border-radius: 50%;
         }
-        
+
         .runner {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+            width: 60px;
+            height: 80px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 10;
+            transition: transform 0.5s ease;
         }
-        
+
         .jia {
-            background-color: #e74c3c;
-            box-shadow: 0 0 10px #e74c3c;
+            color: #e74c3c;
         }
-        
+
         .yi {
-            background-color: #2ecc71;
-            box-shadow: 0 0 10px #2ecc71;
+            color: #2ecc71;
         }
-        
+
+        .runner svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3));
+        }
+
+        .runner-label {
+            position: absolute;
+            font-size: 1.8rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .jia-label {
+            color: #e74c3c;
+        }
+
+        .yi-label {
+            color: #2ecc71;
+        }
+
         .controls {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 30px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 1000px;
         }
-        
+
         .control-btn {
-            padding: 12px 25px;
+            padding: 18px 35px;
             background: #9b59b6;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 1.4rem;
+            font-size: 2rem;
             transition: all 0.3s ease;
+            flex: 1;
+            max-width: 300px;
         }
-        
+
         .control-btn:hover {
             background: #8e44ad;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-        
+
+        .speed-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .speed-label {
+            font-size: 2rem;
+            font-weight: bold;
+            min-width: 150px;
+        }
+
+        .jia-speed-label {
+            color: #e74c3c;
+        }
+
+        .yi-speed-label {
+            color: #2ecc71;
+        }
+
+        .speed-slider {
+            flex: 1;
+            height: 25px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #ddd;
+            border-radius: 12px;
+            outline: none;
+        }
+
+        .speed-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .jia-slider::-webkit-slider-thumb {
+            background: #e74c3c;
+        }
+
+        .yi-slider::-webkit-slider-thumb {
+            background: #2ecc71;
+        }
+
+        .speed-value {
+            font-size: 2rem;
+            font-weight: bold;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .distance-display {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .distance-bar {
+            height: 40px;
+            margin: 15px 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .jia-distance {
+            background: linear-gradient(to right, #ff9f9f, #e74c3c);
+        }
+
+        .yi-distance {
+            background: linear-gradient(to right, #a3f7a3, #2ecc71);
+        }
+
+        .distance-label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .distance-value {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
         .equation {
             background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid #3498db;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 6px solid #3498db;
+            width: 100%;
+            max-width: 1200px;
         }
-        
+
         .equation p {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            font-size: 2.4rem;
+            margin-bottom: 15px;
         }
-        
+
         .step {
-            margin: 25px 0;
-            padding: 20px;
+            margin: 35px 0;
+            padding: 30px;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 1200px;
         }
-        
+
         .step h3 {
             color: #e67e22;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
         }
-        
+
         .conclusion {
             background: linear-gradient(135deg, #3498db, #2c3e50);
             color: white;
-            padding: 40px;
-            border-radius: 15px;
+            padding: 50px;
+            border-radius: 20px;
             text-align: center;
-            max-width: 800px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            width: 100%;
+            margin: 40px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
-        
+
         .conclusion h2 {
             color: white;
+            margin-bottom: 30px;
+        }
+
+        .conclusion p {
+            font-size: 2.4rem;
             margin-bottom: 20px;
         }
-        
-        .conclusion p {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
+
         .highlight {
             background: #fff3cd;
-            padding: 3px 8px;
-            border-radius: 4px;
+            padding: 5px 12px;
+            border-radius: 6px;
             font-weight: bold;
+            font-size: 2.4rem;
         }
-        
-        @media (max-width: 768px) {
-            section {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            p {
-                font-size: 1.4rem;
-            }
-            
-            .toggle-btn {
-                font-size: 1.4rem;
-            }
+
+        ol, ul {
+            font-size: 2.2rem;
+            margin-left: 40px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .speed-display {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1000px;
+            margin: 30px 0;
+        }
+
+        .speed-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            margin: 0 15px;
+        }
+
+        .speed-box h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .speed-value-box {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .yi-speed-value {
+            color: #2ecc71;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+            font-size: 1.8rem;
+            color: #7f8c8d;
+        }
+
+        .distance-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
         }
     </style>
 </head>
 <body>
-    <section id="page1" data-section="1">
-        <h1>环形道路相遇问题</h1>
-        <div class="problem-container">
-            <p>某环形道路长 <span class="highlight">400m</span>，甲、乙两人从同一地点出发，分别以一定的速度练习长跑和骑自行车。</p>
-            <p>如果<strong>反向而行</strong>，那么他们每隔 <span class="highlight">25s</span> 相遇一次；</p>
-            <p>如果<strong>同向而行</strong>，那么每隔 <span class="highlight">80s</span> 乙就追上甲一次。</p>
-            <p>问：甲、乙两人的速度分别是多少？</p>
-        </div>
-        
-        <div class="interactive-container">
-            <button class="toggle-btn" data-target="#analysis-1">
-                <span>问题分析</span>
-            </button>
-            <div id="analysis-1" class="content">
-                <p>这是一个典型的<strong>环形跑道相遇问题</strong>，涉及两种运动情况：</p>
-                <ol>
-                    <li><strong>反向运动</strong>：两人相向而行，相遇时走过的路程之和等于跑道长度</li>
-                    <li><strong>同向运动</strong>：两人同向而行，追及时走过的路程之差等于跑道长度</li>
-                </ol>
-                <p>我们可以通过建立方程组来解决这个问题。</p>
-            </div>
-        </div>
-    </section>
+<section id="page1" data-section="1">
+    <h1>环形道路相遇问题</h1>
+    <div class="problem-container">
+        <p>某环形道路长 <span class="highlight">400m</span>，甲、乙两人从同一地点出发，分别以一定的速度练习长跑和骑自行车。</p>
+        <p>如果<strong>反向而行</strong>，那么他们每隔 <span class="highlight">25s</span> 相遇一次；</p>
+        <p>如果<strong>同向而行</strong>，那么每隔 <span class="highlight">80s</span> 乙就追上甲一次。</p>
+        <p>问：甲、乙两人的速度分别是多少？</p>
+    </div>
 
-    <section id="page2" data-section="2">
-        <h2>建立数学模型</h2>
-        
-        <div class="step">
-            <h3>步骤1：定义变量</h3>
-            <p>设甲的速度为 \( v_1 \) m/s，乙的速度为 \( v_2 \) m/s。</p>
-            <p>环形道路长度为 \( 400 \) m。</p>
+    <div class="interactive-container">
+        <button class="toggle-btn" data-target="#analysis-1">
+            <span>问题分析</span>
+        </button>
+        <div id="analysis-1" class="content">
+            <p>这是一个典型的<strong>环形跑道相遇问题</strong>，涉及两种运动情况：</p>
+            <ol>
+                <li><strong>反向运动</strong>：两人相向而行，相遇时走过的路程之和等于跑道长度</li>
+                <li><strong>同向运动</strong>：两人同向而行，追及时走过的路程之差等于跑道长度</li>
+            </ol>
+            <p>我们可以通过建立方程组来解决这个问题。</p>
         </div>
-        
-        <div class="step">
-            <h3>步骤2：反向运动分析</h3>
-            <p>反向而行时，每隔 \( 25 \) s 相遇一次。</p>
-            <p>相遇时，两人走过的路程之和等于跑道长度：</p>
-            <div class="equation">
-                <p>\[ (v_1 + v_2) \times 25 = 400 \]</p>
-            </div>
-            <p>化简得：</p>
-            <div class="equation">
-                <p>\[ v_1 + v_2 = 16 \]</p>
-            </div>
+    </div>
+    <div class="page-number">1 / 5</div>
+</section>
+
+<section id="page2" data-section="2">
+    <h2>建立数学模型</h2>
+
+    <div class="step">
+        <h3>步骤1：定义变量</h3>
+        <p>设甲的速度为 \( v_1 \) m/s，乙的速度为 \( v_2 \) m/s。</p>
+        <p>环形道路长度为 \( 400 \) m。</p>
+    </div>
+
+    <div class="step">
+        <h3>步骤2：反向运动分析</h3>
+        <p>反向而行时，每隔 \( 25 \) s 相遇一次。</p>
+        <p>相遇时，两人走过的路程之和等于跑道长度：</p>
+        <div class="equation">
+            <p>\[ (v_1 + v_2) \times 25 = 400 \]</p>
         </div>
-        
-        <div class="step">
-            <h3>步骤3：同向运动分析</h3>
-            <p>同向而行时，每隔 \( 80 \) s 乙追上甲一次。</p>
-            <p>追及时，乙比甲多跑了一圈：</p>
-            <div class="equation">
-                <p>\[ (v_2 - v_1) \times 80 = 400 \]</p>
-            </div>
-            <p>化简得：</p>
-            <div class="equation">
-                <p>\[ v_2 - v_1 = 5 \]</p>
-            </div>
+        <p>化简得：</p>
+        <div class="equation">
+            <p>\[ v_1 + v_2 = 16 \]</p>
         </div>
-        
-        <div class="interactive-container">
-            <button class="toggle-btn" data-target="#system-1">
-                <span>查看方程组</span>
-            </button>
-            <div id="system-1" class="content">
-                <p>我们得到以下方程组：</p>
-                <div class="equation">
-                    <p>\[
+    </div>
+
+    <div class="step">
+        <h3>步骤3：同向运动分析</h3>
+        <p>同向而行时，每隔 \( 80 \) s 乙追上甲一次。</p>
+        <p>追及时，乙比甲多跑了一圈：</p>
+        <div class="equation">
+            <p>\[ (v_2 - v_1) \times 80 = 400 \]</p>
+        </div>
+        <p>化简得：</p>
+        <div class="equation">
+            <p>\[ v_2 - v_1 = 5 \]</p>
+        </div>
+    </div>
+
+    <div class="interactive-container">
+        <button class="toggle-btn" data-target="#system-1">
+            <span>查看方程组</span>
+        </button>
+        <div id="system-1" class="content">
+            <p>我们得到以下方程组：</p>
+            <div class="equation">
+                <p>\[
                     \begin{cases}
                     v_1 + v_2 = 16 \\
                     v_2 - v_1 = 5
                     \end{cases}
                     \]</p>
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+    <div class="page-number">2 / 5</div>
+</section>
 
-    <section id="page3" data-section="3">
-        <h2>求解方程组</h2>
-        
-        <div class="step">
-            <h3>方法1：加减消元法</h3>
-            <p>将两个方程相加：</p>
-            <div class="equation">
-                <p>\[ (v_1 + v_2) + (v_2 - v_1) = 16 + 5 \]</p>
-                <p>\[ 2v_2 = 21 \]</p>
-                <p>\[ v_2 = 10.5 \]</p>
-            </div>
-            
-            <p>将 \( v_2 = 10.5 \) 代入第一个方程：</p>
-            <div class="equation">
-                <p>\[ v_1 + 10.5 = 16 \]</p>
-                <p>\[ v_1 = 5.5 \]</p>
-            </div>
-        </div>
-        
-        <div class="step">
-            <h3>方法2：代入法</h3>
-            <p>由第二个方程得：</p>
-            <div class="equation">
-                <p>\[ v_2 = v_1 + 5 \]</p>
-            </div>
-            
-            <p>代入第一个方程：</p>
-            <div class="equation">
-                <p>\[ v_1 + (v_1 + 5) = 16 \]</p>
-                <p>\[ 2v_1 + 5 = 16 \]</p>
-                <p>\[ 2v_1 = 11 \]</p>
-                <p>\[ v_1 = 5.5 \]</p>
-            </div>
-            
-            <p>再求 \( v_2 \)：</p>
-            <div class="equation">
-                <p>\[ v_2 = 5.5 + 5 = 10.5 \]</p>
-            </div>
-        </div>
-        
-        <div class="interactive-container">
-            <button class="toggle-btn" data-target="#verification-1">
-                <span>验证答案</span>
-            </button>
-            <div id="verification-1" class="content">
-                <div class="solution">
-                    <h3>验证反向运动</h3>
-                    <p>反向而行时，相对速度为：\( 5.5 + 10.5 = 16 \) m/s</p>
-                    <p>相遇时间：\( 400 \div 16 = 25 \) s，符合题意</p>
-                </div>
-                
-                <div class="solution">
-                    <h3>验证同向运动</h3>
-                    <p>同向而行时，相对速度为：\( 10.5 - 5.5 = 5 \) m/s</p>
-                    <p>追及时间：\( 400 \div 5 = 80 \) s，符合题意</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="page3" data-section="3">
+    <h2>求解方程组</h2>
 
-    <section id="page4" data-section="4">
-        <h2>运动过程演示</h2>
-        
-        <div class="animation-container">
+    <div class="step">
+        <h3>方法1：加减消元法</h3>
+        <p>将两个方程相加：</p>
+        <div class="equation">
+            <p>\[ (v_1 + v_2) + (v_2 - v_1) = 16 + 5 \]</p>
+            <p>\[ 2v_2 = 21 \]</p>
+            <p>\[ v_2 = 10.5 \]</p>
+        </div>
+
+        <p>将 \( v_2 = 10.5 \) 代入第一个方程：</p>
+        <div class="equation">
+            <p>\[ v_1 + 10.5 = 16 \]</p>
+            <p>\[ v_1 = 5.5 \]</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>方法2：代入法</h3>
+        <p>由第二个方程得：</p>
+        <div class="equation">
+            <p>\[ v_2 = v_1 + 5 \]</p>
+        </div>
+
+        <p>代入第一个方程：</p>
+        <div class="equation">
+            <p>\[ v_1 + (v_1 + 5) = 16 \]</p>
+            <p>\[ 2v_1 + 5 = 16 \]</p>
+            <p>\[ 2v_1 = 11 \]</p>
+            <p>\[ v_1 = 5.5 \]</p>
+        </div>
+
+        <p>再求 \( v_2 \)：</p>
+        <div class="equation">
+            <p>\[ v_2 = 5.5 + 5 = 10.5 \]</p>
+        </div>
+    </div>
+
+    <div class="interactive-container">
+        <button class="toggle-btn" data-target="#verification-1">
+            <span>验证答案</span>
+        </button>
+        <div id="verification-1" class="content">
+            <div class="solution">
+                <h3>验证反向运动</h3>
+                <p>反向而行时，相对速度为：\( 5.5 + 10.5 = 16 \) m/s</p>
+                <p>相遇时间：\( 400 \div 16 = 25 \) s，符合题意</p>
+            </div>
+
+            <div class="solution">
+                <h3>验证同向运动</h3>
+                <p>同向而行时，相对速度为：\( 10.5 - 5.5 = 5 \) m/s</p>
+                <p>追及时间：\( 400 \div 5 = 80 \) s，符合题意</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">3 / 5</div>
+</section>
+
+<section id="page4" data-section="4">
+    <h2>运动过程演示</h2>
+
+    <div class="animation-container">
+        <div class="track-area">
             <div class="track"></div>
-            <div class="runner jia" id="jia-runner"></div>
-            <div class="runner yi" id="yi-runner"></div>
+            <div class="runner jia" id="jia-runner">
+                <svg viewBox="0 0 60 80">
+                    <!-- 小人身体 -->
+                    <circle cx="30" cy="20" r="10" fill="#e74c3c"/>
+                    <!-- 小人躯干 -->
+                    <line x1="30" y1="30" x2="30" y2="50" stroke="#e74c3c" stroke-width="4"/>
+                    <!-- 小人手臂 -->
+                    <line x1="30" y1="35" x2="15" y2="45" stroke="#e74c3c" stroke-width="3"/>
+                    <line x1="30" y1="35" x2="45" y2="45" stroke="#e74c3c" stroke-width="3"/>
+                    <!-- 小人腿 -->
+                    <line x1="30" y1="50" x2="20" y2="65" stroke="#e74c3c" stroke-width="4"/>
+                    <line x1="30" y1="50" x2="40" y2="65" stroke="#e74c3c" stroke-width="4"/>
+                </svg>
+            </div>
+            <div class="runner yi" id="yi-runner">
+                <svg viewBox="0 0 60 80">
+                    <!-- 小人身体 -->
+                    <circle cx="30" cy="20" r="10" fill="#2ecc71"/>
+                    <!-- 小人躯干 -->
+                    <line x1="30" y1="30" x2="30" y2="50" stroke="#2ecc71" stroke-width="4"/>
+                    <!-- 小人手臂 -->
+                    <line x1="30" y1="35" x2="15" y2="45" stroke="#2ecc71" stroke-width="3"/>
+                    <line x1="30" y1="35" x2="45" y2="45" stroke="#2ecc71" stroke-width="3"/>
+                    <!-- 小人腿 -->
+                    <line x1="30" y1="50" x2="20" y2="65" stroke="#2ecc71" stroke-width="4"/>
+                    <line x1="30" y1="50" x2="40" y2="65" stroke="#2ecc71" stroke-width="4"/>
+                </svg>
+            </div>
+            <div class="runner-label jia-label" id="jia-label">甲</div>
+            <div class="runner-label yi-label" id="yi-label">乙</div>
         </div>
-        
-        <div class="controls">
-            <button class="control-btn" id="reverse-btn">反向运动演示</button>
-            <button class="control-btn" id="same-btn">同向运动演示</button>
-            <button class="control-btn" id="reset-btn">重置</button>
-        </div>
-        
-        <div class="interactive-container">
-            <button class="toggle-btn" data-target="#explanation-1">
-                <span>动画说明</span>
-            </button>
-            <div id="explanation-1" class="content">
-                <p><strong>红色点</strong>代表甲（长跑），速度为 \( 5.5 \) m/s</p>
-                <p><strong>绿色点</strong>代表乙（骑自行车），速度为 \( 10.5 \) m/s</p>
-                <p>环形跑道周长为 \( 400 \) m</p>
-                <p>点击按钮观察两种运动情况下的相遇和追及过程</p>
+
+        <div class="distance-area">
+            <div class="distance-title">运动距离对比</div>
+            <div class="distance-display">
+                <div class="distance-bar jia-distance" id="jia-distance-bar">
+                    <div class="distance-label">甲跑过的距离</div>
+                    <div class="distance-value" id="jia-distance-value">0 m</div>
+                </div>
+                <div class="distance-bar yi-distance" id="yi-distance-bar">
+                    <div class="distance-label">乙跑过的距离</div>
+                    <div class="distance-value" id="yi-distance-value">0 m</div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="page5" data-section="5">
-        <div class="conclusion">
-            <h2>问题解答</h2>
-            <p>甲的速度为 <span class="highlight">\( 5.5 \) m/s</span></p>
-            <p>乙的速度为 <span class="highlight">\( 10.5 \) m/s</span></p>
-            <p>换算成常用单位：</p>
-            <p>甲的速度：\( 5.5 \times 3.6 = 19.8 \) km/h</p>
-            <p>乙的速度：\( 10.5 \times 3.6 = 37.8 \) km/h</p>
+    <div class="speed-controls">
+        <div class="speed-control">
+            <div class="speed-label jia-speed-label">甲的速度 (m/s):</div>
+            <input type="range" min="1" max="20" value="5.5" step="0.1" class="speed-slider jia-slider" id="jia-speed-slider">
+            <div class="speed-value" id="jia-speed-value">5.5</div>
         </div>
-        
-        <div class="interactive-container">
-            <button class="toggle-btn" data-target="#summary-1">
-                <span>解题总结</span>
-            </button>
-            <div id="summary-1" class="content">
-                <p>解决环形跑道相遇问题的关键：</p>
-                <ol>
-                    <li>明确两种运动情况：反向运动和同向运动</li>
-                    <li>反向运动：路程和 = 跑道长度</li>
-                    <li>同向运动：路程差 = 跑道长度</li>
-                    <li>建立方程组并求解</li>
-                    <li>验证答案是否符合题意</li>
-                </ol>
-            </div>
+        <div class="speed-control">
+            <div class="speed-label yi-speed-label">乙的速度 (m/s):</div>
+            <input type="range" min="1" max="20" value="10.5" step="0.1" class="speed-slider yi-slider" id="yi-speed-slider">
+            <div class="speed-value" id="yi-speed-value">10.5</div>
         </div>
-    </section>
+    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取所有切换按钮
-            const toggleButtons = document.querySelectorAll('.toggle-btn');
-            
-            // 为每个按钮添加点击事件
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const target = document.querySelector(targetId);
-                    
-                    if (target) {
-                        // 切换内容区域的展开/收起状态
-                        target.classList.toggle('expanded');
-                        
-                        // 更新按钮状态
-                        this.classList.toggle('expanded');
-                    }
-                });
+    <div class="controls">
+        <button class="control-btn" id="reverse-btn">反向运动演示</button>
+        <button class="control-btn" id="same-btn">同向运动演示</button>
+        <button class="control-btn" id="reset-btn">重置</button>
+    </div>
+
+    <div class="interactive-container">
+        <button class="toggle-btn" data-target="#explanation-1">
+            <span>动画说明</span>
+        </button>
+        <div id="explanation-1" class="content">
+            <p><strong>红色小人</strong>代表甲（长跑）</p>
+            <p><strong>绿色小人</strong>代表乙（骑自行车）</p>
+            <p>环形跑道周长为 \( 400 \) m</p>
+            <p>使用滑块可以调整两人的速度</p>
+            <p>点击按钮观察两种运动情况下的相遇和追及过程</p>
+            <p>重置后会显示两人跑过的距离对比</p>
+        </div>
+    </div>
+    <div class="page-number">4 / 5</div>
+</section>
+
+<section id="page5" data-section="5">
+    <h2>问题解答</h2>
+
+    <div class="speed-display">
+        <div class="speed-box">
+            <h3>甲的速度</h3>
+            <p class="speed-value-box">\( 5.5 \) m/s</p>
+            <p>\( = 19.8 \) km/h</p>
+        </div>
+        <div class="speed-box">
+            <h3>乙的速度</h3>
+            <p class="speed-value-box yi-speed-value">\( 10.5 \) m/s</p>
+            <p>\( = 37.8 \) km/h</p>
+        </div>
+    </div>
+
+    <div class="conclusion">
+        <p>甲的速度为 <span class="highlight">\( 5.5 \) m/s</span> (19.8 km/h)</p>
+        <p>乙的速度为 <span class="highlight">\( 10.5 \) m/s</span> (37.8 km/h)</p>
+    </div>
+
+    <div class="interactive-container">
+        <button class="toggle-btn" data-target="#summary-1">
+            <span>解题总结</span>
+        </button>
+        <div id="summary-1" class="content">
+            <p>解决环形跑道相遇问题的关键：</p>
+            <ol>
+                <li>明确两种运动情况：反向运动和同向运动</li>
+                <li>反向运动：路程和 = 跑道长度</li>
+                <li>同向运动：路程差 = 跑道长度</li>
+                <li>建立方程组并求解</li>
+                <li>验证答案是否符合题意</li>
+            </ol>
+        </div>
+    </div>
+    <div class="page-number">5 / 5</div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取所有切换按钮
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+        // 为每个按钮添加点击事件
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const target = document.querySelector(targetId);
+
+                if (target) {
+                    // 切换内容区域的展开/收起状态
+                    target.classList.toggle('expanded');
+
+                    // 更新按钮状态
+                    this.classList.toggle('expanded');
+                }
             });
-            
-            // 渲染数学公式
-            if (typeof renderMathInElement !== 'undefined') {
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        {left: '\\(', right: '\\)', display: false},
-                        {left: '\\[', right: '\\]', display: true}
-                    ],
-                    throwOnError: false
-                });
-            }
-            
-            // 动画演示代码
-            const jiaRunner = document.getElementById('jia-runner');
-            const yiRunner = document.getElementById('yi-runner');
-            const reverseBtn = document.getElementById('reverse-btn');
-            const sameBtn = document.getElementById('same-btn');
-            const resetBtn = document.getElementById('reset-btn');
-            
-            let animationId = null;
-            
-            // 重置位置
-            function resetPositions() {
-                if (animationId) {
-                    cancelAnimationFrame(animationId);
-                    animationId = null;
-                }
-                
-                jiaRunner.style.transform = 'translate(-50%, -50%)';
-                yiRunner.style.transform = 'translate(-50%, -50%)';
-            }
-            
-            // 反向运动演示
-            function reverseMotion() {
-                resetPositions();
-                
-                const trackRadius = 150; // 轨道半径
-                const centerX = 400; // 中心点X坐标
-                const centerY = 200; // 中心点Y坐标
-                
-                let time = 0;
-                
-                function animate() {
-                    time += 0.02;
-                    
-                    // 甲的位置（顺时针）
-                    const jiaAngle = time * 5.5 / trackRadius;
-                    const jiaX = centerX + trackRadius * Math.cos(jiaAngle);
-                    const jiaY = centerY + trackRadius * Math.sin(jiaAngle);
-                    
-                    // 乙的位置（逆时针）
-                    const yiAngle = -time * 10.5 / trackRadius;
-                    const yiX = centerX + trackRadius * Math.cos(yiAngle);
-                    const yiY = centerY + trackRadius * Math.sin(yiAngle);
-                    
-                    jiaRunner.style.left = jiaX + 'px';
-                    jiaRunner.style.top = jiaY + 'px';
-                    
-                    yiRunner.style.left = yiX + 'px';
-                    yiRunner.style.top = yiY + 'px';
-                    
-                    animationId = requestAnimationFrame(animate);
-                }
-                
-                animate();
-            }
-            
-            // 同向运动演示
-            function sameDirectionMotion() {
-                resetPositions();
-                
-                const trackRadius = 150; // 轨道半径
-                const centerX = 400; // 中心点X坐标
-                const centerY = 200; // 中心点Y坐标
-                
-                let time = 0;
-                
-                function animate() {
-                    time += 0.02;
-                    
-                    // 甲的位置（顺时针）
-                    const jiaAngle = time * 5.5 / trackRadius;
-                    const jiaX = centerX + trackRadius * Math.cos(jiaAngle);
-                    const jiaY = centerY + trackRadius * Math.sin(jiaAngle);
-                    
-                    // 乙的位置（顺时针，但速度更快）
-                    const yiAngle = time * 10.5 / trackRadius;
-                    const yiX = centerX + trackRadius * Math.cos(yiAngle);
-                    const yiY = centerY + trackRadius * Math.sin(yiAngle);
-                    
-                    jiaRunner.style.left = jiaX + 'px';
-                    jiaRunner.style.top = jiaY + 'px';
-                    
-                    yiRunner.style.left = yiX + 'px';
-                    yiRunner.style.top = yiY + 'px';
-                    
-                    animationId = requestAnimationFrame(animate);
-                }
-                
-                animate();
-            }
-            
-            // 绑定按钮事件
-            reverseBtn.addEventListener('click', reverseMotion);
-            sameBtn.addEventListener('click', sameDirectionMotion);
-            resetBtn.addEventListener('click', resetPositions);
         });
-    </script>
+
+        // 渲染数学公式
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        }
+
+        // 动画演示代码
+        const jiaRunner = document.getElementById('jia-runner');
+        const yiRunner = document.getElementById('yi-runner');
+        const jiaLabel = document.getElementById('jia-label');
+        const yiLabel = document.getElementById('yi-label');
+        const jiaSpeedSlider = document.getElementById('jia-speed-slider');
+        const yiSpeedSlider = document.getElementById('yi-speed-slider');
+        const jiaSpeedValue = document.getElementById('jia-speed-value');
+        const yiSpeedValue = document.getElementById('yi-speed-value');
+        const jiaDistanceBar = document.getElementById('jia-distance-bar');
+        const yiDistanceBar = document.getElementById('yi-distance-bar');
+        const jiaDistanceValue = document.getElementById('jia-distance-value');
+        const yiDistanceValue = document.getElementById('yi-distance-value');
+        const reverseBtn = document.getElementById('reverse-btn');
+        const sameBtn = document.getElementById('same-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        let animationId = null;
+        let currentMode = null;
+        let startTime = 0;
+        let jiaDistance = 0;
+        let yiDistance = 0;
+
+        // 更新速度显示
+        jiaSpeedSlider.addEventListener('input', function() {
+            jiaSpeedValue.textContent = this.value;
+            if (currentMode) resetAnimation();
+        });
+
+        yiSpeedSlider.addEventListener('input', function() {
+            yiSpeedValue.textContent = this.value;
+            if (currentMode) resetAnimation();
+        });
+
+        // 重置位置和距离
+        function resetPositions() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+
+            jiaRunner.style.transform = 'translate(-50%, -50%)';
+            yiRunner.style.transform = 'translate(-50%, -50%)';
+
+            // 重置标签位置
+            jiaLabel.style.left = '50%';
+            jiaLabel.style.top = 'calc(50% - 60px)';
+            yiLabel.style.left = '50%';
+            yiLabel.style.top = 'calc(50% + 60px)';
+
+            // 显示跑过的距离
+            showDistances();
+
+            currentMode = null;
+            startTime = 0;
+        }
+
+        // 显示跑过的距离
+        function showDistances() {
+            const jiaSpeed = parseFloat(jiaSpeedSlider.value);
+            const yiSpeed = parseFloat(yiSpeedSlider.value);
+
+            // 计算距离
+            if (startTime > 0) {
+                const elapsedTime = (Date.now() - startTime) / 200;
+                jiaDistance = jiaSpeed * elapsedTime;
+                yiDistance = yiSpeed * elapsedTime;
+            } else {
+                jiaDistance = 0;
+                yiDistance = 0;
+            }
+
+            // 更新距离显示
+            jiaDistanceValue.textContent = jiaDistance.toFixed(1) + ' m';
+            yiDistanceValue.textContent = yiDistance.toFixed(1) + ' m';
+
+            // 更新距离条长度 (最大显示400m)
+            const maxDistance = 400;
+            const jiaPercent = Math.min(jiaDistance / maxDistance, 1) * 100;
+            const yiPercent = Math.min(yiDistance / maxDistance, 1) * 100;
+
+            jiaDistanceBar.style.background = `linear-gradient(to right, #ff9f9f 0%, #e74c3c ${jiaPercent}%, #ddd ${jiaPercent}%, #ddd 100%)`;
+            yiDistanceBar.style.background = `linear-gradient(to right, #a3f7a3 0%, #2ecc71 ${yiPercent}%, #ddd ${yiPercent}%, #ddd 100%)`;
+        }
+
+        // 重置动画
+        function resetAnimation() {
+            if (currentMode) {
+                if (currentMode === 'reverse') {
+                    reverseMotion();
+                } else if (currentMode === 'same') {
+                    sameDirectionMotion();
+                }
+            }
+        }
+
+        // 更新标签位置
+        function updateLabels(jiaX, jiaY, yiX, yiY) {
+            jiaLabel.style.left = (jiaX + 40) + 'px';
+            jiaLabel.style.top = (jiaY - 50) + 'px';
+
+            yiLabel.style.left = (yiX + 40) + 'px';
+            yiLabel.style.top = (yiY - 50) + 'px';
+        }
+
+        // 反向运动演示
+        function reverseMotion() {
+            if (currentMode === 'reverse') return;
+            resetPositions();
+            currentMode = 'reverse';
+            startTime = Date.now();
+
+            const trackRadius = 150; // 轨道半径
+            const centerX = 300; // 中心点X坐标
+            const centerY = 250; // 中心点Y坐标
+
+            const jiaSpeed = parseFloat(jiaSpeedSlider.value);
+            const yiSpeed = parseFloat(yiSpeedSlider.value);
+
+            function animate() {
+                const elapsedTime = (Date.now() - startTime) / 200;
+
+                // 甲的位置（顺时针）
+                const jiaAngle = elapsedTime * jiaSpeed / trackRadius;
+                const jiaX = centerX + trackRadius * Math.cos(jiaAngle);
+                const jiaY = centerY + trackRadius * Math.sin(jiaAngle);
+
+                // 乙的位置（逆时针）
+                const yiAngle = -elapsedTime * yiSpeed / trackRadius;
+                const yiX = centerX + trackRadius * Math.cos(yiAngle);
+                const yiY = centerY + trackRadius * Math.sin(yiAngle);
+
+                jiaRunner.style.left = jiaX + 'px';
+                jiaRunner.style.top = jiaY + 'px';
+
+                yiRunner.style.left = yiX + 'px';
+                yiRunner.style.top = yiY + 'px';
+
+                // 更新小人方向
+                jiaRunner.style.transform = `translate(-50%, -50%) rotate(${jiaAngle * 180/Math.PI}deg)`;
+                yiRunner.style.transform = `translate(-50%, -50%) rotate(${yiAngle * 180/Math.PI + 180}deg)`;
+
+                updateLabels(jiaX, jiaY, yiX, yiY);
+                showDistances();
+
+                animationId = requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        // 同向运动演示
+        function sameDirectionMotion() {
+            if (currentMode === 'same') return;
+            resetPositions();
+            currentMode = 'same';
+            startTime = Date.now();
+
+            const trackRadius = 150; // 轨道半径
+            const centerX = 300; // 中心点X坐标
+            const centerY = 250; // 中心点Y坐标
+
+            const jiaSpeed = parseFloat(jiaSpeedSlider.value);
+            const yiSpeed = parseFloat(yiSpeedSlider.value);
+
+            function animate() {
+                const elapsedTime = (Date.now() - startTime) / 200;
+
+                // 甲的位置（顺时针）
+                const jiaAngle = elapsedTime * jiaSpeed / trackRadius;
+                const jiaX = centerX + trackRadius * Math.cos(jiaAngle);
+                const jiaY = centerY + trackRadius * Math.sin(jiaAngle);
+
+                // 乙的位置（顺时针，但速度更快）
+                const yiAngle = elapsedTime * yiSpeed / trackRadius;
+                const yiX = centerX + trackRadius * Math.cos(yiAngle);
+                const yiY = centerY + trackRadius * Math.sin(yiAngle);
+
+                jiaRunner.style.left = jiaX + 'px';
+                jiaRunner.style.top = jiaY + 'px';
+
+                yiRunner.style.left = yiX + 'px';
+                yiRunner.style.top = yiY + 'px';
+
+                // 更新小人方向
+                jiaRunner.style.transform = `translate(-50%, -50%) rotate(${jiaAngle * 180/Math.PI}deg)`;
+                yiRunner.style.transform = `translate(-50%, -50%) rotate(${yiAngle * 180/Math.PI}deg)`;
+
+                updateLabels(jiaX, jiaY, yiX, yiY);
+                showDistances();
+
+                animationId = requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        // 绑定按钮事件
+        reverseBtn.addEventListener('click', reverseMotion);
+        sameBtn.addEventListener('click', sameDirectionMotion);
+        resetBtn.addEventListener('click', resetPositions);
+    });
+</script>
 </body>
 </html>
