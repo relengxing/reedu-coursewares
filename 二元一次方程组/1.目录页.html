@@ -68,14 +68,50 @@
 
         .header h1 {
             font-size: 4rem;
-            background: linear-gradient(135deg, rgba(45, 144, 255, 0.77) 0%, rgba(109, 220, 109, 0.7) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 15px;
             font-weight: 700;
             letter-spacing: 2px;
-            text-shadow: 0 4px 20px rgba(33, 150, 243, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header h1 .emoji {
+            font-size: 4rem;
+            filter: drop-shadow(0 4px 8px rgba(33, 150, 243, 0.3));
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .header h1 .text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            position: relative;
+        }
+
+        .header h1 .text::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            border-radius: 2px;
+            opacity: 0.3;
         }
 
         .header p {
@@ -361,7 +397,7 @@
 <body>
     <div class="directory-container">
         <div class="header">
-            <h1>📚 课件目录</h1>
+            <h1><span class="emoji">📚</span><span class="text">课件目录</span></h1>
             <p>二元一次方程组 · 行程问题</p>
         </div>
 
@@ -458,7 +494,7 @@
 
         <div class="footer">
             <p>海旺学校 数学教研组 | 2025年11月15日</p>
-            <p>提示：按 ESC 键可在各页面中显示/隐藏导航栏</p>
+            <!-- <p>提示：按 ESC 键可在各页面中显示/隐藏导航栏</p> -->
         </div>
     </div>
 <script src="navigation.js"></script>
