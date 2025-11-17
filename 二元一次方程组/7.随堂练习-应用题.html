@@ -361,10 +361,10 @@
             <h2>🔍问题分析</h2>
             <div class="problem-text">
                 <p>首先，我们需要理解题目给出的信息：</p>
-                <p>1. 设7:00时看到的两位数为<span class="highlight">\(10a + b\)</span>，其中a是十位数字，b是个位数字</p>
-                <p>2. 根据题意，数字之和：<span class="highlight">\(a + b = 9\)</span></p>
-                <p>3. 8:00时看到的数字是<span class="highlight">\(10b + a\)</span>（数字颠倒）</p>
-                <p>4. 9:00时看到的数字是<span class="highlight">\(8(10a + b)\)</span></p>
+                <p>1. 设7:00时看到的两位数为<span class="highlight">\(10x + y\)</span>，其中x是十位数字，y是个位数字</p>
+                <p>2. 根据题意，数字之和：<span class="highlight">\(x + y = 9\)</span></p>
+                <p>3. 8:00时看到的数字是<span class="highlight">\(10y + x\)</span>（数字颠倒）</p>
+                <p>4. 9:00时看到的数字是<span class="highlight">\(8(10x + y)\)</span></p>
                 <p>5. 李刚匀速行驶，所以8:00到9:00行驶的路程等于7:00到8:00行驶的路程</p>
             </div>
 
@@ -379,7 +379,7 @@
                     </div>
                     <p>即：</p>
                     <div class="formula">
-                        <p>\[(10b + a) - (10a + b) = 8(10a + b) - (10b + a)\]</p>
+                        <p>\[(10y + x) - (10x + y) = 8(10x + y) - (10y + x)\]</p>
                     </div>
                 </div>
             </div>
@@ -395,10 +395,10 @@
             <div class="problem-text">
                 <p>根据题意，我们可以建立以下方程：</p>
                 <div class="formula">
-                    <p>\[a + b = 9\]</p>
+                    <p>\[x + y = 9\]</p>
                 </div>
                 <div class="formula">
-                    <p>\[(10b + a) - (10a + b) = 8(10a + b) - (10b + a)\]</p>
+                    <p>\[(10y + x) - (10x + y) = 8(10x + y) - (10y + x)\]</p>
                 </div>
             </div>
 
@@ -410,17 +410,17 @@
                     <p>首先简化第一个方程：</p>
                     <div class="step">
                         <p class="step-title">第一步：简化数字颠倒的差</p>
-                        <p>\((10b + a) - (10a + b) = 10b + a - 10a - b = 9b - 9a = 9(b - a)\)</p>
+                        <p>\((10y + x) - (10x + y) = 10y + x - 10x - y = 9y - 9x = 9(y - x)\)</p>
                     </div>
 
                     <div class="step">
                         <p class="step-title">第二步：简化第二个差</p>
-                        <p>\(8(10a + b) - (10b + a) = 80a + 8b - 10b - a = 79a - 2b\)</p>
+                        <p>\(8(10x + y) - (10y + x) = 80x + 8y - 10y - x = 79x - 2y\)</p>
                     </div>
 
                     <div class="step">
                         <p class="step-title">第三步：建立等式</p>
-                        <p>\(9(b - a) = 79a - 2b\)</p>
+                        <p>\(9(y - x) = 79x - 2y\)</p>
                     </div>
                 </div>
             </div>
@@ -436,10 +436,10 @@
             <div class="problem-text">
                 <p>现在我们有两个方程：</p>
                 <div class="formula">
-                    <p>\[a + b = 9\]</p>
+                    <p>\[x + y = 9\]</p>
                 </div>
                 <div class="formula">
-                    <p>\[9(b - a) = 79a - 2b\]</p>
+                    <p>\[9(y - x) = 79x - 2y\]</p>
                 </div>
             </div>
 
@@ -450,29 +450,29 @@
                 <div class="content" id="solve-1">
                     <div class="step">
                         <p class="step-title">第一步：展开第二个方程</p>
-                        <p>\(9(b - a) = 79a - 2b\)</p>
-                        <p>\(9b - 9a = 79a - 2b\)</p>
-                        <p>\(9b + 2b = 79a + 9a\)</p>
-                        <p>\(11b = 88a\)</p>
-                        <p>\(b = 8a\)</p>
+                        <p>\(9(y - x) = 79x - 2y\)</p>
+                        <p>\(9y - 9x = 79x - 2y\)</p>
+                        <p>\(9y + 2y = 79x + 9x\)</p>
+                        <p>\(11y = 88x\)</p>
+                        <p>\(y = 8x\)</p>
                     </div>
 
                     <div class="step">
                         <p class="step-title">第二步：代入第一个方程</p>
-                        <p>\(a + b = 9\)</p>
-                        <p>\(a + 8a = 9\)</p>
-                        <p>\(9a = 9\)</p>
-                        <p>\(a = 1\)</p>
+                        <p>\(x + y = 9\)</p>
+                        <p>\(x + 8x = 9\)</p>
+                        <p>\(9x = 9\)</p>
+                        <p>\(x = 1\)</p>
                     </div>
 
                     <div class="step">
-                        <p class="step-title">第三步：求b的值</p>
-                        <p>\(b = 8a = 8 \times 1 = 8\)</p>
+                        <p class="step-title">第三步：求y的值</p>
+                        <p>\(y = 8x = 8 \times 1 = 8\)</p>
                     </div>
 
                     <div class="step">
                         <p class="step-title">第四步：确定7:00看到的数字</p>
-                        <p>7:00看到的数字是 \(10a + b = 10 \times 1 + 8 = 18\)</p>
+                        <p>7:00看到的数字是 \(10x + y = 10 \times 1 + 8 = 18\)</p>
                     </div>
                 </div>
             </div>
@@ -600,21 +600,21 @@
             <h2>📚总结</h2>
             <div class="conclusion">
                 <h3>解题关键点</h3>
-                <p>1. 正确设未知数：用\(10a+b\)表示两位数</p>
-                <p>2. 理解数字颠倒的含义：\(10b+a\)</p>
+                <p>1. 正确设未知数：用\(10x+y\)表示两位数</p>
+                <p>2. 理解数字颠倒的含义：\(10y+x\)</p>
                 <p>3. 利用匀速行驶建立方程：相邻时间段行驶距离相等</p>
-                <p>4. 解方程组，注意a和b必须是0-9的整数</p>
+                <p>4. 解方程组，注意x和y必须是0-9的整数</p>
                 <p>5. 验证答案是否符合所有条件</p>
             </div>
 
             <div class="conclusion">
                 <h3>类似问题的通用解法</h3>
                 <p>对于这类"里程碑问题"，可以总结出通用解法：</p>
-                <p>设初始数字为\(10a+b\)，数字和为\(s\)，倍数为\(k\)</p>
+                <p>设初始数字为\(10x+y\)，数字和为\(s\)，倍数为\(k\)</p>
                 <p>则：</p>
                 <div class="formula">
-                    <p>\[a + b = s\]</p>
-                    <p>\[(10b + a) - (10a + b) = k(10a + b) - (10b + a)\]</p>
+                    <p>\[x + y = s\]</p>
+                    <p>\[(10y + x) - (10x + y) = k(10x + y) - (10y + x)\]</p>
                 </div>
                 <p>化简后解方程组即可。</p>
             </div>
