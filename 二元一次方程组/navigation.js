@@ -6,7 +6,7 @@
     // 导航栏开关配置 - 修改这里控制导航栏显示/隐藏
     // true = 显示导航栏，false = 隐藏导航栏
     // ============================================
-    const NAVIGATION_ENABLED = false;
+    const NAVIGATION_ENABLED = true;
     // ============================================
 
     // 如果导航栏被禁用，直接返回
@@ -16,19 +16,19 @@
 
     // 页面配置
     const pages = [
-        { 
-            url: '0.目录页.html', 
-            title: '目录页', 
-            icon: '📚',
-            desc: '返回课件目录'
-        },
-        { 
-            url: '1.封面页.html', 
-            title: '封面页', 
+        {
+            url: '0.封面页.html',
+            title: '封面页',
             icon: '📄',
             desc: '课件封面与课程信息'
         },
         { 
+            url: '1.目录页.html',
+            title: '目录页', 
+            icon: '📚',
+            desc: '返回课件目录'
+        },
+        {
             url: '2.火车过隧道.html', 
             title: '火车过隧道', 
             icon: '🚂',
