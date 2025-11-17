@@ -520,10 +520,6 @@
                 </div>
             </div>
 
-            <div class="navigation">
-                <button class="nav-btn" id="prev-btn" disabled>上一页</button>
-                <button class="nav-btn" id="next-btn">下一页</button>
-            </div>
         </div>
         <div class="page-indicator">第 1 页</div>
     </div>
@@ -606,10 +602,6 @@
             </div>
         </div>
 
-        <div class="navigation">
-            <button class="nav-btn" id="prev-btn2">上一页</button>
-            <button class="nav-btn" id="next-btn2">下一页</button>
-        </div>
 
         <div class="page-indicator">第 2 页</div>
     </div>
@@ -671,11 +663,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="navigation">
-            <button class="nav-btn" id="prev-btn3">上一页</button>
-            <button class="nav-btn" id="next-btn3" disabled>下一页</button>
         </div>
 
         <div class="page-indicator">第 3 页</div>
@@ -740,41 +727,6 @@
                     document.querySelector('.option[data-value="C"]').classList.add('correct');
                 }
             });
-        });
-
-        // 页面导航
-        const sections = document.querySelectorAll('section');
-        const progressBar = document.getElementById('progress-bar');
-
-        function updateProgress() {
-            const currentSection = document.querySelector('section:target') || sections[0];
-            const sectionIndex = parseInt(currentSection.getAttribute('data-section'));
-            const progress = (sectionIndex / sections.length) * 100;
-            progressBar.style.width = `${progress}%`;
-        }
-
-        // 初始化进度条
-        updateProgress();
-
-        // 导航按钮事件
-        document.getElementById('next-btn').addEventListener('click', function() {
-            window.location.href = '#page2';
-            updateProgress();
-        });
-
-        document.getElementById('prev-btn2').addEventListener('click', function() {
-            window.location.href = '#page1';
-            updateProgress();
-        });
-
-        document.getElementById('next-btn2').addEventListener('click', function() {
-            window.location.href = '#page3';
-            updateProgress();
-        });
-
-        document.getElementById('prev-btn3').addEventListener('click', function() {
-            window.location.href = '#page2';
-            updateProgress();
         });
 
         // 计时器功能
