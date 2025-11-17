@@ -50,13 +50,12 @@
 
         .content {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 20px;
         }
 
         .problem-description {
-            flex: 1;
-            min-width: 300px;
+            width: 100%;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             padding: 25px;
@@ -76,8 +75,7 @@
         }
 
         .simulation-area {
-            flex: 2;
-            min-width: 600px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -296,6 +294,7 @@
             flex: 1;
             height: 10px;
             -webkit-appearance: none;
+            appearance: none;
             background: #ddd;
             border-radius: 5px;
             outline: none;
@@ -452,8 +451,22 @@
 
         .diagram-text {
             fill: #2c3e50;
-            font-size: 12px;
+            font-size: 18px;
             font-weight: bold;
+        }
+
+        .formula-text {
+            fill: #2196F3;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Microsoft YaHei', 'Times New Roman', serif;
+        }
+
+        .formula-background {
+            fill: rgba(255, 255, 255, 0.9);
+            stroke: #2196F3;
+            stroke-width: 2;
+            rx: 5;
         }
 
         .path-marker {
@@ -462,11 +475,85 @@
             font-weight: bold;
         }
 
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
+        .collapsible-section {
+            margin-top: 20px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
 
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: background 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: #e8e8e8;
+        }
+
+        .collapsible-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+
+        .collapsible-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.expanded {
+            max-height: 1000px;
+            transition: max-height 0.3s ease-in;
+        }
+
+        .preset-selector {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .preset-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .preset-btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .preset-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .preset-btn.active {
+            background: #e74c3c;
+        }
+
+        @media (max-width: 768px) {
             .simulation-area {
                 min-width: 100%;
             }
@@ -497,11 +584,7 @@
             <p>从甲地到乙地用了 4 小时 30 分钟，返回时用了 4 小时 40 分钟。</p>
             <p><strong>问题：</strong>从甲地到乙地的上坡路和下坡路各是多少千米？</p>
 
-            <div class="final-answer">
-                <h3>最终答案</h3>
-                <p>从甲地到乙地的上坡路为 \( 70 \) 千米</p>
-                <p>从甲地到乙地的下坡路为 \( 84 \) 千米</p>
-            </div>
+
         </div>
 
         <div class="simulation-area">
@@ -586,67 +669,72 @@
 
             <div class="controls-panel">
                 <h2>控制面板</h2>
-                <div class="controls">
-                    <div class="control-group">
-                        <div class="control-title">上坡速度 (km/h)</div>
-                        <div class="slider-container">
-                            <input type="range" min="10" max="50" value="28" class="slider" id="uphillSpeed">
-                            <span class="slider-value" id="uphillSpeedValue">28</span>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="control-title">下坡速度 (km/h)</div>
-                        <div class="slider-container">
-                            <input type="range" min="10" max="50" value="42" class="slider" id="downhillSpeed">
-                            <span class="slider-value" id="downhillSpeedValue">42</span>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="control-title">上坡距离 (km)</div>
-                        <div class="slider-container">
-                            <input type="range" min="10" max="100" value="70" class="slider" id="uphillDistance">
-                            <span class="slider-value" id="uphillDistanceValue">70</span>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="control-title">下坡距离 (km)</div>
-                        <div class="slider-container">
-                            <input type="range" min="10" max="100" value="84" class="slider" id="downhillDistance">
-                            <span class="slider-value" id="downhillDistanceValue">84</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="time-controls">
-                    <h3>时间控制</h3>
-                    <div class="control-group">
-                        <div class="control-title">时间倍率</div>
-                        <div class="slider-container">
-                            <input type="range" min="1" max="2000" value="5" class="slider" id="timeRate">
-                            <span class="slider-value" id="timeRateValue">5x</span>
-                        </div>
-                    </div>
-
-                    <div class="time-rate-control">
-                        <div class="control-title">快速设置:</div>
-                        <div class="time-rate-buttons">
-                            <button class="time-rate-btn" data-rate="1">1x</button>
-                            <button class="time-rate-btn" data-rate="500">500x</button>
-                            <button class="time-rate-btn" data-rate="1000">1000x</button>
-                            <button class="time-rate-btn" data-rate="2000">2000x</button>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="buttons">
                     <button id="startBtn">开始模拟</button>
                     <button id="pauseBtn" disabled>暂停</button>
                     <button id="resetBtn">重置</button>
-                    <button id="showDiagramBtn">显示线段图</button>
+                    <button id="showFormulaBtn">显示数学关系</button>
                 </div>
+
+                <div class="collapsible-section">
+                    <div class="preset-selector">
+                        <div class="control-title">预设场景选择：</div>
+                        <div class="preset-buttons">
+                            <button class="preset-btn active" id="presetAtoB" data-preset="atob">甲地到乙地</button>
+                            <button class="preset-btn" id="presetBtoA" data-preset="btoa">乙地到甲地</button>
+                        </div>
+                    </div>
+                    <div class="collapsible-header" id="distanceHeader">
+                        <h3>自定义参数设置</h3>
+                        <span class="collapsible-icon" id="distanceIcon">▼</span>
+                    </div>
+
+                    <div class="collapsible-content" id="distanceContent">
+                        <div class="controls">
+                            <div class="control-group">
+                                <div class="control-title">上坡速度 (km/h)</div>
+                                <div class="slider-container">
+                                    <input type="range" min="10" max="50" value="28" class="slider" id="uphillSpeed">
+                                    <span class="slider-value" id="uphillSpeedValue">28</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-title">下坡速度 (km/h)</div>
+                                <div class="slider-container">
+                                    <input type="range" min="10" max="50" value="42" class="slider" id="downhillSpeed">
+                                    <span class="slider-value" id="downhillSpeedValue">42</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-title">上坡距离 (km)</div>
+                                <div class="slider-container">
+                                    <input type="range" min="10" max="100" value="70" class="slider" id="uphillDistance">
+                                    <span class="slider-value" id="uphillDistanceValue">70</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-title">下坡距离 (km)</div>
+                                <div class="slider-container">
+                                    <input type="range" min="10" max="100" value="84" class="slider" id="downhillDistance">
+                                    <span class="slider-value" id="downhillDistanceValue">84</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-title">时间倍率</div>
+                                <div class="slider-container">
+                                    <input type="range" min="1" max="2000" value="2000" class="slider" id="timeRate">
+                                    <span class="slider-value" id="timeRateValue">2000x</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -724,8 +812,14 @@
         const startBtn = document.getElementById('startBtn');
         const pauseBtn = document.getElementById('pauseBtn');
         const resetBtn = document.getElementById('resetBtn');
-        const showDiagramBtn = document.getElementById('showDiagramBtn');
-        const timeRateButtons = document.querySelectorAll('.time-rate-btn');
+        const showFormulaBtn = document.getElementById('showFormulaBtn');
+        
+        // 可折叠区域相关元素
+        const distanceHeader = document.getElementById('distanceHeader');
+        const distanceContent = document.getElementById('distanceContent');
+        const distanceIcon = document.getElementById('distanceIcon');
+        const presetAtoB = document.getElementById('presetAtoB');
+        const presetBtoA = document.getElementById('presetBtoA');
 
         // 状态变量
         let animationId = null;
@@ -735,8 +829,8 @@
         let currentPosition = 0; // 0-1 表示位置比例
         let currentDistance = 0; // 已行驶距离(km)
         let currentTime = 0; // 已用时间(小时)
-        let timeRate = 5; // 时间倍率，默认5倍
-        let showDiagram = false; // 是否显示线段图
+        let timeRate = 2000; // 时间倍率，默认2000倍
+        let showFormula = false; // 是否显示数学关系
 
         // 山坡路径参数
         const pathStartX = 100;
@@ -758,31 +852,77 @@
 
         // 初始化滑块值
         updateSliderValues();
+        
+        // 设置时间倍率默认值为2000
+        timeRateSlider.value = 2000;
+        timeRate = 2000;
+        timeRateValue.textContent = '2000x';
 
-        // 滑块事件监听
-        uphillSpeedSlider.addEventListener('input', updateSliderValues);
-        downhillSpeedSlider.addEventListener('input', updateSliderValues);
-        uphillDistanceSlider.addEventListener('input', updateSliderValues);
-        downhillDistanceSlider.addEventListener('input', updateSliderValues);
-        timeRateSlider.addEventListener('input', updateSliderValues);
-
-        // 时间倍率按钮事件
-        timeRateButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const rate = parseInt(this.getAttribute('data-rate'));
-                timeRateSlider.value = rate;
-                updateSliderValues();
-
-                // 更新按钮状态
-                timeRateButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-            });
+        // 可折叠区域展开/收起
+        let isDistanceExpanded = false;
+        distanceHeader.addEventListener('click', function() {
+            isDistanceExpanded = !isDistanceExpanded;
+            if (isDistanceExpanded) {
+                distanceContent.classList.add('expanded');
+                distanceIcon.textContent = '▲';
+            } else {
+                distanceContent.classList.remove('expanded');
+                distanceIcon.textContent = '▼';
+            }
         });
 
-        // 显示线段图按钮
-        showDiagramBtn.addEventListener('click', function() {
-            showDiagram = !showDiagram;
-            this.textContent = showDiagram ? "隐藏线段图" : "显示线段图";
+        // 预设按钮事件
+        presetAtoB.addEventListener('click', function() {
+            presetAtoB.classList.add('active');
+            presetBtoA.classList.remove('active');
+            // 甲到乙：上坡距离x=70，下坡距离y=84
+            uphillDistanceSlider.value = 70;
+            downhillDistanceSlider.value = 84;
+            updateSliderValues();
+            // 重置动画位置
+            currentPosition = 0;
+            updateCarPosition();
+            if (showFormula) updateDiagram();
+        });
+
+        presetBtoA.addEventListener('click', function() {
+            presetBtoA.classList.add('active');
+            presetAtoB.classList.remove('active');
+            // 乙到甲：上坡距离y=84（原来的下坡），下坡距离x=70（原来的上坡）
+            uphillDistanceSlider.value = 84;
+            downhillDistanceSlider.value = 70;
+            updateSliderValues();
+            // 重置动画位置（从右往左，所以位置从1开始）
+            currentPosition = 1;
+            updateCarPosition();
+            if (showFormula) updateDiagram();
+        });
+
+        // 滑块事件监听
+        uphillSpeedSlider.addEventListener('input', function() {
+            updateSliderValues();
+            if (showFormula) updateDiagram();
+        });
+        downhillSpeedSlider.addEventListener('input', function() {
+            updateSliderValues();
+            if (showFormula) updateDiagram();
+        });
+        uphillDistanceSlider.addEventListener('input', function() {
+            updateSliderValues();
+            if (showFormula) updateDiagram();
+        });
+        downhillDistanceSlider.addEventListener('input', function() {
+            updateSliderValues();
+            if (showFormula) updateDiagram();
+        });
+        timeRateSlider.addEventListener('input', function() {
+            updateSliderValues();
+        });
+
+        // 显示数学关系按钮
+        showFormulaBtn.addEventListener('click', function() {
+            showFormula = !showFormula;
+            this.textContent = showFormula ? "隐藏数学关系" : "显示数学关系";
             updateDiagram();
         });
 
@@ -790,8 +930,18 @@
         function getCurrentSpeed(position) {
             const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
             const uphillRatio = parseFloat(uphillDistanceSlider.value) / totalDistance;
+            
+            // 获取当前预设方向
+            const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+            const isBtoA = currentPreset === 'btoa';
+            
+            let actualPosition = position;
+            if (isBtoA) {
+                // 从右往左：反转位置
+                actualPosition = 1 - position;
+            }
 
-            if (position <= uphillRatio) {
+            if (actualPosition <= uphillRatio) {
                 // 上坡段
                 return parseFloat(uphillSpeedSlider.value);
             } else {
@@ -804,17 +954,27 @@
         function updateEnergyBars(position) {
             const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
             const uphillRatio = parseFloat(uphillDistanceSlider.value) / totalDistance;
+            
+            // 获取当前预设方向
+            const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+            const isBtoA = currentPreset === 'btoa';
+            
+            let actualPosition = position;
+            if (isBtoA) {
+                // 从右往左：反转位置
+                actualPosition = 1 - position;
+            }
 
             let kineticWidth, potentialWidth;
 
-            if (position <= uphillRatio) {
+            if (actualPosition <= uphillRatio) {
                 // 上坡段：动能减少，势能增加
-                const progress = position / uphillRatio;
+                const progress = actualPosition / uphillRatio;
                 kineticWidth = 100 - (70 * progress);
                 potentialWidth = 30 + (70 * progress);
             } else {
                 // 下坡段：动能增加，势能减少
-                const progress = (position - uphillRatio) / (1 - uphillRatio);
+                const progress = (actualPosition - uphillRatio) / (1 - uphillRatio);
                 kineticWidth = 30 + (70 * progress);
                 potentialWidth = 100 - (70 * progress);
             }
@@ -830,13 +990,25 @@
         function updateInfoPanel(position, distance, time) {
             const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
             const uphillRatio = parseFloat(uphillDistanceSlider.value) / totalDistance;
+            
+            // 获取当前预设方向
+            const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+            const isBtoA = currentPreset === 'btoa';
+            
+            let actualPosition = position;
+            if (isBtoA) {
+                // 从右往左：反转位置
+                actualPosition = 1 - position;
+            }
 
             // 更新位置
-            if (position < 0.01) {
-                positionElement.textContent = "起点";
-            } else if (position > 0.99) {
-                positionElement.textContent = "终点";
-            } else if (position <= uphillRatio) {
+            if (position < 0.01 || position > 0.99) {
+                if (isBtoA) {
+                    positionElement.textContent = position < 0.01 ? "终点(甲地)" : "起点(乙地)";
+                } else {
+                    positionElement.textContent = position < 0.01 ? "起点(甲地)" : "终点(乙地)";
+                }
+            } else if (actualPosition <= uphillRatio) {
                 positionElement.textContent = "上坡中";
             } else {
                 positionElement.textContent = "下坡中";
@@ -850,49 +1022,164 @@
             distanceElement.textContent = `${distance.toFixed(1)} km`;
         }
 
-        // 更新线段图
+        // 更新数学关系显示
         function updateDiagram() {
-            // 清除现有线段
+            // 清除现有内容
             diagramOverlay.innerHTML = '';
 
-            if (!showDiagram) return;
+            if (!showFormula) return;
 
-            // 创建线段
             const svgNS = "http://www.w3.org/2000/svg";
+            const uphillDist = parseFloat(uphillDistanceSlider.value);
+            const downhillDist = parseFloat(downhillDistanceSlider.value);
+            const uphillSpeed = parseFloat(uphillSpeedSlider.value);
+            const downhillSpeed = parseFloat(downhillSpeedSlider.value);
 
-            // 上坡线段 - 使用与山坡路径完全相同的坐标
-            const uphillLine = document.createElementNS(svgNS, "line");
-            uphillLine.setAttribute("class", "diagram-line");
-            uphillLine.setAttribute("x1", pathStartX);
-            uphillLine.setAttribute("y1", pathStartY);
-            uphillLine.setAttribute("x2", pathPeakX);
-            uphillLine.setAttribute("y2", pathPeakY);
-            diagramOverlay.appendChild(uphillLine);
+            // 计算上坡和下坡的时间
+            const uphillTime = uphillDist / uphillSpeed;
+            const downhillTime = downhillDist / downhillSpeed;
+            const totalTime = uphillTime + downhillTime;
 
-            // 上坡文本
-            const uphillText = document.createElementNS(svgNS, "text");
-            uphillText.setAttribute("class", "diagram-text");
-            uphillText.setAttribute("x", (pathStartX + pathPeakX) / 2);
-            uphillText.setAttribute("y", (pathStartY + pathPeakY) / 2 + 15);
-            uphillText.textContent = `上坡: ${uphillDistanceSlider.value}km`;
-            diagramOverlay.appendChild(uphillText);
+            // 根据当前预设确定方向
+            const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+            const isBtoA = currentPreset === 'btoa';
 
-            // 下坡线段 - 使用与山坡路径完全相同的坐标
-            const downhillLine = document.createElementNS(svgNS, "line");
-            downhillLine.setAttribute("class", "diagram-line");
-            downhillLine.setAttribute("x1", pathPeakX);
-            downhillLine.setAttribute("y1", pathPeakY);
-            downhillLine.setAttribute("x2", pathEndX);
-            downhillLine.setAttribute("y2", pathEndY);
-            diagramOverlay.appendChild(downhillLine);
+            // 上坡段公式显示
+            let uphillMidX, uphillMidY;
+            if (isBtoA) {
+                // 乙到甲：上坡在右侧（从右往左）
+                uphillMidX = (pathPeakX + pathEndX) / 2;
+                uphillMidY = (pathPeakY + pathEndY) / 2;
+            } else {
+                // 甲到乙：上坡在左侧（从左往右）
+                uphillMidX = (pathStartX + pathPeakX) / 2;
+                uphillMidY = (pathStartY + pathPeakY) / 2;
+            }
+            
+            // 上坡公式背景
+            const uphillBg = document.createElementNS(svgNS, "rect");
+            uphillBg.setAttribute("class", "formula-background");
+            uphillBg.setAttribute("x", uphillMidX - 140);
+            uphillBg.setAttribute("y", uphillMidY - 35);
+            uphillBg.setAttribute("width", "280");
+            uphillBg.setAttribute("height", "70");
+            diagramOverlay.appendChild(uphillBg);
 
-            // 下坡文本
-            const downhillText = document.createElementNS(svgNS, "text");
-            downhillText.setAttribute("class", "diagram-text");
-            downhillText.setAttribute("x", (pathPeakX + pathEndX) / 2);
-            downhillText.setAttribute("y", (pathPeakY + pathEndY) / 2 + 15);
-            downhillText.textContent = `下坡: ${downhillDistanceSlider.value}km`;
-            diagramOverlay.appendChild(downhillText);
+            // 上坡公式文本
+            const uphillFormula = document.createElementNS(svgNS, "text");
+            uphillFormula.setAttribute("class", "formula-text");
+            uphillFormula.setAttribute("x", uphillMidX);
+            uphillFormula.setAttribute("y", uphillMidY - 10);
+            uphillFormula.setAttribute("text-anchor", "middle");
+            uphillFormula.setAttribute("font-size", "18px");
+            if (isBtoA) {
+                uphillFormula.textContent = `上坡时间: t₁ = y/${uphillSpeed}`;
+            } else {
+                uphillFormula.textContent = `上坡时间: t₁ = x/${uphillSpeed}`;
+            }
+            diagramOverlay.appendChild(uphillFormula);
+
+            const uphillFormula2 = document.createElementNS(svgNS, "text");
+            uphillFormula2.setAttribute("class", "formula-text");
+            uphillFormula2.setAttribute("x", uphillMidX);
+            uphillFormula2.setAttribute("y", uphillMidY + 15);
+            uphillFormula2.setAttribute("text-anchor", "middle");
+            uphillFormula2.setAttribute("font-size", "16px");
+            if (isBtoA) {
+                uphillFormula2.textContent = `上坡距离: y (未知)`;
+            } else {
+                uphillFormula2.textContent = `上坡距离: x (未知)`;
+            }
+            diagramOverlay.appendChild(uphillFormula2);
+
+            // 下坡段公式显示
+            let downhillMidX, downhillMidY;
+            if (isBtoA) {
+                // 乙到甲：下坡在左侧（从右往左）
+                downhillMidX = (pathStartX + pathPeakX) / 2;
+                downhillMidY = (pathStartY + pathPeakY) / 2;
+            } else {
+                // 甲到乙：下坡在右侧（从左往右）
+                downhillMidX = (pathPeakX + pathEndX) / 2;
+                downhillMidY = (pathPeakY + pathEndY) / 2;
+            }
+            
+            // 下坡公式背景
+            const downhillBg = document.createElementNS(svgNS, "rect");
+            downhillBg.setAttribute("class", "formula-background");
+            downhillBg.setAttribute("x", downhillMidX - 140);
+            downhillBg.setAttribute("y", downhillMidY - 35);
+            downhillBg.setAttribute("width", "280");
+            downhillBg.setAttribute("height", "70");
+            diagramOverlay.appendChild(downhillBg);
+
+            // 下坡公式文本
+            const downhillFormula = document.createElementNS(svgNS, "text");
+            downhillFormula.setAttribute("class", "formula-text");
+            downhillFormula.setAttribute("x", downhillMidX);
+            downhillFormula.setAttribute("y", downhillMidY - 10);
+            downhillFormula.setAttribute("text-anchor", "middle");
+            downhillFormula.setAttribute("font-size", "18px");
+            if (isBtoA) {
+                downhillFormula.textContent = `下坡时间: t₂ = x/${downhillSpeed}`;
+            } else {
+                downhillFormula.textContent = `下坡时间: t₂ = y/${downhillSpeed}`;
+            }
+            diagramOverlay.appendChild(downhillFormula);
+
+            const downhillFormula2 = document.createElementNS(svgNS, "text");
+            downhillFormula2.setAttribute("class", "formula-text");
+            downhillFormula2.setAttribute("x", downhillMidX);
+            downhillFormula2.setAttribute("y", downhillMidY + 15);
+            downhillFormula2.setAttribute("text-anchor", "middle");
+            downhillFormula2.setAttribute("font-size", "16px");
+            if (isBtoA) {
+                downhillFormula2.textContent = `下坡距离: x (未知)`;
+            } else {
+                downhillFormula2.textContent = `下坡距离: y (未知)`;
+            }
+            diagramOverlay.appendChild(downhillFormula2);
+
+            // 总时间公式显示在顶部
+            const totalFormulaBg = document.createElementNS(svgNS, "rect");
+            totalFormulaBg.setAttribute("class", "formula-background");
+            totalFormulaBg.setAttribute("x", pathPeakX - 200);
+            totalFormulaBg.setAttribute("y", pathPeakY - 50);
+            totalFormulaBg.setAttribute("width", "400");
+            totalFormulaBg.setAttribute("height", "80");
+            diagramOverlay.appendChild(totalFormulaBg);
+
+            // 根据当前预设显示不同的总时间公式
+            let totalTimeFormula = '';
+            let formulaY = pathPeakY - 15;
+            
+            if (isBtoA) {
+                // 乙到甲：y/28 + x/42 = 14/3
+                totalTimeFormula = `从乙到甲: t₁ + t₂ = y/${uphillSpeed} + x/${downhillSpeed} = 14/3`;
+            } else {
+                // 甲到乙：x/28 + y/42 = 4.5
+                totalTimeFormula = `从甲到乙: t₁ + t₂ = x/${uphillSpeed} + y/${downhillSpeed} = 4.5`;
+            }
+
+            const totalFormula = document.createElementNS(svgNS, "text");
+            totalFormula.setAttribute("class", "formula-text");
+            totalFormula.setAttribute("x", pathPeakX);
+            totalFormula.setAttribute("y", formulaY);
+            totalFormula.setAttribute("text-anchor", "middle");
+            totalFormula.setAttribute("font-size", "16px");
+            totalFormula.textContent = totalTimeFormula;
+            diagramOverlay.appendChild(totalFormula);
+            
+            // 添加说明文字
+            const noteText = document.createElementNS(svgNS, "text");
+            noteText.setAttribute("class", "formula-text");
+            noteText.setAttribute("x", pathPeakX);
+            noteText.setAttribute("y", formulaY + 20);
+            noteText.setAttribute("text-anchor", "middle");
+            noteText.setAttribute("font-size", "13px");
+            noteText.setAttribute("fill", "#666");
+            noteText.textContent = "注：x和y是未知数，需要通过方程组求解";
+            diagramOverlay.appendChild(noteText);
         }
 
         // 动画函数
@@ -903,6 +1190,10 @@
             lastTimestamp = timestamp;
 
             if (isAnimating && !isPaused) {
+                // 获取当前预设方向
+                const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+                const isBtoA = currentPreset === 'btoa';
+                
                 // 计算当前速度
                 const currentSpeed = getCurrentSpeed(currentPosition);
 
@@ -911,19 +1202,33 @@
 
                 // 更新位置
                 const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
-                currentPosition += distanceIncrement / totalDistance;
+                
+                if (isBtoA) {
+                    // 从右往左：位置递减
+                    currentPosition -= distanceIncrement / totalDistance;
+                    if (currentPosition <= 0) {
+                        currentPosition = 0;
+                        isAnimating = false;
+                        startBtn.disabled = false;
+                        pauseBtn.disabled = true;
+                        pauseBtn.textContent = "暂停";
+                        isPaused = false;
+                    }
+                } else {
+                    // 从左往右：位置递增
+                    currentPosition += distanceIncrement / totalDistance;
+                    if (currentPosition >= 1) {
+                        currentPosition = 1;
+                        isAnimating = false;
+                        startBtn.disabled = false;
+                        pauseBtn.disabled = true;
+                        pauseBtn.textContent = "暂停";
+                        isPaused = false;
+                    }
+                }
+                
                 currentDistance += distanceIncrement;
                 currentTime += (elapsedSeconds * timeRate) / 3600;
-
-                // 检查是否到达终点
-                if (currentPosition >= 1) {
-                    currentPosition = 1;
-                    isAnimating = false;
-                    startBtn.disabled = false;
-                    pauseBtn.disabled = true;
-                    pauseBtn.textContent = "暂停";
-                    isPaused = false;
-                }
 
                 // 更新汽车位置和角度
                 updateCarPosition();
@@ -934,7 +1239,7 @@
                 // 更新信息面板
                 updateInfoPanel(currentPosition, currentDistance, currentTime);
 
-                // 更新线段图
+                // 更新数学关系显示
                 updateDiagram();
             }
 
@@ -950,36 +1255,76 @@
             const hillWidth = hillScene.offsetWidth;
             const hillHeight = hillScene.offsetHeight;
 
+            // 获取当前预设方向
+            const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+            const isBtoA = currentPreset === 'btoa';
+
             // 计算当前点在路径上的位置
             const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
             const uphillRatio = parseFloat(uphillDistanceSlider.value) / totalDistance;
 
             let pointX, pointY;
+            let actualPosition = currentPosition;
 
-            if (currentPosition <= uphillRatio) {
+            if (isBtoA) {
+                // 从右往左：反转位置
+                actualPosition = 1 - currentPosition;
+            }
+
+            if (actualPosition <= uphillRatio) {
                 // 上坡段
-                const progress = currentPosition / uphillRatio;
-                pointX = pathStartX + (pathPeakX - pathStartX) * progress;
-                pointY = pathStartY + (pathPeakY - pathStartY) * progress;
+                const progress = actualPosition / uphillRatio;
+                if (isBtoA) {
+                    // 从右往左：从终点到起点
+                    pointX = pathEndX - (pathEndX - pathPeakX) * progress;
+                    pointY = pathEndY - (pathEndY - pathPeakY) * progress;
+                } else {
+                    // 从左往右：从起点到顶点
+                    pointX = pathStartX + (pathPeakX - pathStartX) * progress;
+                    pointY = pathStartY + (pathPeakY - pathStartY) * progress;
+                }
             } else {
                 // 下坡段
-                const progress = (currentPosition - uphillRatio) / (1 - uphillRatio);
-                pointX = pathPeakX + (pathEndX - pathPeakX) * progress;
-                pointY = pathPeakY + (pathEndY - pathPeakY) * progress;
+                const progress = (actualPosition - uphillRatio) / (1 - uphillRatio);
+                if (isBtoA) {
+                    // 从右往左：从顶点到起点
+                    pointX = pathPeakX - (pathPeakX - pathStartX) * progress;
+                    pointY = pathPeakY - (pathPeakY - pathStartY) * progress;
+                } else {
+                    // 从左往右：从顶点到终点
+                    pointX = pathPeakX + (pathEndX - pathPeakX) * progress;
+                    pointY = pathPeakY + (pathEndY - pathPeakY) * progress;
+                }
             }
 
             // 计算斜率/角度
             let slope, angle;
 
-            if (currentPosition <= uphillRatio) {
+            if (actualPosition <= uphillRatio) {
                 // 上坡段
-                slope = (pathPeakY - pathStartY) / (pathPeakX - pathStartX);
+                if (isBtoA) {
+                    // 从右往左：计算从终点到顶点的斜率（方向相反）
+                    slope = (pathPeakY - pathEndY) / (pathPeakX - pathEndX);
+                } else {
+                    slope = (pathPeakY - pathStartY) / (pathPeakX - pathStartX);
+                }
             } else {
                 // 下坡段
-                slope = (pathEndY - pathPeakY) / (pathEndX - pathPeakX);
+                if (isBtoA) {
+                    // 从右往左：计算从顶点到起点的斜率（方向相反）
+                    slope = (pathStartY - pathPeakY) / (pathStartX - pathPeakX);
+                } else {
+                    slope = (pathEndY - pathPeakY) / (pathEndX - pathPeakX);
+                }
             }
 
             angle = Math.atan(slope) * 180 / Math.PI;
+            
+            // 从右往左时，水平翻转汽车，而不是旋转180度
+            let transform = `rotate(${angle}deg)`;
+            if (isBtoA) {
+                transform += ` scaleX(-1)`;
+            }
 
             // 更新汽车位置和旋转
             // 将SVG坐标转换为像素坐标
@@ -988,7 +1333,7 @@
 
             car.style.left = `${carX}px`;
             car.style.top = `${carY}px`;
-            car.style.transform = `rotate(${angle}deg)`;
+            car.style.transform = transform;
         }
 
 // 初始化汽车位置
@@ -1039,9 +1384,16 @@
         resetBtn.addEventListener('click', function() {
             isAnimating = false;
             isPaused = false;
-            currentPosition = 0;
             currentDistance = 0;
             currentTime = 0;
+
+            // 根据当前预设设置初始位置
+            const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+            if (currentPreset === 'btoa') {
+                currentPosition = 1; // 从右往左，从1开始
+            } else {
+                currentPosition = 0; // 从左往右，从0开始
+            }
 
             cancelAnimationFrame(animationId);
 
@@ -1049,12 +1401,12 @@
             updateCarPosition();
 
             // 重置能量条
-            updateEnergyBars(0);
+            updateEnergyBars(currentPosition);
 
             // 重置信息面板
-            updateInfoPanel(0, 0, 0);
+            updateInfoPanel(currentPosition, 0, 0);
 
-            // 更新线段图
+            // 更新数学关系显示
             updateDiagram();
 
             // 重置按钮状态
