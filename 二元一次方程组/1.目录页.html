@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>课件目录 - 二元一次方程组</title>
+    <link rel="stylesheet" href="navigation.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "SimHei", "PingFang SC", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .directory-container {
+            max-width: 1400px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3),
+                        0 0 0 1px rgba(255, 255, 255, 0.5);
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .directory-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #2196F3 0%, #21CBF3 100%);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #2196F3, transparent);
+            border-radius: 2px;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            background: linear-gradient(135deg, rgba(45, 144, 255, 0.77) 0%, rgba(109, 220, 109, 0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(33, 150, 243, 0.3);
+        }
+
+        .header p {
+            font-size: 1.6rem;
+            color: #555;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .course-info {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 203, 243, 0.1) 100%);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 50px;
+            border: 2px solid rgba(33, 150, 243, 0.2);
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .course-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+        }
+
+        .course-info h2 {
+            background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-info h2::before {
+            content: "📋";
+            font-size: 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-left-color: #2196F3;
+            transform: translateX(5px);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #2196F3;
+            min-width: 110px;
+            font-size: 1.1rem;
+        }
+
+        .info-content {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .menu-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .menu-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 2px solid rgba(33, 150, 243, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 203, 243, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .menu-item::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(33, 150, 243, 0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .menu-item:hover::before {
+            opacity: 1;
+        }
+
+        .menu-item:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(33, 150, 243, 0.3);
+            border-color: #2196F3;
+        }
+
+        .menu-item:active {
+            transform: translateY(-5px) scale(0.98);
+        }
+
+        .menu-item-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-item-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .menu-item:hover .menu-item-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .menu-item-number {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2196F3;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 203, 243, 0.1) 100%);
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            border: 2px solid rgba(33, 150, 243, 0.3);
+        }
+
+        .menu-item-title {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .menu-item-desc {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(102, 126, 234, 0.2);
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .footer p {
+            margin: 8px 0;
+        }
+
+        .footer p:first-child {
+            font-weight: 600;
+            color: #2196F3;
+            font-size: 1.1rem;
+        }
+
+        .footer p:last-child {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .menu-list {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .directory-container {
+                padding: 40px 25px;
+                border-radius: 20px;
+            }
+
+            .header h1 {
+                font-size: 2.8rem;
+            }
+
+            .header p {
+                font-size: 1.3rem;
+            }
+
+            .course-info {
+                padding: 25px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .menu-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .menu-item {
+                padding: 30px 25px;
+            }
+
+            .menu-item-icon {
+                font-size: 3rem;
+            }
+
+            .menu-item-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .directory-container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .menu-item {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="directory-container">
+        <div class="header">
+            <h1>📚 课件目录</h1>
+            <p>二元一次方程组 · 行程问题</p>
+        </div>
+
+<!--        <div class="course-info">-->
+<!--            <h2>课程信息</h2>-->
+<!--            <div class="info-grid">-->
+<!--                <div class="info-item">-->
+<!--                    <span class="info-label">教材版本：</span>-->
+<!--                    <span class="info-content">北师大版（2024）</span>-->
+<!--                </div>-->
+<!--                <div class="info-item">-->
+<!--                    <span class="info-label">学科：</span>-->
+<!--                    <span class="info-content">数学</span>-->
+<!--                </div>-->
+<!--                <div class="info-item">-->
+<!--                    <span class="info-label">年级：</span>-->
+<!--                    <span class="info-content">八年级</span>-->
+<!--                </div>-->
+<!--                <div class="info-item">-->
+<!--                    <span class="info-label">教师：</span>-->
+<!--                    <span class="info-content">刘如芳</span>-->
+<!--                </div>-->
+<!--                <div class="info-item">-->
+<!--                    <span class="info-label">单位：</span>-->
+<!--                    <span class="info-content">海旺学校</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="menu-list">
+            <div class="menu-item" onclick="window.location.href='0.封面页.html'">
+                <div class="menu-item-content">
+                    <div class="menu-item-icon">📄</div>
+                    <div class="menu-item-number">01</div>
+                    <div class="menu-item-title">封面页</div>
+                    <div class="menu-item-desc">课件封面与课程信息</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='2.火车过隧道.html'">
+                <div class="menu-item-content">
+                    <div class="menu-item-icon">🚂</div>
+                    <div class="menu-item-number">02</div>
+                    <div class="menu-item-title">火车过隧道</div>
+                    <div class="menu-item-desc">通过动画演示理解火车过隧道问题</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='3.环形道路相遇问题.html'">
+                <div class="menu-item-content">
+                    <div class="menu-item-icon">🏃</div>
+                    <div class="menu-item-number">03</div>
+                    <div class="menu-item-title">环形道路相遇问题</div>
+                    <div class="menu-item-desc">学习环形跑道中的相遇与追及问题</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='4.上下坡问题.html'">
+                <div class="menu-item-content">
+                    <div class="menu-item-icon">⛰️</div>
+                    <div class="menu-item-number">04</div>
+                    <div class="menu-item-title">上下坡问题</div>
+                    <div class="menu-item-desc">分析上下坡过程中的速度变化</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='5.随堂练习-选择题.html'">
+                <div class="menu-item-content">
+                    <div class="menu-item-icon">✅</div>
+                    <div class="menu-item-number">05</div>
+                    <div class="menu-item-title">随堂练习 - 选择题</div>
+                    <div class="menu-item-desc">通过选择题巩固所学知识</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='6.随堂练习-填空题.html'">
+                <div class="menu-item-content">
+                    <div class="menu-item-icon">✏️</div>
+                    <div class="menu-item-number">06</div>
+                    <div class="menu-item-title">随堂练习 - 填空题</div>
+                    <div class="menu-item-desc">填空题练习，检验理解程度</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='7.随堂练习-应用题.html'">
+                <div class="menu-item-content">
+                    <div class="menu-item-icon">📝</div>
+                    <div class="menu-item-number">07</div>
+                    <div class="menu-item-title">随堂练习 - 应用题</div>
+                    <div class="menu-item-desc">综合应用题，提升解题能力</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>海旺学校 数学教研组 | 2025年11月15日</p>
+            <p>提示：按 ESC 键可在各页面中显示/隐藏导航栏</p>
+        </div>
+    </div>
+<script src="navigation.js"></script>
+</body>
+</html>
