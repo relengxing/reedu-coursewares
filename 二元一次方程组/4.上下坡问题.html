@@ -619,13 +619,13 @@
                     <div class="hill-svg-container">
                         <svg class="hill-svg" viewBox="0 0 1000 200" preserveAspectRatio="none">
                             <!-- 山坡路径 -->
-                            <path id="hillPath" d="M 100,200 L 500,50 L 900,200" fill="#795548" />
+                            <path id="hillPath" d="M 100,200 L 500,50 L 900,200" fill="#795548"/>
                             <!-- 道路路径 -->
-                            <path id="roadPath" d="M 100,200 L 500,50 L 900,200" fill="#555" stroke="none" />
+                            <path id="roadPath" d="M 100,200 L 500,50 L 900,200" fill="#555" stroke="none"/>
                             <!-- 路径标记 -->
-                            <circle cx="100" cy="200" r="5" fill="#e74c3c" />
-                            <circle cx="500" cy="50" r="5" fill="#e74c3c" />
-                            <circle cx="900" cy="200" r="5" fill="#e74c3c" />
+                            <circle cx="100" cy="200" r="5" fill="#e74c3c"/>
+                            <circle cx="500" cy="50" r="5" fill="#e74c3c"/>
+                            <circle cx="900" cy="200" r="5" fill="#e74c3c"/>
                             <text x="100" y="190" class="path-marker" text-anchor="middle">甲地</text>
                             <text x="500" y="40" class="path-marker" text-anchor="middle">最高点</text>
                             <text x="900" y="190" class="path-marker" text-anchor="middle">乙地</text>
@@ -677,12 +677,9 @@
                 </div>
 
                 <div class="collapsible-section">
-                    <div class="preset-selector">
-                        <div class="control-title">预设场景选择：</div>
-                        <div class="preset-buttons">
-                            <button class="preset-btn active" id="presetAtoB" data-preset="atob">甲地到乙地</button>
-                            <button class="preset-btn" id="presetBtoA" data-preset="btoa">乙地到甲地</button>
-                        </div>
+                    <div class="preset-buttons">
+                        <button class="preset-btn active" id="presetAtoB" data-preset="atob">甲地到乙地</button>
+                        <button class="preset-btn" id="presetBtoA" data-preset="btoa">乙地到甲地</button>
                     </div>
                     <div class="collapsible-header" id="distanceHeader">
                         <h3>自定义参数设置</h3>
@@ -710,7 +707,8 @@
                             <div class="control-group">
                                 <div class="control-title">上坡距离 (km)</div>
                                 <div class="slider-container">
-                                    <input type="range" min="10" max="100" value="70" class="slider" id="uphillDistance">
+                                    <input type="range" min="10" max="100" value="70" class="slider"
+                                           id="uphillDistance">
                                     <span class="slider-value" id="uphillDistanceValue">70</span>
                                 </div>
                             </div>
@@ -718,7 +716,8 @@
                             <div class="control-group">
                                 <div class="control-title">下坡距离 (km)</div>
                                 <div class="slider-container">
-                                    <input type="range" min="10" max="100" value="84" class="slider" id="downhillDistance">
+                                    <input type="range" min="10" max="100" value="84" class="slider"
+                                           id="downhillDistance">
                                     <span class="slider-value" id="downhillDistanceValue">84</span>
                                 </div>
                             </div>
@@ -783,7 +782,7 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // 获取DOM元素
         const car = document.getElementById('car');
         const hillPath = document.getElementById('hillPath');
@@ -813,7 +812,7 @@
         const pauseBtn = document.getElementById('pauseBtn');
         const resetBtn = document.getElementById('resetBtn');
         const showFormulaBtn = document.getElementById('showFormulaBtn');
-        
+
         // 可折叠区域相关元素
         const distanceHeader = document.getElementById('distanceHeader');
         const distanceContent = document.getElementById('distanceContent');
@@ -852,7 +851,7 @@
 
         // 初始化滑块值
         updateSliderValues();
-        
+
         // 设置时间倍率默认值为2000
         timeRateSlider.value = 2000;
         timeRate = 2000;
@@ -860,7 +859,7 @@
 
         // 可折叠区域展开/收起
         let isDistanceExpanded = false;
-        distanceHeader.addEventListener('click', function() {
+        distanceHeader.addEventListener('click', function () {
             isDistanceExpanded = !isDistanceExpanded;
             if (isDistanceExpanded) {
                 distanceContent.classList.add('expanded');
@@ -872,7 +871,7 @@
         });
 
         // 预设按钮事件
-        presetAtoB.addEventListener('click', function() {
+        presetAtoB.addEventListener('click', function () {
             presetAtoB.classList.add('active');
             presetBtoA.classList.remove('active');
             // 甲到乙：上坡距离x=70，下坡距离y=84
@@ -885,7 +884,7 @@
             if (showFormula) updateDiagram();
         });
 
-        presetBtoA.addEventListener('click', function() {
+        presetBtoA.addEventListener('click', function () {
             presetBtoA.classList.add('active');
             presetAtoB.classList.remove('active');
             // 乙到甲：上坡距离y=84（原来的下坡），下坡距离x=70（原来的上坡）
@@ -899,28 +898,28 @@
         });
 
         // 滑块事件监听
-        uphillSpeedSlider.addEventListener('input', function() {
+        uphillSpeedSlider.addEventListener('input', function () {
             updateSliderValues();
             if (showFormula) updateDiagram();
         });
-        downhillSpeedSlider.addEventListener('input', function() {
+        downhillSpeedSlider.addEventListener('input', function () {
             updateSliderValues();
             if (showFormula) updateDiagram();
         });
-        uphillDistanceSlider.addEventListener('input', function() {
+        uphillDistanceSlider.addEventListener('input', function () {
             updateSliderValues();
             if (showFormula) updateDiagram();
         });
-        downhillDistanceSlider.addEventListener('input', function() {
+        downhillDistanceSlider.addEventListener('input', function () {
             updateSliderValues();
             if (showFormula) updateDiagram();
         });
-        timeRateSlider.addEventListener('input', function() {
+        timeRateSlider.addEventListener('input', function () {
             updateSliderValues();
         });
 
         // 显示数学关系按钮
-        showFormulaBtn.addEventListener('click', function() {
+        showFormulaBtn.addEventListener('click', function () {
             showFormula = !showFormula;
             this.textContent = showFormula ? "隐藏数学关系" : "显示数学关系";
             updateDiagram();
@@ -930,11 +929,11 @@
         function getCurrentSpeed(position) {
             const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
             const uphillRatio = parseFloat(uphillDistanceSlider.value) / totalDistance;
-            
+
             // 获取当前预设方向
             const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
             const isBtoA = currentPreset === 'btoa';
-            
+
             let actualPosition = position;
             if (isBtoA) {
                 // 从右往左：反转位置
@@ -954,11 +953,11 @@
         function updateEnergyBars(position) {
             const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
             const uphillRatio = parseFloat(uphillDistanceSlider.value) / totalDistance;
-            
+
             // 获取当前预设方向
             const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
             const isBtoA = currentPreset === 'btoa';
-            
+
             let actualPosition = position;
             if (isBtoA) {
                 // 从右往左：反转位置
@@ -990,11 +989,11 @@
         function updateInfoPanel(position, distance, time) {
             const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
             const uphillRatio = parseFloat(uphillDistanceSlider.value) / totalDistance;
-            
+
             // 获取当前预设方向
             const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
             const isBtoA = currentPreset === 'btoa';
-            
+
             let actualPosition = position;
             if (isBtoA) {
                 // 从右往左：反转位置
@@ -1055,7 +1054,7 @@
                 uphillMidX = (pathStartX + pathPeakX) / 2;
                 uphillMidY = (pathStartY + pathPeakY) / 2;
             }
-            
+
             // 上坡公式背景
             const uphillBg = document.createElementNS(svgNS, "rect");
             uphillBg.setAttribute("class", "formula-background");
@@ -1103,7 +1102,7 @@
                 downhillMidX = (pathPeakX + pathEndX) / 2;
                 downhillMidY = (pathPeakY + pathEndY) / 2;
             }
-            
+
             // 下坡公式背景
             const downhillBg = document.createElementNS(svgNS, "rect");
             downhillBg.setAttribute("class", "formula-background");
@@ -1152,7 +1151,7 @@
             // 根据当前预设显示不同的总时间公式
             let totalTimeFormula = '';
             let formulaY = pathPeakY - 15;
-            
+
             if (isBtoA) {
                 // 乙到甲：y/28 + x/42 = 14/3
                 totalTimeFormula = `从乙到甲: t₁ + t₂ = y/${uphillSpeed} + x/${downhillSpeed} = 14/3`;
@@ -1169,7 +1168,7 @@
             totalFormula.setAttribute("font-size", "16px");
             totalFormula.textContent = totalTimeFormula;
             diagramOverlay.appendChild(totalFormula);
-            
+
             // 添加说明文字
             const noteText = document.createElementNS(svgNS, "text");
             noteText.setAttribute("class", "formula-text");
@@ -1193,7 +1192,7 @@
                 // 获取当前预设方向
                 const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
                 const isBtoA = currentPreset === 'btoa';
-                
+
                 // 计算当前速度
                 const currentSpeed = getCurrentSpeed(currentPosition);
 
@@ -1202,7 +1201,7 @@
 
                 // 更新位置
                 const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
-                
+
                 if (isBtoA) {
                     // 从右往左：位置递减
                     currentPosition -= distanceIncrement / totalDistance;
@@ -1226,7 +1225,7 @@
                         isPaused = false;
                     }
                 }
-                
+
                 currentDistance += distanceIncrement;
                 currentTime += (elapsedSeconds * timeRate) / 3600;
 
@@ -1319,7 +1318,7 @@
             }
 
             angle = Math.atan(slope) * 180 / Math.PI;
-            
+
             // 从右往左时，水平翻转汽车，而不是旋转180度
             let transform = `rotate(${angle}deg)`;
             if (isBtoA) {
@@ -1352,7 +1351,7 @@
         }
 
         // 开始动画
-        startBtn.addEventListener('click', function() {
+        startBtn.addEventListener('click', function () {
             if (!isAnimating) {
                 isAnimating = true;
                 isPaused = false;
@@ -1364,7 +1363,7 @@
         });
 
         // 暂停/继续动画
-        pauseBtn.addEventListener('click', function() {
+        pauseBtn.addEventListener('click', function () {
             if (isAnimating) {
                 if (isPaused) {
                     // 继续动画
@@ -1381,7 +1380,7 @@
         });
 
         // 重置动画
-        resetBtn.addEventListener('click', function() {
+        resetBtn.addEventListener('click', function () {
             isAnimating = false;
             isPaused = false;
             currentDistance = 0;
