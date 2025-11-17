@@ -15,42 +15,70 @@
         }
         
         body {
-            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
             color: #333;
-            background-color: #f5f5f5;
+            line-height: 1.6;
+            font-size: 24px;
         }
         
         section {
             width: 100%;
             min-height: 100vh;
-            padding: 40px;
+            padding: 40px 20px;
             box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            border-bottom: 1px solid #e0e0e0;
+            display: block;
+            position: relative;
         }
         
         .container {
-            max-width: 1200px;
-            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .card h2 {
+            color: #2196F3;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 15px;
         }
         
         h1 {
-            font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 30px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
             text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         h2 {
-            font-size: 2.2rem;
-            color: #3498db;
-            margin-bottom: 25px;
-            text-align: center;
+            color: #2196F3;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 15px;
         }
         
         h3 {
@@ -66,12 +94,12 @@
         }
         
         .problem-box {
-            background-color: #f8f9fa;
-            border-radius: 12px;
+            background: #f8f9ff;
+            border-radius: 10px;
             padding: 30px;
             margin: 25px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-left: 6px solid #3498db;
+            border-left: 6px solid #2196F3;
+            font-size: 1.2em;
         }
         
         .input-group {
@@ -113,25 +141,24 @@
         }
         
         .toggle-btn {
-            padding: 15px 25px;
-            background: #3498db;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #4136F3, #21CBF3);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            margin: 5px;
         }
         
         .toggle-btn:hover {
-            background: #2980b9;
             transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .toggle-btn:active {
@@ -152,15 +179,15 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
-            background: #f5f5f5;
-            border-radius: 8px;
-            border-left: 5px solid #3498db;
+            background: #f8f9ff;
+            border-radius: 10px;
+            border-left: 6px solid #2196F3;
             opacity: 0;
         }
         
         .content.expanded {
             max-height: 1000px;
-            padding: 25px;
+            padding: 30px;
             margin-top: 20px;
             opacity: 1;
         }
@@ -180,9 +207,10 @@
         
         .solution {
             margin-top: 20px;
-            padding: 20px;
-            background: #e8f4fc;
-            border-radius: 8px;
+            padding: 25px;
+            background: #e8f5e8;
+            border-radius: 10px;
+            border: 3px solid #4CAF50;
         }
         
         .solution h3 {
@@ -193,7 +221,7 @@
         .step {
             margin-bottom: 20px;
             padding-left: 20px;
-            border-left: 3px solid #3498db;
+            border-left: 3px solid #2196F3;
         }
         
         .step-title {
@@ -212,20 +240,20 @@
         }
         
         .check-btn {
-            padding: 12px 25px;
-            background: #2ecc71;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #4136F3, #21CBF3);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
             margin-top: 20px;
         }
         
         .check-btn:hover {
-            background: #27ae60;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .result {
@@ -255,10 +283,41 @@
         }
         
         .summary {
-            background-color: #e8f4fc;
-            padding: 25px;
+            background: #f8f9ff;
+            padding: 30px;
             border-radius: 10px;
             margin-top: 30px;
+            border-left: 6px solid #2196F3;
+            font-size: 1.2em;
+        }
+
+        .timer {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: rgba(76, 175, 80, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .timer:hover {
+            background-color: rgba(76, 175, 80, 1);
+            transform: scale(1.05);
+        }
+
+        .timer.started {
+            background-color: rgba(33, 150, 243, 0.9);
+        }
+
+        .timer.started:hover {
+            background-color: rgba(33, 150, 243, 1);
         }
         
         @media (max-width: 768px) {
@@ -286,24 +345,33 @@
     </style>
 </head>
 <body>
+    <!-- 计时器 -->
+    <div class="timer" id="timer">点击开始计时</div>
+    
     <!-- 封面页 -->
     <section id="page1" data-section="1">
         <div class="container">
-            <h1>公路行程问题课堂练习</h1>
-            <div class="problem-box">
-                <h2>题目</h2>
+            <div class="header">
+                <h1>公路行程问题课堂练习</h1>
+            </div>
+            <div class="card">
+                <h2>📝题目展示</h2>
+                <div class="problem-box">
+                <h3>题目</h3>
                 <p>由甲地到乙地的公路全程为 <span class="highlight">200 km</span>，其中一段为高速公路，其余路段均为普通公路。</p>
                 <p>已知汽车在普通公路和高速公路上的行驶速度分别是 <span class="highlight">60 km/h</span> 和 <span class="highlight">100 km/h</span>，从甲地到乙地用时 <span class="highlight">3 h</span>。</p>
                 <p>问：汽车在普通公路和高速公路上分别行驶了多少千米？</p>
             </div>
-            <p>请完成下面的填空题，并查看解析验证你的答案。</p>
+                <p>请完成下面的填空题，并查看解析验证你的答案。</p>
+            </div>
         </div>
     </section>
 
     <!-- 问题分析页 -->
     <section id="page2" data-section="2">
         <div class="container">
-            <h2>问题分析</h2>
+            <div class="card">
+                <h2>🔍问题分析</h2>
             <div class="problem-box">
                 <p>这是一个典型的行程问题，我们需要找出汽车在普通公路和高速公路上分别行驶的距离。</p>
                 <p>已知条件：</p>
@@ -343,7 +411,8 @@
     <!-- 填空题页 -->
     <section id="page3" data-section="3">
         <div class="container">
-            <h2>课堂练习</h2>
+            <div class="card">
+                <h2>✏️课堂练习</h2>
             <div class="problem-box">
                 <p>请填写汽车在普通公路和高速公路上分别行驶的距离：</p>
 
@@ -380,7 +449,8 @@
     <!-- 解析页 -->
     <section id="page4" data-section="4">
         <div class="container">
-            <h2>问题解析</h2>
+            <div class="card">
+                <h2>📐问题解析</h2>
             
             <div class="">
                 <div id="solution-1" class="">
@@ -442,7 +512,8 @@
     <!-- 总结页 -->
     <section id="page5" data-section="5">
         <div class="container">
-            <h2>总结与反思</h2>
+            <div class="card">
+                <h2>✅总结与反思</h2>
             
             <div class="summary">
                 <h3>本问题的关键点：</h3>
@@ -525,6 +596,33 @@
                     resultDiv.style.display = "block";
                 });
             }
+            
+            // 计时器功能
+            let startTime = null;
+            let timerInterval = null;
+            const timerElement = document.getElementById('timer');
+            let isTimerRunning = false;
+
+            function updateTimer() {
+                if (!startTime) return;
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                timerElement.textContent = `时间: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            function startTimer() {
+                if (!isTimerRunning) {
+                    startTime = Date.now();
+                    isTimerRunning = true;
+                    timerElement.classList.add('started');
+                    timerElement.textContent = '时间: 00:00';
+                    timerInterval = setInterval(updateTimer, 1000);
+                }
+            }
+
+            // 点击计时器开始计时
+            timerElement.addEventListener('click', startTimer);
             
             // 渲染数学公式
             if (typeof renderMathInElement !== 'undefined') {
