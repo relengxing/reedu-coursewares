@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>赛跑问题课堂练习</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     <style>
@@ -290,14 +290,24 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
         .correct {
@@ -347,7 +357,7 @@
             border-radius: 20px;
             font-size: 1.4rem;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             user-select: none;
             transition: all 0.3s ease;
@@ -430,8 +440,12 @@
         }
 
         @keyframes run {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(100px); }
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100px);
+            }
         }
 
         @media (max-width: 768px) {
@@ -472,7 +486,7 @@
 <div class="timer not-started" id="timer">点击开始计时</div>
 
 <!-- 封面页 -->
-<section id="page1" data-section="1">
+<section data-section="1" id="page1">
     <div class="container">
         <div class="header">
             <h1>赛跑问题课堂练习</h1>
@@ -480,185 +494,185 @@
         <div class="card compact">
             <h2>📝题目展示</h2>
             <div class="question">
-            <p>
-                小明和小亮练习赛跑，如果小明让小亮先跑2秒，那么小明跑6秒就追上小亮；如果小明让小亮先跑16米，那么小明跑8秒就追上小亮．设小明每秒跑的路程为x米，小亮每秒跑的路程为y米，则根据题意可列方程组为（   ）</p>
-        </div>
-
-        <div>
-            <div class="options">
-                <div class="option" data-value="A">
-                    <span class="option-icon">✓</span>
-                    A.
-                    \[
-                    \begin{cases}
-                    6x = 8y \\
-                    8x = 8y + 16
-                    \end{cases}
-                    \]
-                </div>
-                <div class="option" data-value="B">
-                    <span class="option-icon">✓</span>
-                    B.
-                    \[
-                    \begin{cases}
-                    6x = 8y \\
-                    8x = 16y + 16
-                    \end{cases}
-                    \]
-                </div>
-                <div class="option" data-value="C">
-                    <span class="option-icon">✓</span>
-                    C.
-                    \[
-                    \begin{cases}
-                    6x = 6y + 2y \\
-                    8x = 8y + 16
-                    \end{cases}
-                    \]
-                </div>
-                <div class="option" data-value="D">
-                    <span class="option-icon">✓</span>
-                    D.
-                    \[
-                    \begin{cases}
-                    6x = 8y \\
-                    8x = 16y
-                    \end{cases}
-                    \]
-                </div>
+                <p>
+                    小明和小亮练习赛跑，如果小明让小亮先跑2秒，那么小明跑6秒就追上小亮；如果小明让小亮先跑16米，那么小明跑8秒就追上小亮．设小明每秒跑的路程为x米，小亮每秒跑的路程为y米，则根据题意可列方程组为（   ）</p>
             </div>
 
-            <div class="feedback correct" id="correct-feedback">
-                <p>回答正确！👍</p>
-                <p>你成功理解了追及问题的关键点。</p>
-            </div>
+            <div>
+                <div class="options">
+                    <div class="option" data-value="A">
+                        <span class="option-icon">✓</span>
+                        A.
+                        \[
+                        \begin{cases}
+                        6x = 8y \\
+                        8x = 8y + 16
+                        \end{cases}
+                        \]
+                    </div>
+                    <div class="option" data-value="B">
+                        <span class="option-icon">✓</span>
+                        B.
+                        \[
+                        \begin{cases}
+                        6x = 8y \\
+                        8x = 16y + 16
+                        \end{cases}
+                        \]
+                    </div>
+                    <div class="option" data-value="C">
+                        <span class="option-icon">✓</span>
+                        C.
+                        \[
+                        \begin{cases}
+                        6x = 6y + 2y \\
+                        8x = 8y + 16
+                        \end{cases}
+                        \]
+                    </div>
+                    <div class="option" data-value="D">
+                        <span class="option-icon">✓</span>
+                        D.
+                        \[
+                        \begin{cases}
+                        6x = 8y \\
+                        8x = 16y
+                        \end{cases}
+                        \]
+                    </div>
+                </div>
 
-            <div class="feedback incorrect" id="incorrect-feedback">
-                <p>回答错误，请再思考一下。💡</p>
-                <p>提示：注意两种情况下路程相等的关系。</p>
-            </div>
+                <div class="feedback correct" id="correct-feedback">
+                    <p>回答正确！👍</p>
+                    <p>你成功理解了追及问题的关键点。</p>
+                </div>
 
-            <div class="interactive-container">
-                <button class="toggle-btn" data-target="#answer-1">
-                    <span>查看解析</span>
-                </button>
-                <div id="answer-1" class="content">
-                    <p><strong>解析：</strong>正确答案是C。</p>
+                <div class="feedback incorrect" id="incorrect-feedback">
+                    <p>回答错误，请再思考一下。💡</p>
+                    <p>提示：注意两种情况下路程相等的关系。</p>
+                </div>
 
-                    <div class="solution">
-                        <h3>解题思路</h3>
-                        <div class="step">
-                            <div class="step-title">第一种情况分析：</div>
-                            <p>小明让小亮先跑2秒，然后小明跑6秒追上小亮。</p>
-                            <p>小亮总共跑了 \(2 + 6 = 8\) 秒，小明跑了6秒。</p>
-                            <p>因为追上时两人跑的路程相等，所以：</p>
-                            <p>\(6x = 8y\)</p>
-                        </div>
+                <div class="interactive-container">
+                    <button class="toggle-btn" data-target="#answer-1">
+                        <span>查看解析</span>
+                    </button>
+                    <div class="content" id="answer-1">
+                        <p><strong>解析：</strong>正确答案是C。</p>
 
-                        <div class="step">
-                            <div class="step-title">第二种情况分析：</div>
-                            <p>小明让小亮先跑16米，然后小明跑8秒追上小亮。</p>
-                            <p>小亮先跑16米，然后两人同时跑8秒。</p>
-                            <p>追上时两人跑的路程相等，所以：</p>
-                            <p>\(8x = 8y + 16\)</p>
-                        </div>
+                        <div class="solution">
+                            <h3>解题思路</h3>
+                            <div class="step">
+                                <div class="step-title">第一种情况分析：</div>
+                                <p>小明让小亮先跑2秒，然后小明跑6秒追上小亮。</p>
+                                <p>小亮总共跑了 \(2 + 6 = 8\) 秒，小明跑了6秒。</p>
+                                <p>因为追上时两人跑的路程相等，所以：</p>
+                                <p>\(6x = 8y\)</p>
+                            </div>
 
-                        <div class="step">
-                            <div class="step-title">综合两种情况：</div>
-                            <p>得到方程组：</p>
-                            \[
-                            \begin{cases}
-                            6x = 8y \\
-                            8x = 8y + 16
-                            \end{cases}
-                            \]
+                            <div class="step">
+                                <div class="step-title">第二种情况分析：</div>
+                                <p>小明让小亮先跑16米，然后小明跑8秒追上小亮。</p>
+                                <p>小亮先跑16米，然后两人同时跑8秒。</p>
+                                <p>追上时两人跑的路程相等，所以：</p>
+                                <p>\(8x = 8y + 16\)</p>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-title">综合两种情况：</div>
+                                <p>得到方程组：</p>
+                                \[
+                                \begin{cases}
+                                6x = 8y \\
+                                8x = 8y + 16
+                                \end{cases}
+                                \]
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- 详细解析页面 -->
-<section id="page2" data-section="2">
+<section data-section="2" id="page2">
     <div class="container">
         <div class="card">
             <h2>详细解析</h2>
 
-        <div class="explanation">
-            <h3>问题分析</h3>
-            <p>这是一个关于追及问题的应用题，需要根据题意建立方程组。</p>
+            <div class="explanation">
+                <h3>问题分析</h3>
+                <p>这是一个关于追及问题的应用题，需要根据题意建立方程组。</p>
 
-            <div class="step">
-                <div class="step-title">第一种情况：时间领先</div>
-                <p>小明让小亮先跑2秒，然后小明跑6秒追上小亮。</p>
-                <p>设小明每秒跑x米，小亮每秒跑y米。</p>
-                <p>小亮总共跑了 \(2 + 6 = 8\) 秒，小明跑了6秒。</p>
-                <p>因为追上时两人跑的路程相等，所以：</p>
-                <p>\(6x = 8y\)</p>
+                <div class="step">
+                    <div class="step-title">第一种情况：时间领先</div>
+                    <p>小明让小亮先跑2秒，然后小明跑6秒追上小亮。</p>
+                    <p>设小明每秒跑x米，小亮每秒跑y米。</p>
+                    <p>小亮总共跑了 \(2 + 6 = 8\) 秒，小明跑了6秒。</p>
+                    <p>因为追上时两人跑的路程相等，所以：</p>
+                    <p>\(6x = 8y\)</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">第二种情况：距离领先</div>
+                    <p>小明让小亮先跑16米，然后小明跑8秒追上小亮。</p>
+                    <p>小亮先跑16米，然后两人同时跑8秒。</p>
+                    <p>追上时两人跑的路程相等，所以：</p>
+                    <p>\(8x = 8y + 16\)</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">建立方程组</div>
+                    <p>综合两种情况，得到方程组：</p>
+                    \[
+                    \begin{cases}
+                    6x = 8y \\
+                    8x = 8y + 16
+                    \end{cases}
+                    \]
+                </div>
             </div>
 
-            <div class="step">
-                <div class="step-title">第二种情况：距离领先</div>
-                <p>小明让小亮先跑16米，然后小明跑8秒追上小亮。</p>
-                <p>小亮先跑16米，然后两人同时跑8秒。</p>
-                <p>追上时两人跑的路程相等，所以：</p>
-                <p>\(8x = 8y + 16\)</p>
-            </div>
+            <div class="interactive-container">
+                <button class="toggle-btn" data-target="#answer-2">
+                    <span>查看解题步骤</span>
+                </button>
+                <div class="content" id="answer-2">
+                    <div class="solution">
+                        <h3>解题步骤</h3>
 
-            <div class="step">
-                <div class="step-title">建立方程组</div>
-                <p>综合两种情况，得到方程组：</p>
-                \[
-                \begin{cases}
-                6x = 8y \\
-                8x = 8y + 16
-                \end{cases}
-                \]
-            </div>
-        </div>
+                        <div class="step">
+                            <div class="step-title">步骤1：解方程组</div>
+                            <p>由第一个方程 \(6x = 8y\) 得：</p>
+                            <p>\(x = \frac{4}{3}y\)</p>
+                        </div>
 
-        <div class="interactive-container">
-            <button class="toggle-btn" data-target="#answer-2">
-                <span>查看解题步骤</span>
-            </button>
-            <div id="answer-2" class="content">
-                <div class="solution">
-                    <h3>解题步骤</h3>
+                        <div class="step">
+                            <div class="step-title">步骤2：代入第二个方程</div>
+                            <p>将 \(x = \frac{4}{3}y\) 代入 \(8x = 8y + 16\)：</p>
+                            <p>\(8 \times \frac{4}{3}y = 8y + 16\)</p>
+                            <p>\(\frac{32}{3}y = 8y + 16\)</p>
+                        </div>
 
-                    <div class="step">
-                        <div class="step-title">步骤1：解方程组</div>
-                        <p>由第一个方程 \(6x = 8y\) 得：</p>
-                        <p>\(x = \frac{4}{3}y\)</p>
-                    </div>
+                        <div class="step">
+                            <div class="step-title">步骤3：求解y</div>
+                            <p>\(\frac{32}{3}y - 8y = 16\)</p>
+                            <p>\(\frac{32}{3}y - \frac{24}{3}y = 16\)</p>
+                            <p>\(\frac{8}{3}y = 16\)</p>
+                            <p>\(y = 16 \times \frac{3}{8} = 6\)</p>
+                            <p>所以小亮每秒跑6米。</p>
+                        </div>
 
-                    <div class="step">
-                        <div class="step-title">步骤2：代入第二个方程</div>
-                        <p>将 \(x = \frac{4}{3}y\) 代入 \(8x = 8y + 16\)：</p>
-                        <p>\(8 \times \frac{4}{3}y = 8y + 16\)</p>
-                        <p>\(\frac{32}{3}y = 8y + 16\)</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-title">步骤3：求解y</div>
-                        <p>\(\frac{32}{3}y - 8y = 16\)</p>
-                        <p>\(\frac{32}{3}y - \frac{24}{3}y = 16\)</p>
-                        <p>\(\frac{8}{3}y = 16\)</p>
-                        <p>\(y = 16 \times \frac{3}{8} = 6\)</p>
-                        <p>所以小亮每秒跑6米。</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-title">步骤4：求解x</div>
-                        <p>\(x = \frac{4}{3} \times 6 = 8\)</p>
-                        <p>所以小明每秒跑8米。</p>
+                        <div class="step">
+                            <div class="step-title">步骤4：求解x</div>
+                            <p>\(x = \frac{4}{3} \times 6 = 8\)</p>
+                            <p>所以小明每秒跑8米。</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
         </div>
@@ -666,63 +680,63 @@
 </section>
 
 <!-- 总结页面 -->
-<section id="page3" data-section="3">
+<section data-section="3" id="page3">
     <div class="container">
         <div class="card">
             <h2>课堂总结</h2>
 
-        <div class="explanation">
-            <h3>知识点回顾</h3>
+            <div class="explanation">
+                <h3>知识点回顾</h3>
 
-            <div class="step">
-                <div class="step-title">追及问题</div>
-                <p>追及问题的核心是：当追及发生时，两者经过的路程相等。</p>
-                <p>路程 = 速度 × 时间</p>
+                <div class="step">
+                    <div class="step-title">追及问题</div>
+                    <p>追及问题的核心是：当追及发生时，两者经过的路程相等。</p>
+                    <p>路程 = 速度 × 时间</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">建立方程的关键</div>
+                    <p>1. 确定追及发生时两者的路程关系</p>
+                    <p>2. 注意时间或距离的领先条件</p>
+                    <p>3. 根据题意建立等量关系</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">本题要点</div>
+                    <p>第一种情况：时间领先 → 小亮多跑2秒</p>
+                    <p>第二种情况：距离领先 → 小亮先跑16米</p>
+                    <p>两种情况下，追及时两人的路程相等</p>
+                </div>
             </div>
 
-            <div class="step">
-                <div class="step-title">建立方程的关键</div>
-                <p>1. 确定追及发生时两者的路程关系</p>
-                <p>2. 注意时间或距离的领先条件</p>
-                <p>3. 根据题意建立等量关系</p>
-            </div>
+            <div class="interactive-container">
+                <button class="toggle-btn" data-target="#answer-3">
+                    <span>查看类似题目</span>
+                </button>
+                <div class="content" id="answer-3">
+                    <div class="solution">
+                        <h3>类似题目练习</h3>
 
-            <div class="step">
-                <div class="step-title">本题要点</div>
-                <p>第一种情况：时间领先 → 小亮多跑2秒</p>
-                <p>第二种情况：距离领先 → 小亮先跑16米</p>
-                <p>两种情况下，追及时两人的路程相等</p>
-            </div>
-        </div>
+                        <div class="step">
+                            <div class="step-title">题目1</div>
+                            <p>
+                                甲、乙两人从同一地点出发，甲先走10分钟，乙再出发。如果乙的速度是甲的1.5倍，那么乙需要多少分钟才能追上甲？</p>
+                        </div>
 
-        <div class="interactive-container">
-            <button class="toggle-btn" data-target="#answer-3">
-                <span>查看类似题目</span>
-            </button>
-            <div id="answer-3" class="content">
-                <div class="solution">
-                    <h3>类似题目练习</h3>
+                        <div class="step">
+                            <div class="step-title">题目2</div>
+                            <p>
+                                两辆汽车从A、B两地同时出发相向而行，相遇后继续前进。当第二辆车到达A地时，第一辆车离B地还有35公里；当第一辆车到达B地时，第二辆车离A地还有70公里。求A、B两地之间的距离。</p>
+                        </div>
 
-                    <div class="step">
-                        <div class="step-title">题目1</div>
-                        <p>
-                            甲、乙两人从同一地点出发，甲先走10分钟，乙再出发。如果乙的速度是甲的1.5倍，那么乙需要多少分钟才能追上甲？</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-title">题目2</div>
-                        <p>
-                            两辆汽车从A、B两地同时出发相向而行，相遇后继续前进。当第二辆车到达A地时，第一辆车离B地还有35公里；当第一辆车到达B地时，第二辆车离A地还有70公里。求A、B两地之间的距离。</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-title">题目3</div>
-                        <p>
-                            甲、乙两人在环形跑道上跑步，甲每秒跑5米，乙每秒跑4.5米。如果他们从同一点同时出发，反向而行，那么他们每40秒相遇一次。求跑道的周长。</p>
+                        <div class="step">
+                            <div class="step-title">题目3</div>
+                            <p>
+                                甲、乙两人在环形跑道上跑步，甲每秒跑5米，乙每秒跑4.5米。如果他们从同一点同时出发，反向而行，那么他们每40秒相遇一次。求跑道的周长。</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         </div>
     </div>

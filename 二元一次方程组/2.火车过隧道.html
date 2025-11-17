@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>火车过隧道问题 - AI辅助教学</title>
     <!-- KaTeX CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     <style>
@@ -527,628 +527,637 @@
 </head>
 
 <body>
-    <section id="section1" data-section="1">
-        <div class="container">
-            <div class="header">
-                <h1>🚂 AI辅助教学：火车过隧道问题</h1>
-                <p>用动画理解二元一次方程组的实际应用</p>
-            </div>
-
-            <div class="card">
-                <h2>📝题目展示</h2>
-                <div class="problem-text">
-                    <h3>火车过隧道问题</h3>
-                    <p><strong>题目：</strong>一列火车以40 m/s的速度（<span style="color: #1976D2; font-style: italic;">物理知识：这是匀速直线运动，符合物理公式 \( s = v \times t \)</span>）经过一个隧道，从车头进入隧道到车尾驶出隧道，共用时30s，其中火车全身都在隧道里的时间是20s，求隧道和火车的长度。</p>
-
-                    <p><strong>已知条件：</strong></p>
-                    <ul>
-                        <li>火车速度：40 m/s（匀速运动）</li>
-                        <li>总通过时间：30秒</li>
-                        <li>完全在隧道内时间：20秒</li>
-                    </ul>
-
-                    <p><strong>思考问题：</strong></p>
-                    <ol>
-                        <li>这个问题涉及哪些量？</li>
-                        <li>这些量之间有怎样的关系？</li>
-                        <li>如何用图示说明整个过程？</li>
-                    </ol>
-                </div>
-            </div>
+<section data-section="1" id="section1">
+    <div class="container">
+        <div class="header">
+            <h1>🚂 AI辅助教学：火车过隧道问题</h1>
+            <p>用动画理解二元一次方程组的实际应用</p>
         </div>
-    </section>
 
-    <section id="section2" data-section="2">
-        <div class="container">
-            <div class="card">
-                <h2>🔍分析问题中的量和关系</h2>
+        <div class="card">
+            <h2>📝题目展示</h2>
+            <div class="problem-text">
+                <h3>火车过隧道问题</h3>
+                <p><strong>题目：</strong>一列火车以40 m/s的速度（<span style="color: #1976D2; font-style: italic;">物理知识：这是匀速直线运动，符合物理公式 \( s = v \times t \)</span>）经过一个隧道，从车头进入隧道到车尾驶出隧道，共用时30s，其中火车全身都在隧道里的时间是20s，求隧道和火车的长度。
+                </p>
 
-                <p><strong>问题分析：</strong></p>
+                <p><strong>已知条件：</strong></p>
                 <ul>
-                    <li>这是一个关于<span class="highlight">运动路程和时间</span>的问题</li>
-                    <li>火车通过隧道可以分为<span class="highlight">三个阶段</span></li>
-                    <li>需要建立长度与时间的关系</li>
+                    <li>火车速度：40 m/s（匀速运动）</li>
+                    <li>总通过时间：30秒</li>
+                    <li>完全在隧道内时间：20秒</li>
                 </ul>
 
-                <p><strong>设定变量：</strong></p>
-                <ul>
-                    <li>设隧道长度为 <span class="highlight">\(x\)</span> 米</li>
-                    <li>设火车长度为 <span class="highlight">\(y\)</span> 米</li>
-                </ul>
-
-                <div class="equation">
-                    <p><strong>关键理解：</strong></p>
-                    <p>根据 <strong>路程 = 速度 × 时间</strong>（<span style="color: #1976D2; font-style: italic;">物理中的匀速直线运动公式 \( s = v \times t \)</span>）</p>
-                    <p>我们需要分析火车在不同阶段行驶的路程</p>
-                </div>
+                <p><strong>思考问题：</strong></p>
+                <ol>
+                    <li>这个问题涉及哪些量？</li>
+                    <li>这些量之间有怎样的关系？</li>
+                    <li>如何用图示说明整个过程？</li>
+                </ol>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="section3" data-section="3">
-        <div class="container">
-            <div class="card">
-                <h2>🎬 火车过隧道动画演示</h2>
-                <!-- 动画演示区域 -->
-                <div class="animation-section">
-                    <div class="card animation-card">
-                        <div class="animation-container">
-                            <div class="animation-title">分步展示火车通过隧道的完整过程</div>
+<section data-section="2" id="section2">
+    <div class="container">
+        <div class="card">
+            <h2>🔍分析问题中的量和关系</h2>
 
-                            <div class="tunnel-scene" id="tunnelScene">
-                                <div class="ground"></div>
-                                <div class="tunnel" id="tunnel"></div>
-                                <div class="train" id="train">
-                                    <div class="train-wheels"></div>
-                                </div>
+            <p><strong>问题分析：</strong></p>
+            <ul>
+                <li>这是一个关于<span class="highlight">运动路程和时间</span>的问题</li>
+                <li>火车通过隧道可以分为<span class="highlight">三个阶段</span></li>
+                <li>需要建立长度与时间的关系</li>
+            </ul>
 
-                                <!-- 基础测量线条 -->
-                                <div class="measurement-line train-length" id="trainLength" style="display: none;">
-                                </div>
-                                <div class="measurement-text train-length" id="trainLengthText" style="display: none;">
-                                    火车长度 y</div>
+            <p><strong>设定变量：</strong></p>
+            <ul>
+                <li>设隧道长度为 <span class="highlight">\(x\)</span> 米</li>
+                <li>设火车长度为 <span class="highlight">\(y\)</span> 米</li>
+            </ul>
 
-                                <div class="measurement-line tunnel-length" id="tunnelLength" style="display: none;">
-                                </div>
-                                <div class="measurement-text tunnel-length" id="tunnelLengthText"
-                                    style="display: none;">隧道长度 x</div>
+            <div class="equation">
+                <p><strong>关键理解：</strong></p>
+                <p>根据 <strong>路程 = 速度 × 时间</strong>（<span style="color: #1976D2; font-style: italic;">物理中的匀速直线运动公式 \( s = v \times t \)</span>）
+                </p>
+                <p>我们需要分析火车在不同阶段行驶的路程</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-                                <!-- 关键路程测量线 -->
-                                <div class="measurement-line total-distance" id="totalDistance" style="display: none;">
-                                </div>
-                                <div class="measurement-text total-distance" id="totalDistanceText"
-                                    style="display: none;">总路程 x+y</div>
+<section data-section="3" id="section3">
+    <div class="container">
+        <div class="card">
+            <h2>🎬 火车过隧道动画演示</h2>
+            <!-- 动画演示区域 -->
+            <div class="animation-section">
+                <div class="card animation-card">
+                    <div class="animation-container">
+                        <div class="animation-title">分步展示火车通过隧道的完整过程</div>
 
-                                <div class="measurement-line inner-distance" id="innerDistance" style="display: none;">
-                                </div>
-                                <div class="measurement-text inner-distance" id="innerDistanceText"
-                                    style="display: none;">内部路程 x-y</div>
+                        <div class="tunnel-scene" id="tunnelScene">
+                            <div class="ground"></div>
+                            <div class="tunnel" id="tunnel"></div>
+                            <div class="train" id="train">
+                                <div class="train-wheels"></div>
                             </div>
 
-                            <div class="phase-indicator" id="phaseIndicator">
-                                准备开始：火车即将进入隧道
+                            <!-- 基础测量线条 -->
+                            <div class="measurement-line train-length" id="trainLength" style="display: none;">
+                            </div>
+                            <div class="measurement-text train-length" id="trainLengthText" style="display: none;">
+                                火车长度 y
                             </div>
 
-                            <div class="animation-steps" id="animationSteps">
-                                <div class="step-indicator">
-                                    <!-- <div class="step-dot active" data-step="0" data-description="准备阶段">准备</div> -->
-                                    <div class="step-dot" data-step="1" data-description="车头进入">1</div>
-                                    <div class="step-dot" data-step="2" data-description="完全进入">2</div>
-                                    <div class="step-dot" data-step="3" data-description="车头出来">3</div>
-                                    <div class="step-dot" data-step="4" data-description="车尾出来">4</div>
-                                    <div class="step-dot" data-step="5" data-description="完全离开">5</div>
-                                </div>
+                            <div class="measurement-line tunnel-length" id="tunnelLength" style="display: none;">
+                            </div>
+                            <div class="measurement-text tunnel-length" id="tunnelLengthText"
+                                 style="display: none;">隧道长度 x
                             </div>
 
-                            <div class="control-panel">
-                                <button class="btn" onclick="nextAnimationStep()">下一步</button>
-                                <button class="btn" onclick="resetAnimation()">重置</button>
-                                <button class="btn" onclick="showEducationalMeasurements()">显示数学关系</button>
-                                <button class="btn" onclick="showBasicMeasurements()">显示基础测量</button>
+                            <!-- 关键路程测量线 -->
+                            <div class="measurement-line total-distance" id="totalDistance" style="display: none;">
                             </div>
+                            <div class="measurement-text total-distance" id="totalDistanceText"
+                                 style="display: none;">总路程 x+y
+                            </div>
+
+                            <div class="measurement-line inner-distance" id="innerDistance" style="display: none;">
+                            </div>
+                            <div class="measurement-text inner-distance" id="innerDistanceText"
+                                 style="display: none;">内部路程 x-y
+                            </div>
+                        </div>
+
+                        <div class="phase-indicator" id="phaseIndicator">
+                            准备开始：火车即将进入隧道
+                        </div>
+
+                        <div class="animation-steps" id="animationSteps">
+                            <div class="step-indicator">
+                                <!-- <div class="step-dot active" data-step="0" data-description="准备阶段">准备</div> -->
+                                <div class="step-dot" data-description="车头进入" data-step="1">1</div>
+                                <div class="step-dot" data-description="完全进入" data-step="2">2</div>
+                                <div class="step-dot" data-description="车头出来" data-step="3">3</div>
+                                <div class="step-dot" data-description="车尾出来" data-step="4">4</div>
+                                <div class="step-dot" data-description="完全离开" data-step="5">5</div>
+                            </div>
+                        </div>
+
+                        <div class="control-panel">
+                            <button class="btn" onclick="nextAnimationStep()">下一步</button>
+                            <button class="btn" onclick="resetAnimation()">重置</button>
+                            <button class="btn" onclick="showEducationalMeasurements()">显示数学关系</button>
+                            <button class="btn" onclick="showBasicMeasurements()">显示基础测量</button>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="problem-text phase-1">
-                    <h4>🔵 阶段1：车头进入到车尾进入</h4>
-                    <p>• 从车头刚进入隧道到车尾刚进入隧道</p>
-                    <p>• 火车行驶距离 = <strong>火车长度 \(y\)</strong></p>
-                </div>
+            <div class="problem-text phase-1">
+                <h4>🔵 阶段1：车头进入到车尾进入</h4>
+                <p>• 从车头刚进入隧道到车尾刚进入隧道</p>
+                <p>• 火车行驶距离 = <strong>火车长度 \(y\)</strong></p>
+            </div>
 
-                <div class="problem-text phase-2">
-                    <h4>🟢 阶段2：完全在隧道内</h4>
-                    <p>• 火车完全在隧道内运行</p>
-                    <p>• 火车行驶距离 = <strong>隧道长度 - 火车长度 = \(x - y\)</strong></p>
-                    <p>• 耗时 = <strong>20秒</strong>（题目给出）</p>
-                </div>
+            <div class="problem-text phase-2">
+                <h4>🟢 阶段2：完全在隧道内</h4>
+                <p>• 火车完全在隧道内运行</p>
+                <p>• 火车行驶距离 = <strong>隧道长度 - 火车长度 = \(x - y\)</strong></p>
+                <p>• 耗时 = <strong>20秒</strong>（题目给出）</p>
+            </div>
 
-                <div class="problem-text phase-3">
-                    <h4>🟡 阶段3：车头出来到车尾出来</h4>
-                    <p>• 从车头刚出隧道到车尾刚出隧道</p>
-                    <p>• 火车行驶距离 = <strong>火车长度 \(y\)</strong></p>
-                </div>
+            <div class="problem-text phase-3">
+                <h4>🟡 阶段3：车头出来到车尾出来</h4>
+                <p>• 从车头刚出隧道到车尾刚出隧道</p>
+                <p>• 火车行驶距离 = <strong>火车长度 \(y\)</strong></p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="section4" data-section="4">
-        <div class="container">
-            <div class="card">
-                <h2>📐建立二元一次方程组</h2>
+<section data-section="4" id="section4">
+    <div class="container">
+        <div class="card">
+            <h2>📐建立二元一次方程组</h2>
 
-                <p><strong>根据两个关键时间建立方程：</strong></p>
+            <p><strong>根据两个关键时间建立方程：</strong></p>
 
-                <div class="equation">
-                    <p><strong>方程1：总通过时间 = 30秒</strong></p>
-                    <p>🟢 火车从开始进入到完全离开的总路程 = <span class="highlight">\(x + y\)</span></p>
-                    <p><small>💡 为什么是 \(x + y\)？观察动画：火车需要"穿越整个隧道长度\(x\)" + "自身完全通过所需的额外长度\(y\)"</small></p>
-                    <p>根据 路程 = 速度 × 时间：</p>
-                    <p>\[x + y = 40 \times 30\]</p>
-                    <p><strong>\[x + y = 1200\]</strong></p>
-                </div>
+            <div class="equation">
+                <p><strong>方程1：总通过时间 = 30秒</strong></p>
+                <p>🟢 火车从开始进入到完全离开的总路程 = <span class="highlight">\(x + y\)</span></p>
+                <p><small>💡 为什么是 \(x + y\)？观察动画：火车需要"穿越整个隧道长度\(x\)" +
+                    "自身完全通过所需的额外长度\(y\)"</small></p>
+                <p>根据 路程 = 速度 × 时间：</p>
+                <p>\[x + y = 40 \times 30\]</p>
+                <p><strong>\[x + y = 1200\]</strong></p>
+            </div>
 
-                <div class="equation">
-                    <p><strong>方程2：完全在隧道内时间 = 20秒</strong></p>
-                    <p>🟠 火车完全在隧道内行驶的路程 = <span class="highlight">\(x - y\)</span></p>
-                    <p><small>💡 为什么是 \(x - y\)？观察动画：从"车尾刚进入"到"车头刚出来"，火车行驶距离 = 隧道长度\(x\) - 火车长度\(y\)</small></p>
-                    <p>根据 路程 = 速度 × 时间：</p>
-                    <p>\[x - y = 40 \times 20\]</p>
-                    <p><strong>\[x - y = 800\]</strong></p>
-                </div>
+            <div class="equation">
+                <p><strong>方程2：完全在隧道内时间 = 20秒</strong></p>
+                <p>🟠 火车完全在隧道内行驶的路程 = <span class="highlight">\(x - y\)</span></p>
+                <p><small>💡 为什么是 \(x - y\)？观察动画：从"车尾刚进入"到"车头刚出来"，火车行驶距离 = 隧道长度\(x\) -
+                    火车长度\(y\)</small></p>
+                <p>根据 路程 = 速度 × 时间：</p>
+                <p>\[x - y = 40 \times 20\]</p>
+                <p><strong>\[x - y = 800\]</strong></p>
+            </div>
 
-                <div class="equation">
-                    <p><strong>得到二元一次方程组：</strong></p>
-                    \[
-                    \begin{cases}
-                    x + y = 1200 & \text{(1) [总通过]} \\
-                    x - y = 800 & \text{(2) [完全内部]}
-                    \end{cases}
-                    \]
-                </div>
+            <div class="equation">
+                <p><strong>得到二元一次方程组：</strong></p>
+                \[
+                \begin{cases}
+                x + y = 1200 & \text{(1) [总通过]} \\
+                x - y = 800 & \text{(2) [完全内部]}
+                \end{cases}
+                \]
+            </div>
 
-                <p><strong>理解要点：</strong></p>
-                <ul>
-                    <li><strong>\(x + y\)：</strong>表示火车从头部进入到尾部离开的总行程</li>
-                    <li><strong>\(x - y\)：</strong>表示火车完全在隧道内时的行程</li>
-                    <li>这两个量分别对应30秒和20秒的行程</li>
-                </ul>
+            <p><strong>理解要点：</strong></p>
+            <ul>
+                <li><strong>\(x + y\)：</strong>表示火车从头部进入到尾部离开的总行程</li>
+                <li><strong>\(x - y\)：</strong>表示火车完全在隧道内时的行程</li>
+                <li>这两个量分别对应30秒和20秒的行程</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section data-section="5" id="section5">
+    <div class="container">
+        <div class="card">
+            <h2>🧮求解二元一次方程组</h2>
+
+            <p><strong>使用加减消元法求解：</strong></p>
+
+            <div class="equation">
+                <p>方程组：</p>
+                \[
+                \begin{cases}
+                x + y = 1200 & \text{(1)} \\
+                x - y = 800 & \text{(2)}
+                \end{cases}
+                \]
+            </div>
+
+            <p><strong>步骤1：两式相加消除y</strong></p>
+            <div class="equation">
+                \[(x + y) + (x - y) = 1200 + 800\]
+                \[2x = 2000\]
+                \[\boxed{x = 1000 \text{ 米}}\]
+            </div>
+
+            <p><strong>步骤2：将x值代入方程(1)求y</strong></p>
+            <div class="equation">
+                \[1000 + y = 1200\]
+                \[y = 1200 - 1000\]
+                \[\boxed{y = 200 \text{ 米}}\]
+            </div>
+
+            <div class="dimensions-display">
+                <h4>✅ 最终答案</h4>
+                <p><strong>隧道长度：</strong>\(x = 1000\) 米</p>
+                <p><strong>火车长度：</strong>\(y = 200\) 米</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="section5" data-section="5">
-        <div class="container">
-            <div class="card">
-                <h2>🧮求解二元一次方程组</h2>
+<section data-section="6" id="section6">
+    <div class="container">
+        <div class="card">
+            <h2>✅验证答案并总结</h2>
 
-                <p><strong>使用加减消元法求解：</strong></p>
+            <p><strong>验证计算结果：</strong></p>
 
-                <div class="equation">
-                    <p>方程组：</p>
-                    \[
-                    \begin{cases}
-                    x + y = 1200 & \text{(1)} \\
-                    x - y = 800 & \text{(2)}
-                    \end{cases}
-                    \]
-                </div>
+            <div class="equation">
+                <p><strong>验证方程(1)：\(x + y = 1200\)</strong></p>
+                <p>\(1000 + 200 = 1200\) ✓</p>
+            </div>
 
-                <p><strong>步骤1：两式相加消除y</strong></p>
-                <div class="equation">
-                    \[(x + y) + (x - y) = 1200 + 800\]
-                    \[2x = 2000\]
-                    \[\boxed{x = 1000 \text{ 米}}\]
-                </div>
+            <div class="equation">
+                <p><strong>验证方程(2)：\(x - y = 800\)</strong></p>
+                <p>\(1000 - 200 = 800\) ✓</p>
+            </div>
 
-                <p><strong>步骤2：将x值代入方程(1)求y</strong></p>
-                <div class="equation">
-                    \[1000 + y = 1200\]
-                    \[y = 1200 - 1000\]
-                    \[\boxed{y = 200 \text{ 米}}\]
-                </div>
+            <div class="equation">
+                <p><strong>物理验证：</strong></p>
+                <p>• 总通过时间：\(\frac{1000 + 200}{40} = \frac{1200}{40} = 30\) 秒 ✓</p>
+                <p>• 完全内部时间：\(\frac{1000 - 200}{40} = \frac{800}{40} = 20\) 秒 ✓</p>
+            </div>
 
-                <div class="dimensions-display">
-                    <h4>✅ 最终答案</h4>
-                    <p><strong>隧道长度：</strong>\(x = 1000\) 米</p>
-                    <p><strong>火车长度：</strong>\(y = 200\) 米</p>
-                </div>
+            <div class="problem-text" style="background: #e8f5e8; border-left-color: #4CAF50;">
+                <h3>💡 问题的数学本质</h3>
+                <p><strong>• 运动问题：</strong>利用路程 = 速度 × 时间建立等量关系</p>
+                <p><strong>• 几何理解：</strong>火车通过隧道的路程分析是关键</p>
+                <p><strong>• 代数方法：</strong>二元一次方程组是解决此类问题的有力工具</p>
+                <p><strong>• 实际应用：</strong>类似问题在交通、工程中经常出现</p>
+            </div>
+
+            <div class="problem-text" style="background: #fff3cd; border-left-color: #ff9800;">
+                <h3>🎯 AI辅助教学的价值</h3>
+                <p><strong>• 可视化：</strong>动画演示让抽象的运动过程变得直观</p>
+                <p><strong>• 分步引导：</strong>复杂问题分解为容易理解的步骤</p>
+                <p><strong>• 互动体验：</strong>学生可以反复观看，按自己节奏学习</p>
+                <p><strong>• 概念建模：</strong>帮助学生理解数学与现实世界的联系</p>
+            </div>
+
+            <div class="problem-text" style="background: #acdfeb; border-left-color: #8ad4a3;">
+                <h4>🚀 拓展思考</h4>
+                <p>• 如果火车速度变为50 m/s，其他条件不变，结果如何？</p>
+                <p>• 两列火车相向而行通过隧道，如何分析？</p>
+                <p>• 现实中的过铁路桥问题有什么特点？</p>
             </div>
         </div>
-    </section>
-
-    <section id="section6" data-section="6">
-        <div class="container">
-            <div class="card">
-                <h2>✅验证答案并总结</h2>
-
-                <p><strong>验证计算结果：</strong></p>
-
-                <div class="equation">
-                    <p><strong>验证方程(1)：\(x + y = 1200\)</strong></p>
-                    <p>\(1000 + 200 = 1200\) ✓</p>
-                </div>
-
-                <div class="equation">
-                    <p><strong>验证方程(2)：\(x - y = 800\)</strong></p>
-                    <p>\(1000 - 200 = 800\) ✓</p>
-                </div>
-
-                <div class="equation">
-                    <p><strong>物理验证：</strong></p>
-                    <p>• 总通过时间：\(\frac{1000 + 200}{40} = \frac{1200}{40} = 30\) 秒 ✓</p>
-                    <p>• 完全内部时间：\(\frac{1000 - 200}{40} = \frac{800}{40} = 20\) 秒 ✓</p>
-                </div>
-
-                <div class="problem-text" style="background: #e8f5e8; border-left-color: #4CAF50;">
-                    <h3>💡 问题的数学本质</h3>
-                    <p><strong>• 运动问题：</strong>利用路程 = 速度 × 时间建立等量关系</p>
-                    <p><strong>• 几何理解：</strong>火车通过隧道的路程分析是关键</p>
-                    <p><strong>• 代数方法：</strong>二元一次方程组是解决此类问题的有力工具</p>
-                    <p><strong>• 实际应用：</strong>类似问题在交通、工程中经常出现</p>
-                </div>
-
-                <div class="problem-text" style="background: #fff3cd; border-left-color: #ff9800;">
-                    <h3>🎯 AI辅助教学的价值</h3>
-                    <p><strong>• 可视化：</strong>动画演示让抽象的运动过程变得直观</p>
-                    <p><strong>• 分步引导：</strong>复杂问题分解为容易理解的步骤</p>
-                    <p><strong>• 互动体验：</strong>学生可以反复观看，按自己节奏学习</p>
-                    <p><strong>• 概念建模：</strong>帮助学生理解数学与现实世界的联系</p>
-                </div>
-
-                <div class="problem-text" style="background: #acdfeb; border-left-color: #8ad4a3;">
-                    <h4>🚀 拓展思考</h4>
-                    <p>• 如果火车速度变为50 m/s，其他条件不变，结果如何？</p>
-                    <p>• 两列火车相向而行通过隧道，如何分析？</p>
-                    <p>• 现实中的过铁路桥问题有什么特点？</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 <!-- 
     <footer>
         <p>数学课后练习 &copy; 2025|海旺学校-刘如芳</p>
     </footer> -->
 
-    <!-- KaTeX JavaScript -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
+<!-- KaTeX JavaScript -->
+<script crossorigin="anonymous" defer
         integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx"
-        crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer
         integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-        crossorigin="anonymous"></script>
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-            // 渲染数学公式
-            if (typeof renderMathInElement !== 'undefined') {
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        { left: '\\(', right: '\\)', display: false },
-                        { left: '\\[', right: '\\]', display: true }
-                    ]
-                });
+        // 渲染数学公式
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ]
+            });
+        }
+
+        // 存储当前播放的audio
+        let currentAudio = null;
+
+        // 播放音频
+        function playAudio(audio) {
+            // 如果已经有audio在播放，先暂停
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; // 可选：重置播放进度
             }
 
-            // 存储当前播放的audio
-            let currentAudio = null;
+            // 播放新的audio并更新currentAudio
+            audio.play();
+            currentAudio = audio;
+        }
+
+        // 动画相关变量
+        let animationState = 'ready';
+        let currentAnimationStep = 0;
+        let isStepByStepMode = false;
+
+        // 动画步骤配置
+        const animationSteps = [
+            // {
+            //     name: '准备阶段',
+            //     description: '火车即将进入隧道',
+            //     trainPosition: -150,
+            //     className: 'phase-indicator'
+            // },
+            {
+                name: '步骤1：车头刚进入',
+                description: '火车头刚好进入隧道口',
+                trainPosition: 150,
+                className: 'phase-indicator phase-1',
+                mp3: new Audio('./火车资源/火车头刚好进入隧道.mp3')
+            },
+            {
+                name: '步骤2：完全进入隧道',
+                description: '火车车尾刚好进入隧道入口，整个火车都在隧道内',
+                trainPosition: 250,
+                className: 'phase-indicator phase-2',
+                mp3: new Audio('./火车资源/火车车尾刚好进入隧道入口，整个火车都在隧道内.mp3')
+            },
+            {
+                name: '步骤3：车头刚出隧道',
+                description: '火车头刚好出隧道口，但车身仍在隧道内',
+                trainPosition: 550,
+                className: 'phase-indicator phase-3',
+                mp3: new Audio('./火车资源/火车头刚好出隧道口，但车身仍在隧道内.mp3')
+            },
+            {
+                name: '步骤4：车尾刚出隧道',
+                description: '火车车尾刚好离开隧道出口，火车完全离开隧道',
+                trainPosition: 650,
+                className: 'phase-indicator phase-1',
+                mp3: new Audio('./火车资源/火车车尾刚好离开隧道出口，火车完全离开隧道了.mp3')
+            },
+            {
+                name: '步骤5：火车远离',
+                description: '火车继续向前行驶，完全离开',
+                trainPosition: 800,
+                className: 'phase-indicator',
+                mp3: new Audio('./火车资源/火车继续向前行驶，完全离开.mp3')
+
+            }
+        ];
+
+        // 下一步动画
+        function nextAnimationStep() {
+            if (animationState !== 'running' && !isStepByStepMode) {
+                startStepByStepAnimation();
+                return;
+            }
+
+            if (currentAnimationStep < animationSteps.length - 1) {
+                currentAnimationStep++;
+                goToAnimationStep(currentAnimationStep);
+            } else {
+                animationState = 'finished';
+                updatePhaseIndicator('动画完成！火车已完全通过隧道', 'phase-indicator');
+            }
+        }
+
+        // 跳转到指定动画步骤
+        function goToAnimationStep(stepIndex) {
+            if (stepIndex < 0 || stepIndex >= animationSteps.length) return;
+
+            currentAnimationStep = stepIndex;
+            const step = animationSteps[stepIndex];
+            const train = document.getElementById('train');
+
+            const trainPosition = calculateTrainPosition(stepIndex);
+            train.style.left = trainPosition + 'px';
+
+            updatePhaseIndicator(step.description, step.className);
+            updateStepIndicator(stepIndex);
             // 播放音频
-            function playAudio(audio) {
-                // 如果已经有audio在播放，先暂停
-                if (currentAudio && currentAudio !== audio) {
-                    currentAudio.pause();
-                    currentAudio.currentTime = 0; // 可选：重置播放进度
+            const mp3 = step.mp3
+            playAudio(mp3)
+
+        }
+
+        // 计算准确的火车位置
+        function calculateTrainPosition(stepIndex) {
+            const scene = document.getElementById('tunnelScene');
+            const tunnel = document.getElementById('tunnel');
+
+            if (!scene || !tunnel) return animationSteps[stepIndex].trainPosition;
+
+            const sceneRect = scene.getBoundingClientRect();
+            const tunnelRect = tunnel.getBoundingClientRect();
+
+            const tunnelLeftInScene = tunnelRect.left - sceneRect.left;
+            const tunnelRightInScene = tunnelRect.right - sceneRect.left;
+
+            const trainWidth = 120;
+
+            switch (stepIndex) {
+                case 0:
+                    return tunnelLeftInScene - trainWidth;
+                case 1:
+                    return tunnelLeftInScene;
+                case 2:
+                    return tunnelRightInScene - trainWidth;
+                case 3:
+                    return tunnelRightInScene;
+                case 4:
+                    return tunnelRightInScene + 100;
+                default:
+                    return animationSteps[stepIndex].trainPosition;
+            }
+        }
+
+        // 更新阶段指示器
+        function updatePhaseIndicator(text, className) {
+            const indicator = document.getElementById('phaseIndicator');
+            indicator.textContent = text;
+            indicator.className = className;
+        }
+
+        // 更新步骤指示器
+        function updateStepIndicator(activeStep) {
+            const stepDots = document.querySelectorAll('.step-dot');
+            stepDots.forEach((dot, index) => {
+                dot.classList.remove('active', 'completed');
+                if (index === activeStep) {
+                    dot.classList.add('active');
+                } else if (index < activeStep) {
+                    dot.classList.add('completed');
                 }
-                
-                // 播放新的audio并更新currentAudio
-                audio.play();
-                currentAudio = audio;
-            }
+            });
+        }
 
-            // 动画相关变量
-            let animationState = 'ready';
-            let currentAnimationStep = 0;
-            let isStepByStepMode = false;
+        // 开始分步动画
+        function startStepByStepAnimation() {
+            isStepByStepMode = true;
+            resetAnimation();
+            animationState = 'running';
 
-            // 动画步骤配置
-            const animationSteps = [
-                // {
-                //     name: '准备阶段',
-                //     description: '火车即将进入隧道',
-                //     trainPosition: -150,
-                //     className: 'phase-indicator'
-                // },
-                {
-                    name: '步骤1：车头刚进入',
-                    description: '火车头刚好进入隧道口',
-                    trainPosition: 150,
-                    className: 'phase-indicator phase-1',
-                    mp3: new Audio('./火车资源/火车头刚好进入隧道.mp3')
-                },
-                {
-                    name: '步骤2：完全进入隧道',
-                    description: '火车车尾刚好进入隧道入口，整个火车都在隧道内',
-                    trainPosition: 250,
-                    className: 'phase-indicator phase-2',
-                    mp3: new Audio('./火车资源/火车车尾刚好进入隧道入口，整个火车都在隧道内.mp3')
-                },
-                {
-                    name: '步骤3：车头刚出隧道',
-                    description: '火车头刚好出隧道口，但车身仍在隧道内',
-                    trainPosition: 550,
-                    className: 'phase-indicator phase-3',
-                    mp3: new Audio('./火车资源/火车头刚好出隧道口，但车身仍在隧道内.mp3')
-                },
-                {
-                    name: '步骤4：车尾刚出隧道',
-                    description: '火车车尾刚好离开隧道出口，火车完全离开隧道',
-                    trainPosition: 650,
-                    className: 'phase-indicator phase-1',
-                    mp3: new Audio('./火车资源/火车车尾刚好离开隧道出口，火车完全离开隧道了.mp3')
-                },
-                {
-                    name: '步骤5：火车远离',
-                    description: '火车继续向前行驶，完全离开',
-                    trainPosition: 800,
-                    className: 'phase-indicator',
-                    mp3: new Audio('./火车资源/火车继续向前行驶，完全离开.mp3')
+            setTimeout(() => {
+                goToAnimationStep(0);
+            }, 100);
+        }
 
-                }
-            ];
+        // 重置动画
+        function resetAnimation() {
+            animationState = 'ready';
+            currentAnimationStep = 1;
+            isStepByStepMode = false;
 
-            // 下一步动画
-            function nextAnimationStep() {
-                if (animationState !== 'running' && !isStepByStepMode) {
-                    startStepByStepAnimation();
-                    return;
-                }
+            const train = document.getElementById('train');
+            train.style.transition = 'none';
+            train.style.left = '-150px';
 
-                if (currentAnimationStep < animationSteps.length - 1) {
-                    currentAnimationStep++;
-                    goToAnimationStep(currentAnimationStep);
-                } else {
-                    animationState = 'finished';
-                    updatePhaseIndicator('动画完成！火车已完全通过隧道', 'phase-indicator');
-                }
-            }
+            setTimeout(() => {
+                train.style.transition = 'left 2s ease-in-out';
+            }, 50);
 
-            // 跳转到指定动画步骤
-            function goToAnimationStep(stepIndex) {
-                if (stepIndex < 0 || stepIndex >= animationSteps.length) return;
+            updatePhaseIndicator('准备开始：火车即将进入隧道', 'phase-indicator');
+            updateStepIndicator(0);
+            hideMeasurements();
+        }
 
-                currentAnimationStep = stepIndex;
-                const step = animationSteps[stepIndex];
-                const train = document.getElementById('train');
+        // 显示基础测量（火车长度和隧道长度）
+        function showBasicMeasurements() {
+            hideMeasurements();
 
-                const trainPosition = calculateTrainPosition(stepIndex);
-                train.style.left = trainPosition + 'px';
+            const scene = document.getElementById('tunnelScene');
+            const tunnel = document.getElementById('tunnel');
+            const train = document.getElementById('train');
 
-                updatePhaseIndicator(step.description, step.className);
-                updateStepIndicator(stepIndex);
-                // 播放音频
-                const mp3 = step.mp3
-                playAudio(mp3)
+            if (!scene || !tunnel || !train) return;
 
-            }
+            const sceneRect = scene.getBoundingClientRect();
+            const tunnelRect = tunnel.getBoundingClientRect();
+            const trainRect = train.getBoundingClientRect();
 
-            // 计算准确的火车位置
-            function calculateTrainPosition(stepIndex) {
-                const scene = document.getElementById('tunnelScene');
-                const tunnel = document.getElementById('tunnel');
+            const tunnelLeftInScene = tunnelRect.left - sceneRect.left;
+            const trainLeftInScene = trainRect.left - sceneRect.left;
 
-                if (!scene || !tunnel) return animationSteps[stepIndex].trainPosition;
+            const trainLength = document.getElementById('trainLength');
+            const trainLengthText = document.getElementById('trainLengthText');
+            const tunnelLength = document.getElementById('tunnelLength');
+            const tunnelLengthText = document.getElementById('tunnelLengthText');
 
-                const sceneRect = scene.getBoundingClientRect();
-                const tunnelRect = tunnel.getBoundingClientRect();
+            // 火车长度测量线
+            trainLength.style.display = 'block';
+            trainLength.style.bottom = '70px';
+            trainLength.style.left = Math.max(10, trainLeftInScene) + 'px';
+            trainLength.style.width = '120px';
+            trainLength.style.transform = 'none';
 
-                const tunnelLeftInScene = tunnelRect.left - sceneRect.left;
-                const tunnelRightInScene = tunnelRect.right - sceneRect.left;
+            trainLengthText.style.display = 'block';
+            trainLengthText.style.bottom = '45px';
+            trainLengthText.style.left = Math.max(70, trainLeftInScene + 60) + 'px';
+            trainLengthText.style.transform = 'none';
+            trainLengthText.textContent = '火车长度 y';
 
-                const trainWidth = 120;
+            // 隧道长度测量线
+            tunnelLength.style.display = 'block';
+            tunnelLength.style.top = '60px';
+            tunnelLength.style.left = tunnelLeftInScene + 'px';
+            tunnelLength.style.width = '500px';
+            tunnelLength.style.transform = 'none';
 
-                switch (stepIndex) {
-                    case 0:
-                        return tunnelLeftInScene - trainWidth;
-                    case 1:
-                        return tunnelLeftInScene;
-                    case 2:
-                        return tunnelRightInScene - trainWidth;
-                    case 3:
-                        return tunnelRightInScene;
-                    case 4:
-                        return tunnelRightInScene + 100;
-                    default:
-                        return animationSteps[stepIndex].trainPosition;
-                }
-            }
+            tunnelLengthText.style.display = 'block';
+            tunnelLengthText.style.top = '35px';
+            tunnelLengthText.style.left = (tunnelLeftInScene + 250) + 'px';
+            tunnelLengthText.style.transform = 'translateX(-50%)';
+            tunnelLengthText.textContent = '隧道长度 x';
+        }
 
-            // 更新阶段指示器
-            function updatePhaseIndicator(text, className) {
-                const indicator = document.getElementById('phaseIndicator');
-                indicator.textContent = text;
-                indicator.className = className;
-            }
+        // 显示教学用测量（重点展示x+y和x-y的概念）
+        function showEducationalMeasurements() {
+            hideMeasurements();
 
-            // 更新步骤指示器
-            function updateStepIndicator(activeStep) {
-                const stepDots = document.querySelectorAll('.step-dot');
-                stepDots.forEach((dot, index) => {
-                    dot.classList.remove('active', 'completed');
-                    if (index === activeStep) {
-                        dot.classList.add('active');
-                    } else if (index < activeStep) {
-                        dot.classList.add('completed');
-                    }
-                });
-            }
+            const scene = document.getElementById('tunnelScene');
+            const tunnel = document.getElementById('tunnel');
 
-            // 开始分步动画
-            function startStepByStepAnimation() {
-                isStepByStepMode = true;
-                resetAnimation();
-                animationState = 'running';
+            if (!scene || !tunnel) return;
 
-                setTimeout(() => {
-                    goToAnimationStep(0);
-                }, 100);
-            }
+            const sceneRect = scene.getBoundingClientRect();
+            const tunnelRect = tunnel.getBoundingClientRect();
 
-            // 重置动画
-            function resetAnimation() {
-                animationState = 'ready';
-                currentAnimationStep = 1;
-                isStepByStepMode = false;
+            const tunnelLeftInScene = tunnelRect.left - sceneRect.left;
+            const tunnelRightInScene = tunnelRect.right - sceneRect.left;
+            const sceneWidth = sceneRect.width;
 
-                const train = document.getElementById('train');
-                train.style.transition = 'none';
-                train.style.left = '-150px';
+            const totalDistance = document.getElementById('totalDistance');
+            const totalDistanceText = document.getElementById('totalDistanceText');
+            const innerDistance = document.getElementById('innerDistance');
+            const innerDistanceText = document.getElementById('innerDistanceText');
+            const trainLength = document.getElementById('trainLength');
+            const trainLengthText = document.getElementById('trainLengthText');
+            const tunnelLength = document.getElementById('tunnelLength');
+            const tunnelLengthText = document.getElementById('tunnelLengthText');
 
-                setTimeout(() => {
-                    train.style.transition = 'left 2s ease-in-out';
-                }, 50);
+            // 1. 总路程 x+y （从车头开始进入到车尾完全离开的距离）
+            const totalStart = Math.max(20, tunnelLeftInScene);
+            const totalEnd = Math.min(sceneWidth - 20, tunnelRightInScene + 120);
+            const totalWidth = totalEnd - totalStart;
 
-                updatePhaseIndicator('准备开始：火车即将进入隧道', 'phase-indicator');
-                updateStepIndicator(0);
-                hideMeasurements();
-            }
+            totalDistance.style.display = 'block';
+            totalDistance.style.top = '20px';
+            totalDistance.style.left = totalStart + 'px';
+            totalDistance.style.width = totalWidth + 'px';
+            totalDistance.style.transform = 'none';
 
-            // 显示基础测量（火车长度和隧道长度）
-            function showBasicMeasurements() {
-                hideMeasurements();
+            totalDistanceText.style.display = 'block';
+            totalDistanceText.style.top = '-5px';
+            totalDistanceText.style.left = (totalStart + totalWidth / 2) + 'px';
+            totalDistanceText.style.transform = 'translateX(-50%)';
+            totalDistanceText.innerHTML = '<strong>总路程 x+y</strong><br>火车从车头进入到车尾离开';
 
-                const scene = document.getElementById('tunnelScene');
-                const tunnel = document.getElementById('tunnel');
-                const train = document.getElementById('train');
+            // 2. 内部路程 x-y （火车完全在隧道内时的行驶距离）
+            const innerStart = tunnelLeftInScene;
+            const innerEnd = tunnelRightInScene;
+            const innerWidth = innerEnd - innerStart;
 
-                if (!scene || !tunnel || !train) return;
+            innerDistance.style.display = 'block';
+            innerDistance.style.bottom = '25px';
+            innerDistance.style.left = innerStart + 'px';
+            innerDistance.style.width = innerWidth + 'px';
+            innerDistance.style.transform = 'none';
 
-                const sceneRect = scene.getBoundingClientRect();
-                const tunnelRect = tunnel.getBoundingClientRect();
-                const trainRect = train.getBoundingClientRect();
+            innerDistanceText.style.display = 'block';
+            innerDistanceText.style.bottom = '0px';
+            innerDistanceText.style.left = (innerStart + innerWidth / 2) + 'px';
+            innerDistanceText.style.transform = 'translateX(-50%)';
+            innerDistanceText.innerHTML = '<strong>内部路程 x-y</strong><br>火车完全在隧道内的距离';
 
-                const tunnelLeftInScene = tunnelRect.left - sceneRect.left;
-                const trainLeftInScene = trainRect.left - sceneRect.left;
+            // 3. 显示基础长度作为参考
+            trainLength.style.display = 'block';
+            trainLength.style.bottom = '70px';
+            trainLength.style.left = '350px';
+            trainLength.style.width = '120px';
+            trainLength.style.transform = 'none';
 
-                const trainLength = document.getElementById('trainLength');
-                const trainLengthText = document.getElementById('trainLengthText');
-                const tunnelLength = document.getElementById('tunnelLength');
-                const tunnelLengthText = document.getElementById('tunnelLengthText');
+            trainLengthText.style.display = 'block';
+            trainLengthText.style.bottom = '80px';
+            trainLengthText.style.left = '420px';
+            trainLengthText.style.transform = 'translateX(-50%)';
+            trainLengthText.textContent = 'y';
 
-                // 火车长度测量线
-                trainLength.style.display = 'block';
-                trainLength.style.bottom = '70px';
-                trainLength.style.left = Math.max(10, trainLeftInScene) + 'px';
-                trainLength.style.width = '120px';
-                trainLength.style.transform = 'none';
+            tunnelLength.style.display = 'block';
+            tunnelLength.style.top = '370px';
+            tunnelLength.style.left = tunnelLeftInScene + 'px';
+            tunnelLength.style.width = '500px';
+            tunnelLength.style.transform = 'none';
 
-                trainLengthText.style.display = 'block';
-                trainLengthText.style.bottom = '45px';
-                trainLengthText.style.left = Math.max(70, trainLeftInScene + 60) + 'px';
-                trainLengthText.style.transform = 'none';
-                trainLengthText.textContent = '火车长度 y';
+            tunnelLengthText.style.display = 'block';
+            tunnelLengthText.style.top = '350px';
+            tunnelLengthText.style.left = (tunnelLeftInScene + 250) + 'px';
+            tunnelLengthText.style.transform = 'translateX(-50%)';
+            tunnelLengthText.textContent = 'x = 1000m';
 
-                // 隧道长度测量线
-                tunnelLength.style.display = 'block';
-                tunnelLength.style.top = '60px';
-                tunnelLength.style.left = tunnelLeftInScene + 'px';
-                tunnelLength.style.width = '500px';
-                tunnelLength.style.transform = 'none';
-
-                tunnelLengthText.style.display = 'block';
-                tunnelLengthText.style.top = '35px';
-                tunnelLengthText.style.left = (tunnelLeftInScene + 250) + 'px';
-                tunnelLengthText.style.transform = 'translateX(-50%)';
-                tunnelLengthText.textContent = '隧道长度 x';
-            }
-
-            // 显示教学用测量（重点展示x+y和x-y的概念）
-            function showEducationalMeasurements() {
-                hideMeasurements();
-
-                const scene = document.getElementById('tunnelScene');
-                const tunnel = document.getElementById('tunnel');
-
-                if (!scene || !tunnel) return;
-
-                const sceneRect = scene.getBoundingClientRect();
-                const tunnelRect = tunnel.getBoundingClientRect();
-
-                const tunnelLeftInScene = tunnelRect.left - sceneRect.left;
-                const tunnelRightInScene = tunnelRect.right - sceneRect.left;
-                const sceneWidth = sceneRect.width;
-
-                const totalDistance = document.getElementById('totalDistance');
-                const totalDistanceText = document.getElementById('totalDistanceText');
-                const innerDistance = document.getElementById('innerDistance');
-                const innerDistanceText = document.getElementById('innerDistanceText');
-                const trainLength = document.getElementById('trainLength');
-                const trainLengthText = document.getElementById('trainLengthText');
-                const tunnelLength = document.getElementById('tunnelLength');
-                const tunnelLengthText = document.getElementById('tunnelLengthText');
-
-                // 1. 总路程 x+y （从车头开始进入到车尾完全离开的距离）
-                const totalStart = Math.max(20, tunnelLeftInScene);
-                const totalEnd = Math.min(sceneWidth - 20, tunnelRightInScene + 120);
-                const totalWidth = totalEnd - totalStart;
-
-                totalDistance.style.display = 'block';
-                totalDistance.style.top = '20px';
-                totalDistance.style.left = totalStart + 'px';
-                totalDistance.style.width = totalWidth + 'px';
-                totalDistance.style.transform = 'none';
-
-                totalDistanceText.style.display = 'block';
-                totalDistanceText.style.top = '-5px';
-                totalDistanceText.style.left = (totalStart + totalWidth / 2) + 'px';
-                totalDistanceText.style.transform = 'translateX(-50%)';
-                totalDistanceText.innerHTML = '<strong>总路程 x+y</strong><br>火车从车头进入到车尾离开';
-
-                // 2. 内部路程 x-y （火车完全在隧道内时的行驶距离）
-                const innerStart = tunnelLeftInScene;
-                const innerEnd = tunnelRightInScene;
-                const innerWidth = innerEnd - innerStart;
-
-                innerDistance.style.display = 'block';
-                innerDistance.style.bottom = '25px';
-                innerDistance.style.left = innerStart + 'px';
-                innerDistance.style.width = innerWidth + 'px';
-                innerDistance.style.transform = 'none';
-
-                innerDistanceText.style.display = 'block';
-                innerDistanceText.style.bottom = '0px';
-                innerDistanceText.style.left = (innerStart + innerWidth / 2) + 'px';
-                innerDistanceText.style.transform = 'translateX(-50%)';
-                innerDistanceText.innerHTML = '<strong>内部路程 x-y</strong><br>火车完全在隧道内的距离';
-
-                // 3. 显示基础长度作为参考
-                trainLength.style.display = 'block';
-                trainLength.style.bottom = '70px';
-                trainLength.style.left = '350px';
-                trainLength.style.width = '120px';
-                trainLength.style.transform = 'none';
-
-                trainLengthText.style.display = 'block';
-                trainLengthText.style.bottom = '80px';
-                trainLengthText.style.left = '420px';
-                trainLengthText.style.transform = 'translateX(-50%)';
-                trainLengthText.textContent = 'y';
-
-                tunnelLength.style.display = 'block';
-                tunnelLength.style.top = '370px';
-                tunnelLength.style.left = tunnelLeftInScene + 'px';
-                tunnelLength.style.width = '500px';
-                tunnelLength.style.transform = 'none';
-
-                tunnelLengthText.style.display = 'block';
-                tunnelLengthText.style.top = '350px';
-                tunnelLengthText.style.left = (tunnelLeftInScene + 250) + 'px';
-                tunnelLengthText.style.transform = 'translateX(-50%)';
-                tunnelLengthText.textContent = 'x = 1000m';
-
-                // 更新阶段指示器来解释概念
-                const indicator = document.getElementById('phaseIndicator');
-                indicator.innerHTML = `
+            // 更新阶段指示器来解释概念
+            const indicator = document.getElementById('phaseIndicator');
+            indicator.innerHTML = `
                 <div style="text-align: left; line-height: 1.6;">
                     <div style="color: #4CAF50; font-weight: bold;">🟢 行驶时间是30秒时的总路程 x+y = ?</div>
                     <div style="margin-bottom: 8px;">从车头开始进入隧道到车尾完全离开隧道的总距离</div>
@@ -1156,69 +1165,69 @@
                     <div>火车完全在隧道内运行的距离:隧道长度减去火车长度</div>
                 </div>
             `;
-            }
+        }
 
-            // 隐藏所有测量线条
-            function hideMeasurements() {
-                document.getElementById('trainLength').style.display = 'none';
-                document.getElementById('trainLengthText').style.display = 'none';
-                document.getElementById('tunnelLength').style.display = 'none';
-                document.getElementById('tunnelLengthText').style.display = 'none';
-                document.getElementById('totalDistance').style.display = 'none';
-                document.getElementById('totalDistanceText').style.display = 'none';
-                document.getElementById('innerDistance').style.display = 'none';
-                document.getElementById('innerDistanceText').style.display = 'none';
-            }
+        // 隐藏所有测量线条
+        function hideMeasurements() {
+            document.getElementById('trainLength').style.display = 'none';
+            document.getElementById('trainLengthText').style.display = 'none';
+            document.getElementById('tunnelLength').style.display = 'none';
+            document.getElementById('tunnelLengthText').style.display = 'none';
+            document.getElementById('totalDistance').style.display = 'none';
+            document.getElementById('totalDistanceText').style.display = 'none';
+            document.getElementById('innerDistance').style.display = 'none';
+            document.getElementById('innerDistanceText').style.display = 'none';
+        }
 
-            // 添加动画步骤指示器点击事件
-            function addAnimationStepClickEvents() {
-                const stepDots = document.querySelectorAll('.step-dot');
-                stepDots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        if (!isStepByStepMode) {
-                            isStepByStepMode = true;
-                            animationState = 'running';
-                        }
+        // 添加动画步骤指示器点击事件
+        function addAnimationStepClickEvents() {
+            const stepDots = document.querySelectorAll('.step-dot');
+            stepDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    if (!isStepByStepMode) {
+                        isStepByStepMode = true;
+                        animationState = 'running';
+                    }
 
-                        setTimeout(() => {
-                            goToAnimationStep(index);
-                        }, 50);
-                    });
-                });
-            }
-
-            // 窗口大小变化时重新计算位置
-            function handleResize() {
-                if (isStepByStepMode && animationState === 'running') {
                     setTimeout(() => {
-                        goToAnimationStep(currentAnimationStep);
-                    }, 100);
-                }
-            }
-
-            // 页面加载时的初始化
-            // 初始化动画相关事件
-            addAnimationStepClickEvents();
-            window.addEventListener('resize', handleResize);
-
-            // 确保函数全局可访问
-            window.nextAnimationStep = nextAnimationStep;
-            window.showEducationalMeasurements = showEducationalMeasurements;
-            window.showBasicMeasurements = showBasicMeasurements;
-            window.resetAnimation = resetAnimation;
-
-            // 渲染数学公式
-            if (typeof renderMathInElement !== 'undefined') {
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        { left: '\\(', right: '\\)', display: false },
-                        { left: '\\[', right: '\\]', display: true }
-                    ]
+                        goToAnimationStep(index);
+                    }, 50);
                 });
-            }
-        });
+            });
+        }
 
-    </script>
+        // 窗口大小变化时重新计算位置
+        function handleResize() {
+            if (isStepByStepMode && animationState === 'running') {
+                setTimeout(() => {
+                    goToAnimationStep(currentAnimationStep);
+                }, 100);
+            }
+        }
+
+        // 页面加载时的初始化
+        // 初始化动画相关事件
+        addAnimationStepClickEvents();
+        window.addEventListener('resize', handleResize);
+
+        // 确保函数全局可访问
+        window.nextAnimationStep = nextAnimationStep;
+        window.showEducationalMeasurements = showEducationalMeasurements;
+        window.showBasicMeasurements = showBasicMeasurements;
+        window.resetAnimation = resetAnimation;
+
+        // 渲染数学公式
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ]
+            });
+        }
+    });
+
+</script>
 </body>
 
 </html>

@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>汽车上下坡问题 - 交互式动画</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     <style>
@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
             color: #333;
             line-height: 1.6;
             font-size: 24px;
@@ -550,210 +550,214 @@
     </style>
 </head>
 <body>
-    <section id="section1" data-section="1">
-<div class="container">
-            <div class="header">
-                <h1>🚗 汽车上下坡问题</h1>
-                <p>用动画理解二元一次方程组的实际应用</p>
-            </div>
-
-            <div class="card">
-                <h2>📝 题目展示</h2>
-                <div class="problem-text">
-<!--                    <h3>汽车上下坡问题</h3>-->
-                    <p><strong>题目：</strong>一辆汽车在山区公路上行驶（<span style="color: #E65100; font-style: italic;">地理知识：山区地形复杂，道路坡度影响车速</span>），在上下坡过程中，速度会发生变化：</p>
-                    <ul>
-                        <li>上坡时，速度为 \( 28 \, \text{km/h} \)（<span style="color: #E65100; font-style: italic;">上坡需要克服重力，速度较慢</span>）</li>
-                        <li>下坡时，速度为 \( 42 \, \text{km/h} \)（<span style="color: #E65100; font-style: italic;">重力帮助前进，速度较快</span>）</li>
-                        <li>从甲地到乙地用了 4 小时 30 分钟</li>
-                        <li>返回时用了 4 小时 40 分钟</li>
-                    </ul>
-                    <p><strong>问题：</strong>从甲地到乙地的上坡路和下坡路各是多少千米？</p>
-                    <p style="margin-top: 15px; font-size: 0.95em; color: #666; font-style: italic;">💡 地理应用：我国山区公路（如川藏公路）设计时，工程师需要考虑坡度对车速的影响，确保行车安全。道路坡度通常用百分比表示，如5%表示每100米上升5米。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="section2" data-section="2">
-<!--        <div class="container">-->
-            <div class="card">
-                <h2>🎬 上下坡动画演示</h2>
-                <div class="animation-container">
-<!--                    <div class="animation-title">分步展示汽车通过上下坡的完整过程</div>-->
-                    <div class="hill-scene">
-                    <div class="sky"></div>
-                    <div class="hill-svg-container">
-                        <svg class="hill-svg" viewBox="0 0 1000 200" preserveAspectRatio="none">
-                            <!-- 山坡路径 -->
-                            <path id="hillPath" d="M 100,200 L 500,50 L 900,200" fill="#795548"/>
-                            <!-- 道路路径 -->
-                            <path id="roadPath" d="M 100,200 L 500,50 L 900,200" fill="#555" stroke="none"/>
-                            <!-- 路径标记 -->
-                            <circle cx="100" cy="200" r="5" fill="#e74c3c"/>
-                            <circle cx="500" cy="50" r="5" fill="#e74c3c"/>
-                            <circle cx="900" cy="200" r="5" fill="#e74c3c"/>
-                            <text x="100" y="190" class="path-marker" text-anchor="middle">甲地</text>
-                            <text x="500" y="40" class="path-marker" text-anchor="middle">最高点</text>
-                            <text x="900" y="190" class="path-marker" text-anchor="middle">乙地</text>
-
-                            <!-- 线段图图层 -->
-                            <g id="diagramOverlay">
-                                <!-- 这里将通过JavaScript添加线段 -->
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="ground"></div>
-
-                    <!-- 汽车 -->
-                    <div class="car" id="car">
-                        <div class="car-body"></div>
-                        <div class="car-top"></div>
-                        <div class="wheel front"></div>
-                        <div class="wheel back"></div>
-                    </div>
-                </div>
-
-                <div class="info-panel">
-                    <div class="info-card">
-                        <div>当前位置</div>
-                        <div class="info-value" id="position">起点</div>
-                    </div>
-                    <div class="info-card">
-                        <div>当前速度</div>
-                        <div class="info-value" id="speed">0 km/h</div>
-                    </div>
-                    <div class="info-card">
-                        <div>已用时间</div>
-                        <div class="info-value" id="time">0 小时</div>
-                    </div>
-                    <div class="info-card">
-                        <div>行驶距离</div>
-                        <div class="info-value" id="distance">0 km</div>
-                    </div>
-                </div>
-
-<!--                <div class="controls-panel">-->
-<!--                    <h2>控制面板</h2>-->
-                    <div class="preset-buttons">
-                        <button class="preset-btn active" id="presetAtoB" data-preset="atob">甲地到乙地</button>
-                        <button class="preset-btn" id="presetBtoA" data-preset="btoa">乙地到甲地</button>
-                    </div>
-                    <div class="buttons">
-                        <button id="startBtn">开始模拟</button>
-                        <button id="pauseBtn" disabled>暂停</button>
-                        <button id="resetBtn">重置</button>
-                        <button id="showFormulaBtn">显示数学关系</button>
-                    </div>
-
-                    <div class="collapsible-section">
-
-                        <div class="collapsible-header" id="distanceHeader">
-                            <h3>自定义参数设置</h3>
-                            <span class="collapsible-icon" id="distanceIcon">▼</span>
-                        </div>
-
-                        <div class="collapsible-content" id="distanceContent">
-                            <div class="controls">
-                                <div class="control-group">
-                                    <div class="control-title">上坡速度 (km/h)</div>
-                                    <div class="slider-container">
-                                        <input type="range" min="10" max="50" value="28" class="slider" id="uphillSpeed">
-                                        <span class="slider-value" id="uphillSpeedValue">28</span>
-                                    </div>
-                                </div>
-
-                                <div class="control-group">
-                                    <div class="control-title">下坡速度 (km/h)</div>
-                                    <div class="slider-container">
-                                        <input type="range" min="10" max="50" value="42" class="slider" id="downhillSpeed">
-                                        <span class="slider-value" id="downhillSpeedValue">42</span>
-                                    </div>
-                                </div>
-
-                                <div class="control-group">
-                                    <div class="control-title">上坡距离 (km)</div>
-                                    <div class="slider-container">
-                                        <input type="range" min="10" max="100" value="70" class="slider" id="uphillDistance">
-                                        <span class="slider-value" id="uphillDistanceValue">70</span>
-                                    </div>
-                                </div>
-
-                                <div class="control-group">
-                                    <div class="control-title">下坡距离 (km)</div>
-                                    <div class="slider-container">
-                                        <input type="range" min="10" max="100" value="84" class="slider" id="downhillDistance">
-                                        <span class="slider-value" id="downhillDistanceValue">84</span>
-                                    </div>
-                                </div>
-
-                                <div class="control-group">
-                                    <div class="control-title">时间倍率</div>
-                                    <div class="slider-container">
-                                        <input type="range" min="1" max="2000" value="2000" class="slider" id="timeRate">
-                                        <span class="slider-value" id="timeRateValue">2000x</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-<!--                </div>-->
-<!--            </div>-->
-        </div>
-    </section>
-
-    <section id="section3" data-section="3">
-        <div class="container">
-            <div class="card">
-                <h2>📐 建立二元一次方程组</h2>
-        <div class="step">
-            <span class="step-number">1</span>
-            <strong>设未知数</strong>
-            <p>设从甲地到乙地的上坡路为 \( x \) 千米，下坡路为 \( y \) 千米。</p>
+<section data-section="1" id="section1">
+    <div class="container">
+        <div class="header">
+            <h1>🚗 汽车上下坡问题</h1>
+            <p>用动画理解二元一次方程组的实际应用</p>
         </div>
 
-        <div class="step">
-            <span class="step-number">2</span>
-            <strong>建立方程</strong>
-            <p>从甲地到乙地：上坡时间 \( \frac{x}{28} \) 小时，下坡时间 \( \frac{y}{42} \) 小时</p>
-            <div class="equation">
-                \[ \frac{x}{28} + \frac{y}{42} = 4.5 \]
-            </div>
-
-            <p>从乙地到甲地：上坡时间 \( \frac{y}{28} \) 小时，下坡时间 \( \frac{x}{42} \) 小时</p>
-            <div class="equation">
-                \[ \frac{y}{28} + \frac{x}{42} = \frac{14}{3} \]
-            </div>
-        </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="section4" data-section="4">
-        <div class="container">
-            <div class="card">
-                <h2>🧮 求解二元一次方程组</h2>
-        <div class="step">
-            <span class="step-number">3</span>
-            <strong>解方程组</strong>
-            <p>化简方程组：</p>
-            <div class="equation">
-                \[
-                \begin{cases}
-                3x + 2y = 378 \\
-                2x + 3y = 392
-                \end{cases}
-                \]
-            </div>
-
-            <p>解得：</p>
-            <div class="equation">
-                \[ x = 70, \quad y = 84 \]
+        <div class="card">
+            <h2>📝 题目展示</h2>
+            <div class="problem-text">
+                <!--                    <h3>汽车上下坡问题</h3>-->
+                <p><strong>题目：</strong>一辆汽车在山区公路上行驶（<span style="color: #E65100; font-style: italic;">地理知识：山区地形复杂，道路坡度影响车速</span>），在上下坡过程中，速度会发生变化：
+                </p>
+                <ul>
+                    <li>上坡时，速度为 \( 28 \, \text{km/h} \)（<span style="color: #E65100; font-style: italic;">上坡需要克服重力，速度较慢</span>）
+                    </li>
+                    <li>下坡时，速度为 \( 42 \, \text{km/h} \)（<span style="color: #E65100; font-style: italic;">重力帮助前进，速度较快</span>）
+                    </li>
+                    <li>从甲地到乙地用了 4 小时 30 分钟</li>
+                    <li>返回时用了 4 小时 40 分钟</li>
+                </ul>
+                <p><strong>问题：</strong>从甲地到乙地的上坡路和下坡路各是多少千米？</p>
+                <p style="margin-top: 15px; font-size: 0.95em; color: #666; font-style: italic;">💡
+                    地理应用：我国山区公路（如川藏公路）设计时，工程师需要考虑坡度对车速的影响，确保行车安全。道路坡度通常用百分比表示，如5%表示每100米上升5米。</p>
             </div>
         </div>
     </div>
-</div>
-    </section>
+</section>
+
+<section data-section="2" id="section2">
+    <!--        <div class="container">-->
+    <div class="card">
+        <h2>🎬 上下坡动画演示</h2>
+        <div class="animation-container">
+            <!--                    <div class="animation-title">分步展示汽车通过上下坡的完整过程</div>-->
+            <div class="hill-scene">
+                <div class="sky"></div>
+                <div class="hill-svg-container">
+                    <svg class="hill-svg" preserveAspectRatio="none" viewBox="0 0 1000 200">
+                        <!-- 山坡路径 -->
+                        <path d="M 100,200 L 500,50 L 900,200" fill="#795548" id="hillPath"/>
+                        <!-- 道路路径 -->
+                        <path d="M 100,200 L 500,50 L 900,200" fill="#555" id="roadPath" stroke="none"/>
+                        <!-- 路径标记 -->
+                        <circle cx="100" cy="200" fill="#e74c3c" r="5"/>
+                        <circle cx="500" cy="50" fill="#e74c3c" r="5"/>
+                        <circle cx="900" cy="200" fill="#e74c3c" r="5"/>
+                        <text class="path-marker" text-anchor="middle" x="100" y="190">甲地</text>
+                        <text class="path-marker" text-anchor="middle" x="500" y="40">最高点</text>
+                        <text class="path-marker" text-anchor="middle" x="900" y="190">乙地</text>
+
+                        <!-- 线段图图层 -->
+                        <g id="diagramOverlay">
+                            <!-- 这里将通过JavaScript添加线段 -->
+                        </g>
+                    </svg>
+                </div>
+                <div class="ground"></div>
+
+                <!-- 汽车 -->
+                <div class="car" id="car">
+                    <div class="car-body"></div>
+                    <div class="car-top"></div>
+                    <div class="wheel front"></div>
+                    <div class="wheel back"></div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-card">
+                    <div>当前位置</div>
+                    <div class="info-value" id="position">起点</div>
+                </div>
+                <div class="info-card">
+                    <div>当前速度</div>
+                    <div class="info-value" id="speed">0 km/h</div>
+                </div>
+                <div class="info-card">
+                    <div>已用时间</div>
+                    <div class="info-value" id="time">0 小时</div>
+                </div>
+                <div class="info-card">
+                    <div>行驶距离</div>
+                    <div class="info-value" id="distance">0 km</div>
+                </div>
+            </div>
+
+            <!--                <div class="controls-panel">-->
+            <!--                    <h2>控制面板</h2>-->
+            <div class="preset-buttons">
+                <button class="preset-btn active" data-preset="atob" id="presetAtoB">甲地到乙地</button>
+                <button class="preset-btn" data-preset="btoa" id="presetBtoA">乙地到甲地</button>
+            </div>
+            <div class="buttons">
+                <button id="startBtn">开始模拟</button>
+                <button disabled id="pauseBtn">暂停</button>
+                <button id="resetBtn">重置</button>
+                <button id="showFormulaBtn">显示数学关系</button>
+            </div>
+
+            <div class="collapsible-section">
+
+                <div class="collapsible-header" id="distanceHeader">
+                    <h3>自定义参数设置</h3>
+                    <span class="collapsible-icon" id="distanceIcon">▼</span>
+                </div>
+
+                <div class="collapsible-content" id="distanceContent">
+                    <div class="controls">
+                        <div class="control-group">
+                            <div class="control-title">上坡速度 (km/h)</div>
+                            <div class="slider-container">
+                                <input class="slider" id="uphillSpeed" max="50" min="10" type="range" value="28">
+                                <span class="slider-value" id="uphillSpeedValue">28</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-title">下坡速度 (km/h)</div>
+                            <div class="slider-container">
+                                <input class="slider" id="downhillSpeed" max="50" min="10" type="range" value="42">
+                                <span class="slider-value" id="downhillSpeedValue">42</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-title">上坡距离 (km)</div>
+                            <div class="slider-container">
+                                <input class="slider" id="uphillDistance" max="100" min="10" type="range" value="70">
+                                <span class="slider-value" id="uphillDistanceValue">70</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-title">下坡距离 (km)</div>
+                            <div class="slider-container">
+                                <input class="slider" id="downhillDistance" max="100" min="10" type="range" value="84">
+                                <span class="slider-value" id="downhillDistanceValue">84</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-title">时间倍率</div>
+                            <div class="slider-container">
+                                <input class="slider" id="timeRate" max="2000" min="1" type="range" value="2000">
+                                <span class="slider-value" id="timeRateValue">2000x</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+</section>
+
+<section data-section="3" id="section3">
+    <div class="container">
+        <div class="card">
+            <h2>📐 建立二元一次方程组</h2>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>设未知数</strong>
+                <p>设从甲地到乙地的上坡路为 \( x \) 千米，下坡路为 \( y \) 千米。</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>建立方程</strong>
+                <p>从甲地到乙地：上坡时间 \( \frac{x}{28} \) 小时，下坡时间 \( \frac{y}{42} \) 小时</p>
+                <div class="equation">
+                    \[ \frac{x}{28} + \frac{y}{42} = 4.5 \]
+                </div>
+
+                <p>从乙地到甲地：上坡时间 \( \frac{y}{28} \) 小时，下坡时间 \( \frac{x}{42} \) 小时</p>
+                <div class="equation">
+                    \[ \frac{y}{28} + \frac{x}{42} = \frac{14}{3} \]
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-section="4" id="section4">
+    <div class="container">
+        <div class="card">
+            <h2>🧮 求解二元一次方程组</h2>
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>解方程组</strong>
+                <p>化简方程组：</p>
+                <div class="equation">
+                    \[
+                    \begin{cases}
+                    3x + 2y = 378 \\
+                    2x + 3y = 392
+                    \end{cases}
+                    \]
+                </div>
+
+                <p>解得：</p>
+                <div class="equation">
+                    \[ x = 70, \quad y = 84 \]
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -847,7 +851,7 @@
             // 甲到乙：上坡距离x=70，下坡距离y=84
             uphillDistanceSlider.value = 70;
             downhillDistanceSlider.value = 84;
-                updateSliderValues();
+            updateSliderValues();
             // 重置动画位置
             currentPosition = 0;
             updateCarPosition();
@@ -1151,13 +1155,13 @@
                 } else {
                     // 从左往右：位置递增
                     currentPosition += distanceIncrement / totalDistance;
-                if (currentPosition >= 1) {
-                    currentPosition = 1;
-                    isAnimating = false;
-                    startBtn.disabled = false;
-                    pauseBtn.disabled = true;
-                    pauseBtn.textContent = "暂停";
-                    isPaused = false;
+                    if (currentPosition >= 1) {
+                        currentPosition = 1;
+                        isAnimating = false;
+                        startBtn.disabled = false;
+                        pauseBtn.disabled = true;
+                        pauseBtn.textContent = "暂停";
+                        isPaused = false;
                     }
                 }
 
@@ -1211,8 +1215,8 @@
                     pointY = pathEndY - (pathEndY - pathPeakY) * progress;
                 } else {
                     // 从左往右：从起点到顶点
-                pointX = pathStartX + (pathPeakX - pathStartX) * progress;
-                pointY = pathStartY + (pathPeakY - pathStartY) * progress;
+                    pointX = pathStartX + (pathPeakX - pathStartX) * progress;
+                    pointY = pathStartY + (pathPeakY - pathStartY) * progress;
                 }
             } else {
                 // 下坡段
@@ -1223,8 +1227,8 @@
                     pointY = pathPeakY - (pathPeakY - pathStartY) * progress;
                 } else {
                     // 从左往右：从顶点到终点
-                pointX = pathPeakX + (pathEndX - pathPeakX) * progress;
-                pointY = pathPeakY + (pathEndY - pathPeakY) * progress;
+                    pointX = pathPeakX + (pathEndX - pathPeakX) * progress;
+                    pointY = pathPeakY + (pathEndY - pathPeakY) * progress;
                 }
             }
 
@@ -1237,7 +1241,7 @@
                     // 从右往左：计算从终点到顶点的斜率（方向相反）
                     slope = (pathPeakY - pathEndY) / (pathPeakX - pathEndX);
                 } else {
-                slope = (pathPeakY - pathStartY) / (pathPeakX - pathStartX);
+                    slope = (pathPeakY - pathStartY) / (pathPeakX - pathStartX);
                 }
             } else {
                 // 下坡段
@@ -1245,7 +1249,7 @@
                     // 从右往左：计算从顶点到起点的斜率（方向相反）
                     slope = (pathStartY - pathPeakY) / (pathStartX - pathPeakX);
                 } else {
-                slope = (pathEndY - pathPeakY) / (pathEndX - pathPeakX);
+                    slope = (pathEndY - pathPeakY) / (pathEndX - pathPeakX);
                 }
             }
 

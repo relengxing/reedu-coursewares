@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>环形道路相遇问题 - 增强版课件</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     <style>
@@ -278,7 +278,7 @@
         .runner svg {
             width: 100%;
             height: 100%;
-            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
         }
 
         .runner-label {
@@ -286,7 +286,7 @@
             font-size: 2.4rem;
             font-weight: bold;
             white-space: nowrap;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .jia-label {
@@ -371,7 +371,7 @@
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         .jia-slider::-webkit-slider-thumb {
@@ -400,7 +400,7 @@
             border-radius: 20px;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .jia-distance {
@@ -419,7 +419,7 @@
             font-size: 2.2rem;
             font-weight: bold;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .distance-value {
@@ -430,7 +430,7 @@
             font-size: 2.2rem;
             font-weight: bold;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .equation {
@@ -558,7 +558,7 @@
     </style>
 </head>
 <body>
-<section id="page1" data-section="1">
+<section data-section="1" id="page1">
     <div class="container">
         <div class="header">
             <h1>环形道路相遇问题</h1>
@@ -569,7 +569,8 @@
             <h2>📝题目展示</h2>
             <div class="problem-text">
                 <h3>环形道路相遇问题</h3>
-                <p>某环形道路长 <span class="highlight">400m</span>（<span style="color: #1976D2; font-style: italic;">体育知识：这是标准田径跑道的周长</span>），甲、乙两人从同一地点出发，分别以一定的速度练习长跑和骑自行车（<span style="color: #1976D2; font-style: italic;">长跑速度约5-6 m/s，自行车速度约10-12 m/s</span>）。</p>
+                <p>某环形道路长 <span class="highlight">400m</span>（<span style="color: #1976D2; font-style: italic;">体育知识：这是标准田径跑道的周长</span>），甲、乙两人从同一地点出发，分别以一定的速度练习长跑和骑自行车（<span
+                        style="color: #1976D2; font-style: italic;">长跑速度约5-6 m/s，自行车速度约10-12 m/s</span>）。</p>
                 <p>如果<strong>反向而行</strong>，那么他们每隔 <span class="highlight">25s</span> 相遇一次；</p>
                 <p>如果<strong>同向而行</strong>，那么每隔 <span class="highlight">80s</span> 乙就追上甲一次。</p>
                 <p>问：甲、乙两人的速度分别是多少？</p>
@@ -579,7 +580,7 @@
                 <button class="toggle-btn" data-target="#analysis-1">
                     <span>问题分析</span>
                 </button>
-                <div id="analysis-1" class="content">
+                <div class="content" id="analysis-1">
                     <p>这是一个典型的<strong>环形跑道相遇问题</strong>，涉及两种运动情况：</p>
                     <ol>
                         <li><strong>反向运动</strong>：两人相向而行，相遇时走过的路程之和等于跑道长度</li>
@@ -592,7 +593,7 @@
     </div>
 </section>
 
-<section id="page2" data-section="2">
+<section data-section="2" id="page2">
     <div class="container">
         <div class="card">
             <h2>🔍建立数学模型</h2>
@@ -633,7 +634,7 @@
                 <button class="toggle-btn" data-target="#system-1">
                     <span>查看方程组</span>
                 </button>
-                <div id="system-1" class="content">
+                <div class="content" id="system-1">
                     <p>我们得到以下方程组：</p>
                     <div class="equation">
                         <p>\[
@@ -649,7 +650,7 @@
     </div>
 </section>
 
-<section id="page3" data-section="3">
+<section data-section="3" id="page3">
     <div class="container">
         <div class="card">
             <h2>🧮求解方程组</h2>
@@ -695,7 +696,7 @@
                 <button class="toggle-btn" data-target="#verification-1">
                     <span>验证答案</span>
                 </button>
-                <div id="verification-1" class="content">
+                <div class="content" id="verification-1">
                     <div class="solution">
                         <h3>验证反向运动</h3>
                         <p>反向而行时，相对速度为：\( 5.5 + 10.5 = 16 \) m/s</p>
@@ -713,7 +714,7 @@
     </div>
 </section>
 
-<section id="page4" data-section="4">
+<section data-section="4" id="page4">
     <div class="container">
         <div class="card">
             <h2>🎬 运动过程演示</h2>
@@ -724,29 +725,29 @@
                     <div class="runner jia" id="jia-runner">
                         <svg viewBox="0 0 60 80">
                             <!-- 小人身体 -->
-                            <circle cx="30" cy="20" r="10" fill="#e74c3c"/>
+                            <circle cx="30" cy="20" fill="#e74c3c" r="10"/>
                             <!-- 小人躯干 -->
-                            <line x1="30" y1="30" x2="30" y2="50" stroke="#e74c3c" stroke-width="4"/>
+                            <line stroke="#e74c3c" stroke-width="4" x1="30" x2="30" y1="30" y2="50"/>
                             <!-- 小人手臂 -->
-                            <line x1="30" y1="35" x2="15" y2="45" stroke="#e74c3c" stroke-width="3"/>
-                            <line x1="30" y1="35" x2="45" y2="45" stroke="#e74c3c" stroke-width="3"/>
+                            <line stroke="#e74c3c" stroke-width="3" x1="30" x2="15" y1="35" y2="45"/>
+                            <line stroke="#e74c3c" stroke-width="3" x1="30" x2="45" y1="35" y2="45"/>
                             <!-- 小人腿 -->
-                            <line x1="30" y1="50" x2="20" y2="65" stroke="#e74c3c" stroke-width="4"/>
-                            <line x1="30" y1="50" x2="40" y2="65" stroke="#e74c3c" stroke-width="4"/>
+                            <line stroke="#e74c3c" stroke-width="4" x1="30" x2="20" y1="50" y2="65"/>
+                            <line stroke="#e74c3c" stroke-width="4" x1="30" x2="40" y1="50" y2="65"/>
                         </svg>
                     </div>
                     <div class="runner yi" id="yi-runner">
                         <svg viewBox="0 0 60 80">
                             <!-- 小人身体 -->
-                            <circle cx="30" cy="20" r="10" fill="#2ecc71"/>
+                            <circle cx="30" cy="20" fill="#2ecc71" r="10"/>
                             <!-- 小人躯干 -->
-                            <line x1="30" y1="30" x2="30" y2="50" stroke="#2ecc71" stroke-width="4"/>
+                            <line stroke="#2ecc71" stroke-width="4" x1="30" x2="30" y1="30" y2="50"/>
                             <!-- 小人手臂 -->
-                            <line x1="30" y1="35" x2="15" y2="45" stroke="#2ecc71" stroke-width="3"/>
-                            <line x1="30" y1="35" x2="45" y2="45" stroke="#2ecc71" stroke-width="3"/>
+                            <line stroke="#2ecc71" stroke-width="3" x1="30" x2="15" y1="35" y2="45"/>
+                            <line stroke="#2ecc71" stroke-width="3" x1="30" x2="45" y1="35" y2="45"/>
                             <!-- 小人腿 -->
-                            <line x1="30" y1="50" x2="20" y2="65" stroke="#2ecc71" stroke-width="4"/>
-                            <line x1="30" y1="50" x2="40" y2="65" stroke="#2ecc71" stroke-width="4"/>
+                            <line stroke="#2ecc71" stroke-width="4" x1="30" x2="20" y1="50" y2="65"/>
+                            <line stroke="#2ecc71" stroke-width="4" x1="30" x2="40" y1="50" y2="65"/>
                         </svg>
                     </div>
                     <div class="runner-label jia-label" id="jia-label">甲</div>
@@ -771,12 +772,14 @@
             <div class="speed-controls">
                 <div class="speed-control">
                     <div class="speed-label jia-speed-label">甲的速度 (m/s):</div>
-                    <input type="range" min="1" max="20" value="5.5" step="0.1" class="speed-slider jia-slider" id="jia-speed-slider">
+                    <input class="speed-slider jia-slider" id="jia-speed-slider" max="20" min="1" step="0.1" type="range"
+                           value="5.5">
                     <div class="speed-value" id="jia-speed-value">5.5</div>
                 </div>
                 <div class="speed-control">
                     <div class="speed-label yi-speed-label">乙的速度 (m/s):</div>
-                    <input type="range" min="1" max="20" value="10.5" step="0.1" class="speed-slider yi-slider" id="yi-speed-slider">
+                    <input class="speed-slider yi-slider" id="yi-speed-slider" max="20" min="1" step="0.1" type="range"
+                           value="10.5">
                     <div class="speed-value" id="yi-speed-value">10.5</div>
                 </div>
             </div>
@@ -791,7 +794,7 @@
                 <button class="toggle-btn" data-target="#explanation-1">
                     <span>动画说明</span>
                 </button>
-                <div id="explanation-1" class="content">
+                <div class="content" id="explanation-1">
                     <p><strong>红色小人</strong>代表甲（长跑）</p>
                     <p><strong>绿色小人</strong>代表乙（骑自行车）</p>
                     <p>环形跑道周长为 \( 400 \) m</p>
@@ -804,7 +807,7 @@
     </div>
 </section>
 
-<section id="page5" data-section="5">
+<section data-section="5" id="page5">
     <div class="container">
         <div class="card">
             <h2>✅问题解答</h2>
@@ -831,7 +834,7 @@
                 <button class="toggle-btn" data-target="#summary-1">
                     <span>解题总结</span>
                 </button>
-                <div id="summary-1" class="content">
+                <div class="content" id="summary-1">
                     <p>解决环形跑道相遇问题的关键：</p>
                     <ol>
                         <li>明确两种运动情况：反向运动和同向运动</li>
@@ -847,13 +850,13 @@
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // 获取所有切换按钮
         const toggleButtons = document.querySelectorAll('.toggle-btn');
 
         // 为每个按钮添加点击事件
         toggleButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const targetId = this.getAttribute('data-target');
                 const target = document.querySelector(targetId);
 
@@ -902,12 +905,12 @@
         let yiDistance = 0;
 
         // 更新速度显示
-        jiaSpeedSlider.addEventListener('input', function() {
+        jiaSpeedSlider.addEventListener('input', function () {
             jiaSpeedValue.textContent = this.value;
             if (currentMode) resetAnimation();
         });
 
-        yiSpeedSlider.addEventListener('input', function() {
+        yiSpeedSlider.addEventListener('input', function () {
             yiSpeedValue.textContent = this.value;
             if (currentMode) resetAnimation();
         });
@@ -1017,8 +1020,8 @@
                 yiRunner.style.top = yiY + 'px';
 
                 // 更新小人方向
-                jiaRunner.style.transform = `translate(-50%, -50%) rotate(${jiaAngle * 180/Math.PI}deg)`;
-                yiRunner.style.transform = `translate(-50%, -50%) rotate(${yiAngle * 180/Math.PI + 180}deg)`;
+                jiaRunner.style.transform = `translate(-50%, -50%) rotate(${jiaAngle * 180 / Math.PI}deg)`;
+                yiRunner.style.transform = `translate(-50%, -50%) rotate(${yiAngle * 180 / Math.PI + 180}deg)`;
 
                 updateLabels(jiaX, jiaY, yiX, yiY);
                 showDistances();
@@ -1063,8 +1066,8 @@
                 yiRunner.style.top = yiY + 'px';
 
                 // 更新小人方向
-                jiaRunner.style.transform = `translate(-50%, -50%) rotate(${jiaAngle * 180/Math.PI}deg)`;
-                yiRunner.style.transform = `translate(-50%, -50%) rotate(${yiAngle * 180/Math.PI}deg)`;
+                jiaRunner.style.transform = `translate(-50%, -50%) rotate(${jiaAngle * 180 / Math.PI}deg)`;
+                yiRunner.style.transform = `translate(-50%, -50%) rotate(${yiAngle * 180 / Math.PI}deg)`;
 
                 updateLabels(jiaX, jiaY, yiX, yiY);
                 showDistances();

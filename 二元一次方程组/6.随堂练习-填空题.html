@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>公路行程问题课堂练习</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     <style>
@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
             background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
@@ -21,7 +21,7 @@
             line-height: 1.6;
             font-size: 24px;
         }
-        
+
         section {
             width: 100%;
             min-height: 100vh;
@@ -30,7 +30,7 @@
             display: block;
             position: relative;
         }
-        
+
         .container {
             max-width: 100%;
             margin: 0 auto;
@@ -64,7 +64,7 @@
             border-bottom: 3px solid #2196F3;
             padding-bottom: 15px;
         }
-        
+
         h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
@@ -72,7 +72,7 @@
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         h2 {
             color: #2196F3;
             margin-bottom: 30px;
@@ -80,19 +80,19 @@
             border-bottom: 3px solid #2196F3;
             padding-bottom: 15px;
         }
-        
+
         h3 {
             font-size: 1.8rem;
             color: #2c3e50;
             margin-bottom: 20px;
         }
-        
+
         p {
             font-size: 1.5rem;
             margin-bottom: 20px;
             line-height: 1.8;
         }
-        
+
         .problem-box {
             background: #f8f9ff;
             border-radius: 10px;
@@ -101,20 +101,20 @@
             border-left: 6px solid #2196F3;
             font-size: 1.2em;
         }
-        
+
         .input-group {
             display: flex;
             align-items: center;
             margin: 20px 0;
             flex-wrap: wrap;
         }
-        
+
         .input-label {
             font-size: 1.5rem;
             margin-right: 15px;
             min-width: 200px;
         }
-        
+
         .math-input {
             font-size: 1.5rem;
             padding: 12px 15px;
@@ -124,22 +124,22 @@
             text-align: center;
             transition: border-color 0.3s;
         }
-        
+
         .math-input:focus {
             border-color: #3498db;
             outline: none;
         }
-        
+
         .unit {
             font-size: 1.5rem;
             margin-left: 10px;
         }
-        
+
         .interactive-container {
             margin: 30px 0;
             width: 100%;
         }
-        
+
         .toggle-btn {
             padding: 15px 30px;
             background: linear-gradient(45deg, #4136F3, #21CBF3);
@@ -155,26 +155,26 @@
             width: 100%;
             margin: 5px;
         }
-        
+
         .toggle-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .toggle-btn:active {
             transform: translateY(0);
         }
-        
+
         .toggle-btn::after {
             content: "▶";
             font-size: 1.2rem;
             transition: transform 0.3s ease;
         }
-        
+
         .toggle-btn.expanded::after {
             transform: rotate(90deg);
         }
-        
+
         .content {
             max-height: 0;
             overflow: hidden;
@@ -184,27 +184,27 @@
             border-left: 6px solid #2196F3;
             opacity: 0;
         }
-        
+
         .content.expanded {
             max-height: 1000px;
             padding: 30px;
             margin-top: 20px;
             opacity: 1;
         }
-        
+
         .content p {
             margin-bottom: 15px;
         }
-        
+
         .content p:last-child {
             margin-bottom: 0;
         }
-        
+
         .math {
             font-family: 'Times New Roman', serif;
             font-style: italic;
         }
-        
+
         .solution {
             margin-top: 20px;
             padding: 25px;
@@ -212,24 +212,24 @@
             border-radius: 10px;
             border: 3px solid #4CAF50;
         }
-        
+
         .solution h3 {
             color: #2c3e50;
             margin-bottom: 15px;
         }
-        
+
         .step {
             margin-bottom: 20px;
             padding-left: 20px;
             border-left: 3px solid #2196F3;
         }
-        
+
         .step-title {
             font-weight: bold;
             color: #3498db;
             margin-bottom: 10px;
         }
-        
+
         .formula {
             background-color: #f8f9fa;
             padding: 15px;
@@ -238,7 +238,7 @@
             font-family: 'Times New Roman', serif;
             font-size: 1.4rem;
         }
-        
+
         .check-btn {
             padding: 15px 30px;
             background: linear-gradient(45deg, #4136F3, #21CBF3);
@@ -250,12 +250,12 @@
             transition: all 0.3s ease;
             margin-top: 20px;
         }
-        
+
         .check-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .result {
             margin-top: 20px;
             padding: 15px;
@@ -263,25 +263,25 @@
             font-size: 1.4rem;
             display: none;
         }
-        
+
         .correct {
             background-color: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
-        
+
         .incorrect {
             background-color: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
-        
+
         .highlight {
             background-color: #fff3cd;
             padding: 2px 5px;
             border-radius: 3px;
         }
-        
+
         .summary {
             background: #f8f9ff;
             padding: 30px;
@@ -301,7 +301,7 @@
             border-radius: 20px;
             font-size: 1.4rem;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             user-select: none;
             transition: all 0.3s ease;
@@ -319,24 +319,24 @@
         .timer.started:hover {
             background-color: rgba(33, 150, 243, 1);
         }
-        
+
         @media (max-width: 768px) {
             section {
                 padding: 20px;
             }
-            
+
             h1 {
                 font-size: 2.2rem;
             }
-            
+
             h2 {
                 font-size: 1.8rem;
             }
-            
+
             p, .input-label, .math-input, .unit {
                 font-size: 1.2rem;
             }
-            
+
             .toggle-btn {
                 font-size: 1.2rem;
                 padding: 12px 20px;
@@ -345,33 +345,35 @@
     </style>
 </head>
 <body>
-    <!-- 计时器 -->
-    <div class="timer" id="timer">点击开始计时</div>
-    
-    <!-- 封面页 -->
-    <section id="page1" data-section="1">
-        <div class="container">
-            <div class="header">
-                <h1>公路行程问题课堂练习</h1>
-            </div>
-            <div class="card">
-                <h2>📝题目展示</h2>
-                <div class="problem-box">
+<!-- 计时器 -->
+<div class="timer" id="timer">点击开始计时</div>
+
+<!-- 封面页 -->
+<section data-section="1" id="page1">
+    <div class="container">
+        <div class="header">
+            <h1>公路行程问题课堂练习</h1>
+        </div>
+        <div class="card">
+            <h2>📝题目展示</h2>
+            <div class="problem-box">
                 <h3>题目</h3>
-                <p>由甲地到乙地的公路全程为 <span class="highlight">200 km</span>，其中一段为高速公路，其余路段均为普通公路。</p>
-                <p>已知汽车在普通公路和高速公路上的行驶速度分别是 <span class="highlight">60 km/h</span> 和 <span class="highlight">100 km/h</span>，从甲地到乙地用时 <span class="highlight">3 h</span>。</p>
+                <p>由甲地到乙地的公路全程为 <span class="highlight">200 km</span>，其中一段为高速公路，其余路段均为普通公路。
+                </p>
+                <p>已知汽车在普通公路和高速公路上的行驶速度分别是 <span class="highlight">60 km/h</span> 和 <span
+                        class="highlight">100 km/h</span>，从甲地到乙地用时 <span class="highlight">3 h</span>。</p>
                 <p>问：汽车在普通公路和高速公路上分别行驶了多少千米？</p>
             </div>
-                <p>请完成下面的填空题，并查看解析验证你的答案。</p>
-            </div>
+            <p>请完成下面的填空题，并查看解析验证你的答案。</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 问题分析页 -->
-    <section id="page2" data-section="2">
-        <div class="container">
-            <div class="card">
-                <h2>🔍问题分析</h2>
+<!-- 问题分析页 -->
+<section data-section="2" id="page2">
+    <div class="container">
+        <div class="card">
+            <h2>🔍问题分析</h2>
             <div class="problem-box">
                 <p>这是一个典型的行程问题，我们需要找出汽车在普通公路和高速公路上分别行驶的距离。</p>
                 <p>已知条件：</p>
@@ -383,12 +385,12 @@
                 </ul>
                 <p>我们可以设未知数，建立方程来求解。</p>
             </div>
-            
+
             <div class="interactive-container">
                 <button class="toggle-btn" data-target="#analysis-1">
                     <span>查看问题分析思路</span>
                 </button>
-                <div id="analysis-1" class="content">
+                <div class="content" id="analysis-1">
                     <p>解决这类问题的关键是理解：<strong>总时间 = 普通公路时间 + 高速公路时间</strong></p>
                     <div class="step">
                         <p class="step-title">步骤1：设未知数</p>
@@ -406,54 +408,55 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 填空题页 -->
-    <section id="page3" data-section="3">
-        <div class="container">
-            <div class="card">
-                <h2>✏️课堂练习</h2>
+<!-- 填空题页 -->
+<section data-section="3" id="page3">
+    <div class="container">
+        <div class="card">
+            <h2>✏️课堂练习</h2>
             <div class="problem-box">
                 <p>请填写汽车在普通公路和高速公路上分别行驶的距离：</p>
 
                 <div class="input-group">
                     <span class="input-label">普通公路行驶距离：</span>
-                    <input type="number" id="normal-road" class="math-input" min="0" max="200">
+                    <input class="math-input" id="normal-road" max="200" min="0" type="number">
                     <span class="unit">km</span>
                 </div>
 
                 <div class="input-group">
                     <span class="input-label">高速公路行驶距离：</span>
-                    <input type="number" id="highway" class="math-input" min="0" max="200">
+                    <input class="math-input" id="highway" max="200" min="0" type="number">
                     <span class="unit">km</span>
                 </div>
 
                 <button class="check-btn" id="check-answer">检查答案</button>
 
-                <div id="result" class="result"></div>
+                <div class="result" id="result"></div>
             </div>
 
             <div class="interactive-container">
                 <button class="toggle-btn" data-target="#hint-1">
                     <span>需要提示？</span>
                 </button>
-                <div id="hint-1" class="content">
-                    <p><strong>提示：</strong>尝试设普通公路行驶距离为 \( x \) km，则高速公路行驶距离为 \( 200 - x \) km。</p>
+                <div class="content" id="hint-1">
+                    <p><strong>提示：</strong>尝试设普通公路行驶距离为 \( x \) km，则高速公路行驶距离为 \( 200 - x \) km。
+                    </p>
                     <p>然后根据总时间建立方程：\( \frac{x}{60} + \frac{200 - x}{100} = 3 \)</p>
                     <p>解这个方程求出 \( x \) 的值。</p>
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 解析页 -->
-    <section id="page4" data-section="4">
-        <div class="container">
-            <div class="card">
-                <h2>📐问题解析</h2>
-            
+<!-- 解析页 -->
+<section data-section="4" id="page4">
+    <div class="container">
+        <div class="card">
+            <h2>📐问题解析</h2>
+
             <div class="">
-                <div id="solution-1" class="">
+                <div class="" id="solution-1">
                     <div class="step">
                         <p class="step-title">解法一：设一个未知数</p>
                         <p>设汽车在普通公路上行驶了 \( x \) km，则在高速公路上行驶了 \( 200 - x \) km。</p>
@@ -482,7 +485,7 @@
                         </div>
                         <p>所以，普通公路行驶距离为 150 km，高速公路行驶距离为 \( 200 - 150 = 50 \) km。</p>
                     </div>
-                    
+
                     <div class="step">
                         <p class="step-title">解法二：设两个未知数</p>
                         <p>设汽车在普通公路上行驶了 \( x \) km，在高速公路上行驶了 \( y \) km。</p>
@@ -496,7 +499,7 @@
                         </div>
                         <p>解方程得到 \( x = 150 \)，然后 \( y = 200 - 150 = 50 \)。</p>
                     </div>
-                    
+
                     <div class="solution">
                         <h3>答案验证</h3>
                         <p>普通公路行驶时间：\( \frac{150}{60} = 2.5 \) h</p>
@@ -507,14 +510,14 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 总结页 -->
-    <section id="page5" data-section="5">
-        <div class="container">
-            <div class="card">
-                <h2>✅总结与反思</h2>
-            
+<!-- 总结页 -->
+<section data-section="5" id="page5">
+    <div class="container">
+        <div class="card">
+            <h2>✅总结与反思</h2>
+
             <div class="summary">
                 <h3>本问题的关键点：</h3>
                 <ul style="font-size: 1.5rem; margin-left: 30px;">
@@ -523,118 +526,118 @@
                     <li>学会验证答案的正确性</li>
                 </ul>
             </div>
-            
+
             <div class="interactive-container">
                 <button class="toggle-btn" data-target="#reflection-1">
                     <span>思考与拓展</span>
                 </button>
-                <div id="reflection-1" class="content">
+                <div class="content" id="reflection-1">
                     <p>1. 如果总时间变为2.5小时，其他条件不变，结果会如何变化？</p>
                     <p>2. 如果普通公路速度变为70 km/h，高速公路速度变为120 km/h，结果会如何变化？</p>
                     <p>3. 尝试用图表法表示这个问题，看看能否从图表中直观地找到答案。</p>
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取所有切换按钮
-            const toggleButtons = document.querySelectorAll('.toggle-btn');
-            
-            // 为每个按钮添加点击事件
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const target = document.querySelector(targetId);
-                    
-                    if (target) {
-                        // 切换内容区域的展开/收起状态
-                        target.classList.toggle('expanded');
-                        
-                        // 更新按钮状态
-                        this.classList.toggle('expanded');
-                    }
-                });
-            });
-            
-            // 检查答案按钮
-            const checkButton = document.getElementById('check-answer');
-            const normalRoadInput = document.getElementById('normal-road');
-            const highwayInput = document.getElementById('highway');
-            const resultDiv = document.getElementById('result');
-            
-            if (checkButton) {
-                checkButton.addEventListener('click', function() {
-                    const normalRoad = parseInt(normalRoadInput.value);
-                    const highway = parseInt(highwayInput.value);
-                    
-                    if (isNaN(normalRoad) || isNaN(highway)) {
-                        resultDiv.textContent = "请输入有效的数值！";
-                        resultDiv.className = "result incorrect";
-                        resultDiv.style.display = "block";
-                        return;
-                    }
-                    
-                    if (normalRoad + highway !== 200) {
-                        resultDiv.innerHTML = "总路程不正确！普通公路和高速公路行驶距离之和应为 200 km。";
-                        resultDiv.className = "result incorrect";
-                        resultDiv.style.display = "block";
-                        return;
-                    }
-                    
-                    const time = normalRoad / 60 + highway / 100;
-                    
-                    if (Math.abs(time - 3) < 0.01) {
-                        resultDiv.innerHTML = "恭喜！答案正确！<br>普通公路行驶距离：150 km，高速公路行驶距离：50 km";
-                        resultDiv.className = "result correct";
-                    } else {
-                        resultDiv.innerHTML = "答案不正确！总时间不符合条件。<br>请重新计算或查看解析。";
-                        resultDiv.className = "result incorrect";
-                    }
-                    
-                    resultDiv.style.display = "block";
-                });
-            }
-            
-            // 计时器功能
-            let startTime = null;
-            let timerInterval = null;
-            const timerElement = document.getElementById('timer');
-            let isTimerRunning = false;
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 获取所有切换按钮
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
 
-            function updateTimer() {
-                if (!startTime) return;
-                const elapsed = Math.floor((Date.now() - startTime) / 1000);
-                const minutes = Math.floor(elapsed / 60);
-                const seconds = elapsed % 60;
-                timerElement.textContent = `时间: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
+        // 为每个按钮添加点击事件
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const target = document.querySelector(targetId);
 
-            function startTimer() {
-                if (!isTimerRunning) {
-                    startTime = Date.now();
-                    isTimerRunning = true;
-                    timerElement.classList.add('started');
-                    timerElement.textContent = '时间: 00:00';
-                    timerInterval = setInterval(updateTimer, 1000);
+                if (target) {
+                    // 切换内容区域的展开/收起状态
+                    target.classList.toggle('expanded');
+
+                    // 更新按钮状态
+                    this.classList.toggle('expanded');
                 }
-            }
-
-            // 点击计时器开始计时
-            timerElement.addEventListener('click', startTimer);
-            
-            // 渲染数学公式
-            if (typeof renderMathInElement !== 'undefined') {
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        {left: '\\(', right: '\\)', display: false},
-                        {left: '\\[', right: '\\]', display: true}
-                    ],
-                    throwOnError: false
-                });
-            }
+            });
         });
-    </script>
+
+        // 检查答案按钮
+        const checkButton = document.getElementById('check-answer');
+        const normalRoadInput = document.getElementById('normal-road');
+        const highwayInput = document.getElementById('highway');
+        const resultDiv = document.getElementById('result');
+
+        if (checkButton) {
+            checkButton.addEventListener('click', function () {
+                const normalRoad = parseInt(normalRoadInput.value);
+                const highway = parseInt(highwayInput.value);
+
+                if (isNaN(normalRoad) || isNaN(highway)) {
+                    resultDiv.textContent = "请输入有效的数值！";
+                    resultDiv.className = "result incorrect";
+                    resultDiv.style.display = "block";
+                    return;
+                }
+
+                if (normalRoad + highway !== 200) {
+                    resultDiv.innerHTML = "总路程不正确！普通公路和高速公路行驶距离之和应为 200 km。";
+                    resultDiv.className = "result incorrect";
+                    resultDiv.style.display = "block";
+                    return;
+                }
+
+                const time = normalRoad / 60 + highway / 100;
+
+                if (Math.abs(time - 3) < 0.01) {
+                    resultDiv.innerHTML = "恭喜！答案正确！<br>普通公路行驶距离：150 km，高速公路行驶距离：50 km";
+                    resultDiv.className = "result correct";
+                } else {
+                    resultDiv.innerHTML = "答案不正确！总时间不符合条件。<br>请重新计算或查看解析。";
+                    resultDiv.className = "result incorrect";
+                }
+
+                resultDiv.style.display = "block";
+            });
+        }
+
+        // 计时器功能
+        let startTime = null;
+        let timerInterval = null;
+        const timerElement = document.getElementById('timer');
+        let isTimerRunning = false;
+
+        function updateTimer() {
+            if (!startTime) return;
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            timerElement.textContent = `时间: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (!isTimerRunning) {
+                startTime = Date.now();
+                isTimerRunning = true;
+                timerElement.classList.add('started');
+                timerElement.textContent = '时间: 00:00';
+                timerInterval = setInterval(updateTimer, 1000);
+            }
+        }
+
+        // 点击计时器开始计时
+        timerElement.addEventListener('click', startTimer);
+
+        // 渲染数学公式
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        }
+    });
+</script>
 </body>
 </html>

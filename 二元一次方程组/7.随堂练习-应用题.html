@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>摩托车里程碑问题 - 课堂练习</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     <style>
@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
             background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
@@ -21,7 +21,7 @@
             line-height: 1.6;
             font-size: 24px;
         }
-        
+
         section {
             width: 100%;
             min-height: 100vh;
@@ -30,7 +30,7 @@
             display: block;
             position: relative;
         }
-        
+
         .container {
             max-width: 100%;
             margin: 0 auto;
@@ -64,7 +64,7 @@
             border-bottom: 3px solid #2196F3;
             padding-bottom: 15px;
         }
-        
+
         h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
@@ -72,7 +72,7 @@
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         h2 {
             color: #2196F3;
             margin-bottom: 30px;
@@ -80,19 +80,19 @@
             border-bottom: 3px solid #2196F3;
             padding-bottom: 15px;
         }
-        
+
         h3 {
             font-size: 2.2rem;
             margin-bottom: 20px;
             color: #2c3e50;
         }
-        
+
         p {
             font-size: 1.8rem;
             margin-bottom: 20px;
             line-height: 1.8;
         }
-        
+
         .problem-text {
             background: #f8f9ff;
             padding: 30px;
@@ -101,19 +101,19 @@
             border-left: 6px solid #2196F3;
             font-size: 1.2em;
         }
-        
+
         .highlight {
             background-color: #fffacd;
             padding: 5px 10px;
             border-radius: 4px;
             font-weight: bold;
         }
-        
+
         .interactive-container {
             margin: 30px 0;
             width: 100%;
         }
-        
+
         .toggle-btn {
             padding: 15px 30px;
             background: linear-gradient(45deg, #4136F3, #21CBF3);
@@ -129,26 +129,26 @@
             width: 100%;
             margin: 5px;
         }
-        
+
         .toggle-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .toggle-btn:active {
             transform: translateY(0);
         }
-        
+
         .toggle-btn::after {
             content: "▶";
             font-size: 1.6rem;
             transition: transform 0.3s ease;
         }
-        
+
         .toggle-btn.expanded::after {
             transform: rotate(90deg);
         }
-        
+
         .content {
             max-height: 0;
             overflow: hidden;
@@ -158,28 +158,28 @@
             border-left: 6px solid #2196F3;
             opacity: 0;
         }
-        
+
         .content.expanded {
             max-height: 1000px;
             padding: 30px;
             margin-top: 20px;
             opacity: 1;
         }
-        
+
         .content p {
             margin-bottom: 15px;
             font-size: 1.7rem;
         }
-        
+
         .content p:last-child {
             margin-bottom: 0;
         }
-        
+
         .math {
             font-family: 'Times New Roman', serif;
             font-style: italic;
         }
-        
+
         .solution {
             margin-top: 20px;
             padding: 25px;
@@ -187,24 +187,24 @@
             border-radius: 10px;
             border: 3px solid #4CAF50;
         }
-        
+
         .solution h3 {
             color: #2c3e50;
             margin-bottom: 15px;
         }
-        
+
         .step {
             margin-bottom: 20px;
             padding-left: 20px;
             border-left: 3px solid #2196F3;
         }
-        
+
         .step-title {
             font-weight: bold;
             color: #3498db;
             margin-bottom: 10px;
         }
-        
+
         .formula {
             background: #f8f9ff;
             padding: 20px;
@@ -215,7 +215,7 @@
             text-align: center;
             border: 3px dashed #2196F3;
         }
-        
+
         .answer-box {
             background: #e8f5e8;
             padding: 30px;
@@ -223,12 +223,12 @@
             margin: 25px 0;
             border: 3px solid #4CAF50;
         }
-        
+
         .answer-box h3 {
             color: #16a085;
             margin-bottom: 15px;
         }
-        
+
         .practice-section {
             background: #f8f9ff;
             padding: 30px;
@@ -237,13 +237,13 @@
             margin-top: 30px;
             font-size: 1.2em;
         }
-        
+
         .practice-question {
             font-size: 1.9rem;
             margin-bottom: 25px;
             line-height: 1.8;
         }
-        
+
         .hint {
             background-color: #fffde7;
             padding: 20px;
@@ -251,13 +251,13 @@
             margin: 20px 0;
             border-left: 4px solid #ffd54f;
         }
-        
+
         .hint-title {
             font-weight: bold;
             color: #f57c00;
             margin-bottom: 10px;
         }
-        
+
         .conclusion {
             background: #f8f9ff;
             padding: 30px;
@@ -266,7 +266,7 @@
             border-left: 6px solid #2196F3;
             font-size: 1.2em;
         }
-        
+
         .conclusion h3 {
             color: #0277bd;
             margin-bottom: 15px;
@@ -282,7 +282,7 @@
             border-radius: 20px;
             font-size: 1.4rem;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             user-select: none;
             transition: all 0.3s ease;
@@ -300,28 +300,28 @@
         .timer.started:hover {
             background-color: rgba(33, 150, 243, 1);
         }
-        
+
         @media (max-width: 768px) {
             section {
                 padding: 20px;
             }
-            
+
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             h3 {
                 font-size: 1.8rem;
             }
-            
+
             p, .problem-text, .practice-question {
                 font-size: 1.5rem;
             }
-            
+
             .toggle-btn {
                 font-size: 1.5rem;
                 padding: 15px 20px;
@@ -330,32 +330,34 @@
     </style>
 </head>
 <body>
-    <!-- 计时器 -->
-    <div class="timer" id="timer">点击开始计时</div>
-    
-    <!-- 标题页 -->
-    <section id="page1" data-section="1">
-        <div class="container">
-            <div class="header">
-                <h1>摩托车里程碑问题</h1>
-            </div>
-            <div class="card">
-                <h2>📝题目展示</h2>
-                <div class="problem-text">
+<!-- 计时器 -->
+<div class="timer" id="timer">点击开始计时</div>
+
+<!-- 标题页 -->
+<section data-section="1" id="page1">
+    <div class="container">
+        <div class="header">
+            <h1>摩托车里程碑问题</h1>
+        </div>
+        <div class="card">
+            <h2>📝题目展示</h2>
+            <div class="problem-text">
                 <p>李刚骑摩托车在公路上高速匀速行驶：</p>
-                <p>• 早晨<span class="highlight">7:00</span>时看到里程碑上的数是一个两位数，它的数字之和是<span class="highlight">9</span></p>
+                <p>• 早晨<span class="highlight">7:00</span>时看到里程碑上的数是一个两位数，它的数字之和是<span
+                        class="highlight">9</span></p>
                 <p>• <span class="highlight">8:00</span>时看里程碑上的两位数与7:00时看到的个位数和十位数颠倒了</p>
-                <p>• <span class="highlight">9:00</span>时看到里程碑上的数是7:00时看到的数的<span class="highlight">8倍</span></p>
+                <p>• <span class="highlight">9:00</span>时看到里程碑上的数是7:00时看到的数的<span
+                        class="highlight">8倍</span></p>
                 <p>请问：李刚在7:00时看到的数字是多少?</p>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 问题分析 -->
-    <section id="page2" data-section="2">
-        <div class="container">
-            <div class="card">
-                <h2>🔍问题分析</h2>
+<!-- 问题分析 -->
+<section data-section="2" id="page2">
+    <div class="container">
+        <div class="card">
+            <h2>🔍问题分析</h2>
             <div class="problem-text">
                 <p>首先，我们需要理解题目给出的信息：</p>
                 <p>1. 设7:00时看到的两位数为<span class="highlight">10a + b</span>，其中a是十位数字，b是个位数字</p>
@@ -364,12 +366,12 @@
                 <p>4. 9:00时看到的数字是<span class="highlight">8(10a + b)</span></p>
                 <p>5. 李刚匀速行驶，所以8:00到9:00行驶的路程等于7:00到8:00行驶的路程</p>
             </div>
-            
+
             <div class="interactive-container">
                 <button class="toggle-btn" data-target="#hint-1">
                     <span>思考：如何建立方程？</span>
                 </button>
-                <div id="hint-1" class="content">
+                <div class="content" id="hint-1">
                     <p>由于李刚匀速行驶，相邻时间段行驶的路程相等：</p>
                     <div class="formula">
                         <p>8:00里程碑数 - 7:00里程碑数 = 9:00里程碑数 - 8:00里程碑数</p>
@@ -381,13 +383,13 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 建立方程 -->
-    <section id="page3" data-section="3">
-        <div class="container">
-            <div class="card">
-                <h2>📐建立方程</h2>
+<!-- 建立方程 -->
+<section data-section="3" id="page3">
+    <div class="container">
+        <div class="card">
+            <h2>📐建立方程</h2>
             <div class="problem-text">
                 <p>根据题意，我们可以建立以下方程：</p>
                 <div class="formula">
@@ -397,23 +399,23 @@
                     <p>(10b + a) - (10a + b) = 8(10a + b) - (10b + a)</p>
                 </div>
             </div>
-            
+
             <div class="interactive-container">
                 <button class="toggle-btn" data-target="#simplify-1">
                     <span>简化方程</span>
                 </button>
-                <div id="simplify-1" class="content">
+                <div class="content" id="simplify-1">
                     <p>首先简化第一个方程：</p>
                     <div class="step">
                         <p class="step-title">第一步：简化数字颠倒的差</p>
                         <p>(10b + a) - (10a + b) = 10b + a - 10a - b = 9b - 9a = 9(b - a)</p>
                     </div>
-                    
+
                     <div class="step">
                         <p class="step-title">第二步：简化第二个差</p>
                         <p>8(10a + b) - (10b + a) = 80a + 8b - 10b - a = 79a - 2b</p>
                     </div>
-                    
+
                     <div class="step">
                         <p class="step-title">第三步：建立等式</p>
                         <p>9(b - a) = 79a - 2b</p>
@@ -421,13 +423,13 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 解方程 -->
-    <section id="page4" data-section="4">
-        <div class="container">
-            <div class="card">
-                <h2>🧮解方程</h2>
+<!-- 解方程 -->
+<section data-section="4" id="page4">
+    <div class="container">
+        <div class="card">
+            <h2>🧮解方程</h2>
             <div class="problem-text">
                 <p>现在我们有两个方程：</p>
                 <div class="formula">
@@ -437,12 +439,12 @@
                     <p>9(b - a) = 79a - 2b</p>
                 </div>
             </div>
-            
+
             <div class="interactive-container">
                 <button class="toggle-btn" data-target="#solve-1">
                     <span>解方程步骤</span>
                 </button>
-                <div id="solve-1" class="content">
+                <div class="content" id="solve-1">
                     <div class="step">
                         <p class="step-title">第一步：展开第二个方程</p>
                         <p>9(b - a) = 79a - 2b</p>
@@ -451,7 +453,7 @@
                         <p>11b = 88a</p>
                         <p>b = 8a</p>
                     </div>
-                    
+
                     <div class="step">
                         <p class="step-title">第二步：代入第一个方程</p>
                         <p>a + b = 9</p>
@@ -459,12 +461,12 @@
                         <p>9a = 9</p>
                         <p>a = 1</p>
                     </div>
-                    
+
                     <div class="step">
                         <p class="step-title">第三步：求b的值</p>
                         <p>b = 8a = 8 × 1 = 8</p>
                     </div>
-                    
+
                     <div class="step">
                         <p class="step-title">第四步：确定7:00看到的数字</p>
                         <p>7:00看到的数字是 10a + b = 10 × 1 + 8 = 18</p>
@@ -472,13 +474,13 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 验证答案 -->
-    <section id="page5" data-section="5">
-        <div class="container">
-            <div class="card">
-                <h2>✅验证答案</h2>
+<!-- 验证答案 -->
+<section data-section="5" id="page5">
+    <div class="container">
+        <div class="card">
+            <h2>✅验证答案</h2>
             <div class="problem-text">
                 <p>我们得到的答案是：李刚在7:00时看到的数字是<span class="highlight">18</span></p>
                 <p>让我们验证一下：</p>
@@ -489,19 +491,19 @@
                 <p>7:00到8:00行驶距离：81 - 18 = 63公里</p>
                 <p>8:00到9:00行驶距离：144 - 81 = 63公里 ✓</p>
             </div>
-            
+
             <div class="answer-box">
                 <h3>最终答案</h3>
                 <p>李刚在7:00时看到的数字是 <span class="highlight">18</span></p>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 课堂练习 -->
-    <section id="page6" data-section="6">
-        <div class="container">
-            <div class="card">
-                <h2>✏️课堂练习</h2>
+<!-- 课堂练习 -->
+<section data-section="6" id="page6">
+    <div class="container">
+        <div class="card">
+            <h2>✏️课堂练习</h2>
             <div class="practice-section">
                 <div class="practice-question">
                     <p>小明骑自行车匀速行驶：</p>
@@ -510,17 +512,17 @@
                     <p>• 12:00时看到的数字是10:00时数字的6倍</p>
                     <p>请问：小明在10:00时看到的数字是多少？</p>
                 </div>
-                
+
                 <div class="interactive-container">
                     <button class="toggle-btn" data-target="#hint-practice">
                         <span>解题提示</span>
                     </button>
-                    <div id="hint-practice" class="content">
+                    <div class="content" id="hint-practice">
                         <div class="hint">
                             <p class="hint-title">提示1：设未知数</p>
                             <p>设10:00时看到的两位数为10x + y，其中x是十位数字，y是个位数字</p>
                         </div>
-                        
+
                         <div class="hint">
                             <p class="hint-title">提示2：根据题意建立方程</p>
                             <p>1. x + y = 7</p>
@@ -530,18 +532,18 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="interactive-container">
                     <button class="toggle-btn" data-target="#solution-practice">
                         <span>查看解答</span>
                     </button>
-                    <div id="solution-practice" class="content">
+                    <div class="content" id="solution-practice">
                         <div class="step">
                             <p class="step-title">第一步：建立方程</p>
                             <p>x + y = 7</p>
                             <p>(10y + x) - (10x + y) = 6(10x + y) - (10y + x)</p>
                         </div>
-                        
+
                         <div class="step">
                             <p class="step-title">第二步：简化方程</p>
                             <p>9y - 9x = 60x + 6y - 10y - x</p>
@@ -550,7 +552,7 @@
                             <p>13y = 68x</p>
                             <p>y = (68/13)x</p>
                         </div>
-                        
+
                         <div class="step">
                             <p class="step-title">第三步：代入第一个方程</p>
                             <p>x + (68/13)x = 7</p>
@@ -559,7 +561,7 @@
                             <p>x = 7 × 13 ÷ 81 = 91/81 ≈ 1.123</p>
                             <p>这不是整数，说明题目可能有误或者需要调整思路。</p>
                         </div>
-                        
+
                         <div class="step">
                             <p class="step-title">第四步：重新检查题目</p>
                             <p>实际上，这类问题通常有整数解。让我们尝试另一种思路：</p>
@@ -573,22 +575,23 @@
                             <p>尝试N=34：数字和3+4=7 ✓，颠倒后43，43-34=9，6×34=204，204-43=161 ✗</p>
                             <p>实际上，这个特定问题可能没有整数解，或者题目数据需要调整。</p>
                         </div>
-                        
+
                         <div class="conclusion">
                             <h3>结论</h3>
-                            <p>这个练习题目可能设计有误，但解题思路与原始问题相同。在实际教学中，教师可以调整数据确保问题有解。</p>
+                            <p>
+                                这个练习题目可能设计有误，但解题思路与原始问题相同。在实际教学中，教师可以调整数据确保问题有解。</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- 总结 -->
-    <section id="page7" data-section="7">
-        <div class="container">
-            <div class="card">
-                <h2>📚总结</h2>
+<!-- 总结 -->
+<section data-section="7" id="page7">
+    <div class="container">
+        <div class="card">
+            <h2>📚总结</h2>
             <div class="conclusion">
                 <h3>解题关键点</h3>
                 <p>1. 正确设未知数：用10a+b表示两位数</p>
@@ -597,7 +600,7 @@
                 <p>4. 解方程组，注意a和b必须是0-9的整数</p>
                 <p>5. 验证答案是否符合所有条件</p>
             </div>
-            
+
             <div class="conclusion">
                 <h3>类似问题的通用解法</h3>
                 <p>对于这类"里程碑问题"，可以总结出通用解法：</p>
@@ -610,66 +613,66 @@
                 <p>化简后解方程组即可。</p>
             </div>
         </div>
-    </section>
+</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取所有切换按钮
-            const toggleButtons = document.querySelectorAll('.toggle-btn');
-            
-            // 为每个按钮添加点击事件
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const target = document.querySelector(targetId);
-                    
-                    if (target) {
-                        // 切换内容区域的展开/收起状态
-                        target.classList.toggle('expanded');
-                        
-                        // 更新按钮状态
-                        this.classList.toggle('expanded');
-                    }
-                });
-            });
-            
-            // 计时器功能
-            let startTime = null;
-            let timerInterval = null;
-            const timerElement = document.getElementById('timer');
-            let isTimerRunning = false;
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 获取所有切换按钮
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
 
-            function updateTimer() {
-                if (!startTime) return;
-                const elapsed = Math.floor((Date.now() - startTime) / 1000);
-                const minutes = Math.floor(elapsed / 60);
-                const seconds = elapsed % 60;
-                timerElement.textContent = `时间: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
+        // 为每个按钮添加点击事件
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const target = document.querySelector(targetId);
 
-            function startTimer() {
-                if (!isTimerRunning) {
-                    startTime = Date.now();
-                    isTimerRunning = true;
-                    timerElement.classList.add('started');
-                    timerElement.textContent = '时间: 00:00';
-                    timerInterval = setInterval(updateTimer, 1000);
+                if (target) {
+                    // 切换内容区域的展开/收起状态
+                    target.classList.toggle('expanded');
+
+                    // 更新按钮状态
+                    this.classList.toggle('expanded');
                 }
-            }
-
-            // 点击计时器开始计时
-            timerElement.addEventListener('click', startTimer);
-            
-            // 渲染数学公式
-            if (typeof renderMathInElement !== 'undefined') {
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        {left: '\\(', right: '\\)', display: false},
-                        {left: '\\[', right: '\\]', display: true}
-                    ]
-                });
-            }
+            });
         });
-    </script>
+
+        // 计时器功能
+        let startTime = null;
+        let timerInterval = null;
+        const timerElement = document.getElementById('timer');
+        let isTimerRunning = false;
+
+        function updateTimer() {
+            if (!startTime) return;
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            timerElement.textContent = `时间: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (!isTimerRunning) {
+                startTime = Date.now();
+                isTimerRunning = true;
+                timerElement.classList.add('started');
+                timerElement.textContent = '时间: 00:00';
+                timerInterval = setInterval(updateTimer, 1000);
+            }
+        }
+
+        // 点击计时器开始计时
+        timerElement.addEventListener('click', startTimer);
+
+        // 渲染数学公式
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ]
+            });
+        }
+    });
+</script>
 </body>
 </html>
