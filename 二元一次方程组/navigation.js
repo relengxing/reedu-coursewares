@@ -67,7 +67,7 @@
         }
     ];
 
-    // 获取当前页面文件名
+    // 获取当前页面文件名（不包含查询参数和锚点，自动处理URL编码）
     function getCurrentPage() {
         // 优先使用 pathname
         let path = window.location.pathname;
@@ -79,13 +79,21 @@
             // 处理 file:// 协议
             if (href.startsWith('file://')) {
                 filename = href.split('/').pop() || href.split('\\').pop();
-                // 移除可能的查询参数和锚点
-                filename = filename.split('?')[0].split('#')[0];
             } else {
                 // 处理 http:// 或 https:// 协议
                 filename = href.split('/').pop();
-                filename = filename.split('?')[0].split('#')[0];
             }
+        }
+        
+        // 移除查询参数和锚点
+        filename = filename.split('?')[0].split('#')[0];
+        
+        // 解码URL编码（处理中文文件名等）
+        try {
+            filename = decodeURIComponent(filename);
+        } catch (e) {
+            // 如果解码失败，使用原始文件名
+            console.warn('URL解码失败，使用原始文件名:', filename);
         }
         
         return filename || '1.目录页.html';
@@ -330,10 +338,24 @@
             }
         }
 
-        // 获取当前页面的索引
+        // 获取当前页面的索引（支持URL编码的文件名）
         function getCurrentPageIndex() {
-            const currentPage = getCurrentPage();
-            return pages.findIndex(page => page.url === currentPage);
+            const currentPage = getCurrentPage(); // 已经解码过了，应该是 "2.火车过隧道.html"
+            
+            // 直接匹配（pages数组中的URL是未编码的，如 "2.火车过隧道.html"）
+            let index = pages.findIndex(page => page.url === currentPage);
+            
+            // 如果没找到，可能是文件名不完全匹配，尝试更灵活的匹配
+            if (index === -1) {
+                // 提取文件名的主要部分（去掉路径分隔符等）
+                const currentPageName = currentPage.split('/').pop().split('\\').pop();
+                index = pages.findIndex(page => {
+                    const pageName = page.url.split('/').pop().split('\\').pop();
+                    return pageName === currentPageName;
+                });
+            }
+            
+            return index;
         }
 
         // 导航到下一个section或下一页
@@ -344,10 +366,12 @@
                 // 如果不是最后一个section，滚动到下一个section
                 scrollToSection(currentSectionIndex + 1);
             } else {
-                // 如果是最后一个section，跳转到下一个课件
+                // 如果是最后一个section，跳转到下一个课件的第一个section
                 const currentPageIndex = getCurrentPageIndex();
                 if (currentPageIndex >= 0 && currentPageIndex < pages.length - 1) {
-                    window.location.href = pages[currentPageIndex + 1].url;
+                    // 使用URL参数标记要跳转到第一个section
+                    const nextPageUrl = pages[currentPageIndex + 1].url + '?section=0';
+                    window.location.href = nextPageUrl;
                 }
             }
         }
@@ -360,10 +384,12 @@
                 // 如果不是第一个section，滚动到上一个section
                 scrollToSection(currentSectionIndex - 1);
             } else {
-                // 如果是第一个section，跳转到上一个课件的最后
+                // 如果是第一个section，跳转到上一个课件的最后一个section
                 const currentPageIndex = getCurrentPageIndex();
                 if (currentPageIndex > 0) {
-                    window.location.href = pages[currentPageIndex - 1].url;
+                    // 使用URL参数标记要跳转到最后一个section
+                    const prevPageUrl = pages[currentPageIndex - 1].url + '?section=last';
+                    window.location.href = prevPageUrl;
                 }
             }
         }
@@ -416,6 +442,68 @@
 
         // 初始更新按钮状态
         updateButtonStates();
+
+        // 页面加载时检查URL参数，自动滚动到目标section
+        function handleSectionNavigation() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetSection = urlParams.get('section');
+            
+            if (targetSection === null) {
+                return; // 没有section参数，不处理
+            }
+
+            // 滚动到目标section
+            function scrollToTargetSection(target) {
+                // 重新获取sections，确保获取到最新的
+                const currentSections = Array.from(document.querySelectorAll('section[data-section]'));
+                if (currentSections.length === 0) {
+                    // 如果还没有sections，延迟重试
+                    setTimeout(function() {
+                        scrollToTargetSection(target);
+                    }, 100);
+                    return;
+                }
+
+                let targetIndex;
+                if (target === 'last') {
+                    // 滚动到最后一个section
+                    targetIndex = currentSections.length - 1;
+                } else {
+                    // 滚动到指定索引的section（默认第一个）
+                    targetIndex = parseInt(target) || 0;
+                    if (targetIndex < 0) targetIndex = 0;
+                    if (targetIndex >= currentSections.length) targetIndex = currentSections.length - 1;
+                }
+
+                if (targetIndex >= 0 && targetIndex < currentSections.length) {
+                    // 延迟一点确保页面完全渲染
+                    setTimeout(function() {
+                        currentSections[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // 清除URL参数，保持URL干净
+                        if (window.history && window.history.replaceState) {
+                            const cleanUrl = window.location.pathname + window.location.hash;
+                            window.history.replaceState({}, document.title, cleanUrl);
+                        }
+                    }, 200);
+                }
+            }
+
+            // 等待页面完全加载后再滚动
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    scrollToTargetSection(targetSection);
+                });
+            } else {
+                // 页面已加载，延迟一点确保所有元素都已渲染
+                setTimeout(function() {
+                    scrollToTargetSection(targetSection);
+                }, 100);
+            }
+        }
+
+        // 执行自动导航
+        handleSectionNavigation();
     }
 
     // ============================================
