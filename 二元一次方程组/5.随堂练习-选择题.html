@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="enable-timer" content="true">
     <title>赛跑问题课堂练习</title>
     <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
@@ -122,38 +123,56 @@
         }
 
         .option {
-            background-color: #f8f9fa;
-            padding: 18px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+            padding: 22px 25px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
             font-size: 1.3rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             position: relative;
             overflow: hidden;
+            font-weight: 600;
+        }
+
+        .option::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            transition: width 0.4s ease;
+        }
+
+        .option:hover::before {
+            width: 100%;
         }
 
         .option:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            border-color: #3498db;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
         }
 
         .option.selected {
-            background-color: #e8f4fc;
-            border-color: #3498db;
-            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+            border-color: #667eea;
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
         }
 
         .option.correct {
-            background-color: #d4edda;
-            border-color: #28a745;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(46, 125, 50, 0.15) 100%);
+            border-color: #4CAF50;
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
         }
 
         .option.incorrect {
-            background-color: #f8d7da;
-            border-color: #dc3545;
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.15) 0%, rgba(211, 47, 47, 0.15) 100%);
+            border-color: #f44336;
+            box-shadow: 0 6px 16px rgba(244, 67, 54, 0.3);
         }
 
         .option-icon {
@@ -181,34 +200,69 @@
         }
 
         .toggle-btn {
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #4136F3, #21CBF3);
+            padding: 18px 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1.3rem;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
             margin: 5px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .toggle-btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 0;
+        }
+
+        .toggle-btn:hover::before {
+            width: 500px;
+            height: 500px;
+        }
+
+        .toggle-btn span,
+        .toggle-btn::after {
+            position: relative;
+            z-index: 1;
         }
 
         .toggle-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
         }
 
         .toggle-btn:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
         }
 
         .toggle-btn::after {
             content: "▶";
-            font-size: 1.4rem;
-            transition: transform 0.3s ease;
+            font-size: 1.6rem;
+            transition: transform 0.4s ease;
+            font-weight: bold;
+        }
+
+        .toggle-btn.expanded {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
         }
 
         .toggle-btn.expanded::after {
@@ -348,42 +402,6 @@
             transition: width 0.3s ease;
         }
 
-        .timer {
-            position: fixed;
-            top: 10px;
-            right: 100px;
-            background-color: rgba(33, 150, 243, 0.9);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 1.4rem;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            user-select: none;
-            transition: all 0.3s ease;
-        }
-
-        .timer:hover {
-            background-color: rgba(33, 150, 243, 1);
-            transform: scale(1.05);
-        }
-
-        .timer.started {
-            background-color: rgba(42, 207, 202, 0.9);
-        }
-
-        .timer.started:hover {
-            background-color: rgba(42, 207, 202, 0.9);
-        }
-
-        .timer.not-started {
-            background-color: rgba(76, 175, 80, 0.9);
-        }
-
-        .timer.not-started:hover {
-            background-color: rgba(76, 175, 80, 1);
-        }
 
         .navigation {
             display: flex;
@@ -393,27 +411,64 @@
         }
 
         .nav-btn {
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #4136F3, #21CBF3);
+            padding: 18px 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1.3rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .nav-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .nav-btn:active {
+            transform: translateY(-1px) scale(0.98);
         }
 
         .nav-btn:disabled {
-            background: #bdc3c7;
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
             cursor: not-allowed;
             transform: none;
-            box-shadow: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0.6;
+        }
+
+        .nav-btn:disabled:hover {
+            transform: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn:disabled::before {
+            display: none;
         }
 
         .animation-container {
@@ -490,9 +545,6 @@
 <div class="progress-container">
     <div class="progress-bar" id="progress-bar"></div>
 </div>
-
-<!-- 计时器 -->
-<div class="timer not-started" id="timer">点击开始计时</div>
 
 <!-- 封面页 -->
 <section data-section="1" id="page1">
@@ -811,32 +863,6 @@
             });
         });
 
-        // 计时器功能
-        let startTime = null;
-        let timerInterval = null;
-        const timerElement = document.getElementById('timer');
-        let isTimerRunning = false;
-
-        function updateTimer() {
-            if (!startTime) return;
-            const elapsed = Math.floor((Date.now() - startTime) / 1000);
-            const minutes = Math.floor(elapsed / 60);
-            const seconds = elapsed % 60;
-            timerElement.textContent = `时间: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        function startTimer() {
-            if (!isTimerRunning) {
-                startTime = Date.now();
-                isTimerRunning = true;
-                timerElement.classList.remove('not-started');
-                timerElement.textContent = '时间: 00:00';
-                timerInterval = setInterval(updateTimer, 1000);
-            }
-        }
-
-        // 点击计时器开始计时
-        timerElement.addEventListener('click', startTimer);
 
         // 渲染数学公式
         if (typeof renderMathInElement !== 'undefined') {

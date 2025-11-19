@@ -185,7 +185,138 @@
     }
 }
 
-/* 移动端适配 */
+/* ============================================
+   全局计时器样式
+   ============================================ */
+.global-timer {
+    position: fixed;
+    top: 20px;
+    right: 100px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    z-index: 9996;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.global-timer:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.global-timer.not-started {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.global-timer.not-started:hover {
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+}
+
+.global-timer.running {
+    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+    animation: timerPulse 2s infinite;
+}
+
+.global-timer.running:hover {
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.6);
+}
+
+@keyframes timerPulse {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 25px rgba(255, 152, 0, 0.7);
+    }
+}
+
+.timer-icon {
+    font-size: 1.3rem;
+}
+
+.timer-text {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+/* ============================================
+   Section导航按键样式
+   ============================================ */
+.section-nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 9995;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.section-nav-left {
+    left: 0;
+    border-radius: 0 15px 15px 0;
+}
+
+.section-nav-right {
+    right: 0;
+    border-radius: 15px 0 0 15px;
+}
+
+.section-nav-btn:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.5) 0%, rgba(118, 75, 162, 0.5) 100%);
+    color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.section-nav-left:hover {
+    transform: translateY(-50%) translateX(5px);
+}
+
+.section-nav-right:hover {
+    transform: translateY(-50%) translateX(-5px);
+}
+
+.section-nav-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.section-nav-btn.disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, rgba(149, 165, 166, 0.2) 0%, rgba(127, 140, 141, 0.2) 100%);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.section-nav-btn.disabled:hover {
+    transform: translateY(-50%);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* ============================================
+   移动端适配
+   ============================================ */
 @media (max-width: 768px) {
     .nav-container {
         width: 100%;
@@ -198,6 +329,44 @@
         font-size: 1.5rem;
         top: 15px;
         right: 15px;
+    }
+
+    .global-timer {
+        top: 85px;
+        right: 15px;
+        padding: 10px 18px;
+        font-size: 1.2rem;
+    }
+
+    .section-nav-btn {
+        width: 45px;
+        height: 60px;
+        font-size: 2.2rem;
+    }
+
+    .section-nav-left {
+        border-radius: 0 12px 12px 0;
+    }
+
+    .section-nav-right {
+        border-radius: 12px 0 0 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .global-timer {
+        padding: 8px 15px;
+        font-size: 1rem;
+    }
+
+    .timer-icon {
+        font-size: 1.1rem;
+    }
+
+    .section-nav-btn {
+        width: 35px;
+        height: 50px;
+        font-size: 2rem;
     }
 }
 

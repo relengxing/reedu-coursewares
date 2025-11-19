@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="enable-timer" content="true">
     <title>公路行程问题课堂练习</title>
     <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
@@ -292,34 +293,6 @@
             font-size: 1.2em;
         }
 
-        .timer {
-            position: fixed;
-            top: 10px;
-            right: 100px;
-            background-color: rgba(76, 175, 80, 0.9);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 1.4rem;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            user-select: none;
-            transition: all 0.3s ease;
-        }
-
-        .timer:hover {
-            background-color: rgba(76, 175, 80, 1);
-            transform: scale(1.05);
-        }
-
-        .timer.started {
-            background-color: rgba(42, 207, 202, 0.9);
-        }
-
-        .timer.started:hover {
-            background-color: rgba(42, 207, 202, 0.9);
-        }
 
         @media (max-width: 768px) {
             section {
@@ -346,9 +319,6 @@
     </style>
 </head>
 <body>
-<!-- 计时器 -->
-<div class="timer" id="timer">点击开始计时</div>
-
 <!-- 封面页 -->
 <section data-section="1" id="page1">
     <div class="container">
@@ -605,32 +575,6 @@
             });
         }
 
-        // 计时器功能
-        let startTime = null;
-        let timerInterval = null;
-        const timerElement = document.getElementById('timer');
-        let isTimerRunning = false;
-
-        function updateTimer() {
-            if (!startTime) return;
-            const elapsed = Math.floor((Date.now() - startTime) / 1000);
-            const minutes = Math.floor(elapsed / 60);
-            const seconds = elapsed % 60;
-            timerElement.textContent = `时间: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        function startTimer() {
-            if (!isTimerRunning) {
-                startTime = Date.now();
-                isTimerRunning = true;
-                timerElement.classList.add('started');
-                timerElement.textContent = '时间: 00:00';
-                timerInterval = setInterval(updateTimer, 1000);
-            }
-        }
-
-        // 点击计时器开始计时
-        timerElement.addEventListener('click', startTimer);
 
         // 渲染数学公式
         if (typeof renderMathInElement !== 'undefined') {

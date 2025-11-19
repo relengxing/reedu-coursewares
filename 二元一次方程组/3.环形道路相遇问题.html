@@ -140,34 +140,69 @@
         }
 
         .toggle-btn {
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #4136F3, #21CBF3);
+            padding: 18px 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1.3rem;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
             margin: 5px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .toggle-btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 0;
+        }
+
+        .toggle-btn:hover::before {
+            width: 500px;
+            height: 500px;
         }
 
         .toggle-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
         }
 
         .toggle-btn:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
+        }
+
+        .toggle-btn span,
+        .toggle-btn::after {
+            position: relative;
+            z-index: 1;
         }
 
         .toggle-btn::after {
             content: "▶";
-            font-size: 2.4rem;
-            transition: transform 0.3s ease;
+            font-size: 2rem;
+            transition: transform 0.4s ease;
+            font-weight: bold;
+        }
+
+        .toggle-btn.expanded {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
         }
 
         .toggle-btn.expanded::after {
@@ -309,22 +344,50 @@
         }
 
         .control-btn {
-            background: linear-gradient(45deg, #4136F3, #21CBF3);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 30px;
+            padding: 18px 35px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1.3rem;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             margin: 5px;
             flex: 1;
-            max-width: 300px;
+            max-width: 350px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .control-btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .control-btn:hover::before {
+            width: 400px;
+            height: 400px;
         }
 
         .control-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .control-btn:active {
+            transform: translateY(-1px) scale(0.98);
         }
 
         .speed-controls {
@@ -358,37 +421,70 @@
 
         .speed-slider {
             flex: 1;
-            height: 30px;
+            height: 14px;
             -webkit-appearance: none;
             appearance: none;
-            background: #ddd;
-            border-radius: 15px;
+            background: linear-gradient(to right, #e0e0e0 0%, #f5f5f5 100%);
+            border-radius: 10px;
             outline: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .speed-slider:hover {
+            background: linear-gradient(to right, #d0d0d0 0%, #e5e5e5 100%);
         }
 
         .speed-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            cursor: grab;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            border: 3px solid white;
+        }
+
+        .speed-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .speed-slider::-webkit-slider-thumb:active {
+            cursor: grabbing;
+            transform: scale(1.1);
         }
 
         .jia-slider::-webkit-slider-thumb {
-            background: #c62828;
+            background: linear-gradient(135deg, #FF5252 0%, #c62828 100%);
+            box-shadow: 0 4px 12px rgba(198, 40, 40, 0.5);
+        }
+
+        .jia-slider::-webkit-slider-thumb:hover {
+            box-shadow: 0 6px 16px rgba(198, 40, 40, 0.7);
         }
 
         .yi-slider::-webkit-slider-thumb {
-            background: #1b5e20;
+            background: linear-gradient(135deg, #4CAF50 0%, #1b5e20 100%);
+            box-shadow: 0 4px 12px rgba(27, 94, 32, 0.5);
+        }
+
+        .yi-slider::-webkit-slider-thumb:hover {
+            box-shadow: 0 6px 16px rgba(27, 94, 32, 0.7);
         }
 
         .speed-value {
             font-size: 2.6rem;
-            font-weight: bold;
-            min-width: 100px;
+            font-weight: 900;
+            min-width: 120px;
             text-align: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 12px 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            letter-spacing: 1px;
         }
 
         .distance-display {
@@ -397,20 +493,37 @@
         }
 
         .distance-bar {
-            height: 40px;
-            margin: 15px 0;
-            border-radius: 20px;
+            height: 50px;
+            margin: 20px 0;
+            border-radius: 25px;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .distance-bar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         .jia-distance {
-            background: linear-gradient(to right, #ff9f9f, #e74c3c);
+            background: linear-gradient(to right, #FF5252 0%, #e74c3c 60%, #c62828 100%);
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+
+        .jia-distance:hover {
+            border-color: rgba(231, 76, 60, 0.6);
         }
 
         .yi-distance {
-            background: linear-gradient(to right, #a3f7a3, #2ecc71);
+            background: linear-gradient(to right, #4CAF50 0%, #2ecc71 60%, #1b5e20 100%);
+            border-color: rgba(46, 204, 113, 0.3);
+        }
+
+        .yi-distance:hover {
+            border-color: rgba(46, 204, 113, 0.6);
         }
 
         .distance-label {
@@ -516,29 +629,41 @@
         }
 
         .speed-box {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 25px;
+            padding: 35px;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
             flex: 1;
+            transition: all 0.3s;
+            border: 3px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .speed-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.4);
         }
 
         .speed-box h3 {
             font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #333;
+            margin-bottom: 25px;
+            color: #667eea;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .speed-value-box {
-            font-size: 2.5rem;
-            font-weight: bold;
+            font-size: 3rem;
+            font-weight: 900;
             color: #FF4444;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(255, 68, 68, 0.2);
         }
 
         .yi-speed-value {
             color: #4CAF50;
+            text-shadow: 2px 2px 4px rgba(76, 175, 80, 0.2);
         }
 
         .page-number {
