@@ -389,24 +389,27 @@
    页码显示样式
    ============================================ */
 .page-number {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: rgba(255, 255, 255, 0.6);
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    background: rgba(255, 255, 255, 0.6) !important;
     backdrop-filter: blur(10px);
     color: #333;
     padding: 12px 20px;
     border-radius: 25px;
     font-size: 1.2rem;
     font-weight: 600;
-    z-index: 9994;
+    z-index: 99999 !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
     user-select: none;
     transition: all 0.3s ease;
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 5px;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto;
 }
 
 .page-number:hover {
