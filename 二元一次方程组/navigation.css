@@ -192,44 +192,59 @@
     position: fixed;
     top: 20px;
     right: 100px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.7) 0%, rgba(118, 75, 162, 0.7) 100%);
+    backdrop-filter: blur(10px);
     color: white;
     padding: 12px 24px;
     border-radius: 30px;
     font-size: 1.4rem;
     font-weight: 700;
     z-index: 9996;
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
     cursor: pointer;
     user-select: none;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     align-items: center;
     gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .global-timer:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%);
 }
 
 .global-timer.not-started {
-    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.7) 0%, rgba(46, 125, 50, 0.7) 100%);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
 }
 
 .global-timer.not-started:hover {
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.85) 0%, rgba(46, 125, 50, 0.85) 100%);
 }
 
 .global-timer.running {
-    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
-    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.7) 0%, rgba(245, 124, 0, 0.7) 100%);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.3);
     animation: timerPulse 2s infinite;
 }
 
 .global-timer.running:hover {
-    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.6);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.5);
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.85) 0%, rgba(245, 124, 0, 0.85) 100%);
+}
+
+.global-timer.finished {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.7) 0%, rgba(198, 40, 40, 0.7) 100%);
+    box-shadow: 0 6px 20px rgba(244, 67, 54, 0.3);
+}
+
+.global-timer.finished:hover {
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.5);
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.85) 0%, rgba(198, 40, 40, 0.85) 100%);
 }
 
 @keyframes timerPulse {
@@ -367,6 +382,72 @@
         width: 35px;
         height: 50px;
         font-size: 2rem;
+    }
+}
+
+/* ============================================
+   页码显示样式
+   ============================================ */
+.page-number {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    z-index: 9994;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    user-select: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.page-number:hover {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.page-number #pageNumberText {
+    color: #2196F3;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.page-number #pageNumberTotal {
+    color: #666;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .page-number {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 16px;
+        font-size: 1rem;
+    }
+
+    .page-number #pageNumberText {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-number {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+
+    .page-number #pageNumberText {
+        font-size: 1rem;
     }
 }
 

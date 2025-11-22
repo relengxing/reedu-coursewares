@@ -220,7 +220,7 @@
         if (!TIMER_ENABLED) return;
 
         // 检查页面是否有启用计时器的meta标签
-        // 格式：<meta name="enable-timer" content="true">
+        // 格式：<meta name="enable-timer" content="true" data-duration="300">
         const timerMeta = document.querySelector('meta[name="enable-timer"]');
         const isTimerEnabled = timerMeta && 
                               (timerMeta.getAttribute('content') === 'true' || 
@@ -235,11 +235,15 @@
             return;
         }
 
+        // 从meta标签读取倒计时时长（秒），默认300秒（5分钟）
+        const duration = parseInt(timerMeta.getAttribute('data-duration')) || 300;
+        const totalSeconds = duration;
+
         // 创建计时器HTML
         const timerHTML = `
-            <div class="global-timer" id="globalTimer" title="点击开始计时，再次点击重置">
+            <div class="global-timer" id="globalTimer" title="点击开始倒计时，再次点击重置">
                 <span class="timer-icon">⏱️</span>
-                <span class="timer-text" id="timerText">00:00</span>
+                <span class="timer-text" id="timerText">${Math.floor(totalSeconds / 60).toString().padStart(2, '0')}:${(totalSeconds % 60).toString().padStart(2, '0')}</span>
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', timerHTML);
@@ -247,23 +251,36 @@
         const timerElement = document.getElementById('globalTimer');
         const timerText = document.getElementById('timerText');
         
-        let startTime = null;
+        let remainingSeconds = totalSeconds;
         let timerInterval = null;
         let isRunning = false;
 
         function updateTimer() {
-            if (!startTime) return;
-            const elapsed = Math.floor((Date.now() - startTime) / 1000);
-            const minutes = Math.floor(elapsed / 60);
-            const seconds = elapsed % 60;
+            if (remainingSeconds <= 0) {
+                // 倒计时结束
+                clearInterval(timerInterval);
+                timerInterval = null;
+                isRunning = false;
+                timerElement.classList.remove('running');
+                timerElement.classList.add('finished');
+                timerText.textContent = '00:00';
+                return;
+            }
+
+            const minutes = Math.floor(remainingSeconds / 60);
+            const seconds = remainingSeconds % 60;
             timerText.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            remainingSeconds--;
         }
 
         function startTimer() {
-            startTime = Date.now();
+            if (remainingSeconds <= 0) {
+                remainingSeconds = totalSeconds;
+            }
             isRunning = true;
             timerElement.classList.add('running');
             timerElement.classList.remove('not-started');
+            timerElement.classList.remove('finished');
             timerInterval = setInterval(updateTimer, 1000);
             updateTimer();
         }
@@ -272,11 +289,14 @@
             if (timerInterval) {
                 clearInterval(timerInterval);
             }
-            startTime = null;
+            remainingSeconds = totalSeconds;
             isRunning = false;
             timerElement.classList.remove('running');
+            timerElement.classList.remove('finished');
             timerElement.classList.add('not-started');
-            timerText.textContent = '00:00';
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            timerText.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
         // 点击切换：未开始→开始，运行中→重置
@@ -513,6 +533,115 @@
     }
 
     // ============================================
+    // 页码显示功能
+    // ============================================
+    function initPageNumber() {
+        // 检查是否已存在页码
+        if (document.getElementById('pageNumber')) {
+            return;
+        }
+
+        // 定义所有页面的section数量（按页面顺序）
+        const pageSectionCounts = [
+            1,  // 0.封面页.html
+            0,  // 1.目录页.html
+            7,  // 2.火车过隧道.html
+            5,  // 3.环形道路相遇问题.html
+            4,  // 4.上下坡问题.html
+            2,  // 5.随堂练习-选择题.html
+            4,  // 6.随堂练习-填空题.html
+            6,  // 7.随堂练习-应用题.html
+            4   // 8.课后作业.html
+        ];
+
+        // 计算总section数
+        const totalSections = pageSectionCounts.reduce((sum, count) => sum + count, 0);
+
+        // 获取当前页面索引
+        function getCurrentPageIndex() {
+            const currentPage = getCurrentPage();
+            let index = pages.findIndex(page => page.url === currentPage);
+            if (index === -1) {
+                const currentPageName = currentPage.split('/').pop().split('\\').pop();
+                index = pages.findIndex(page => {
+                    const pageName = page.url.split('/').pop().split('\\').pop();
+                    return pageName === currentPageName;
+                });
+            }
+            return index;
+        }
+
+        // 获取当前section在所有section中的序号（从1开始）
+        function getCurrentSectionNumber() {
+            const currentPageIndex = getCurrentPageIndex();
+            if (currentPageIndex < 0 || currentPageIndex >= pageSectionCounts.length) {
+                return 1;
+            }
+
+            // 计算前面所有页面的section总数
+            let previousSections = 0;
+            for (let i = 0; i < currentPageIndex; i++) {
+                previousSections += pageSectionCounts[i];
+            }
+
+            // 获取当前页面的section索引
+            const sections = Array.from(document.querySelectorAll('section[data-section]'));
+            if (sections.length === 0) {
+                return previousSections + 1;
+            }
+
+            // 获取当前可见的section
+            const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            
+            let currentSectionIndex = 0;
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top + scrollPos;
+                
+                if (scrollPos >= sectionTop - windowHeight / 3) {
+                    currentSectionIndex = i;
+                    break;
+                }
+            }
+
+            // 计算当前section在所有section中的序号
+            // 直接使用section在页面中的索引（按DOM顺序）
+            return previousSections + currentSectionIndex + 1;
+        }
+
+        // 创建页码HTML
+        const pageNumberHTML = `
+            <div class="page-number" id="pageNumber">
+                <span id="pageNumberText">1</span> / <span id="pageNumberTotal">${totalSections}</span>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', pageNumberHTML);
+
+        const pageNumberElement = document.getElementById('pageNumber');
+        const pageNumberText = document.getElementById('pageNumberText');
+        const pageNumberTotal = document.getElementById('pageNumberTotal');
+
+        // 更新页码
+        function updatePageNumber() {
+            const currentNumber = getCurrentSectionNumber();
+            pageNumberText.textContent = currentNumber;
+            pageNumberTotal.textContent = totalSections;
+        }
+
+        // 监听滚动事件更新页码
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(updatePageNumber, 100);
+        });
+
+        // 初始更新
+        updatePageNumber();
+    }
+
+    // ============================================
     // 页面加载完成后初始化所有功能
     // ============================================
     function initAll() {
@@ -525,6 +654,8 @@
         if (SECTION_NAV_ENABLED) {
             initSectionNavigation();
         }
+        // 页码功能始终启用
+        initPageNumber();
     }
 
     if (document.readyState === 'loading') {
