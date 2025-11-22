@@ -280,7 +280,7 @@
         }
 
         .content.expanded {
-            max-height: 1000px;
+            max-height: 5000px;
             padding: 30px;
             margin-top: 20px;
             opacity: 1;
@@ -566,7 +566,7 @@
                         A.
                         \[
                         \begin{cases}
-                        6x = 8y \\
+                        6x = 2y + 6y \\
                         8x = 8y + 16
                         \end{cases}
                         \]
@@ -576,8 +576,8 @@
                         B.
                         \[
                         \begin{cases}
-                        6x = 8y \\
-                        8x = 16y + 16
+                        6x = 2y \\
+                        8x = 8y - 16
                         \end{cases}
                         \]
                     </div>
@@ -586,8 +586,8 @@
                         C.
                         \[
                         \begin{cases}
-                        6x = 6y + 2y \\
-                        8x = 8y + 16
+                        6y = 2x + 6x \\
+                        8y = 8x + 16
                         \end{cases}
                         \]
                     </div>
@@ -596,8 +596,8 @@
                         D.
                         \[
                         \begin{cases}
-                        6x = 8y \\
-                        8x = 16y
+                        6x = 2y + 6y \\
+                        8x = 8y - 16
                         \end{cases}
                         \]
                     </div>
@@ -615,40 +615,25 @@
 
                 <div class="interactive-container">
                     <button class="toggle-btn" data-target="#answer-1">
-                        <span>查看解析</span>
+                        <span>查看答案</span>
                     </button>
                     <div class="content" id="answer-1">
-                        <p><strong>解析：</strong>正确答案是C。</p>
-
-                        <div class="solution">
-                            <h3>解题思路</h3>
-                            <div class="step">
-                                <div class="step-title">第一种情况分析：</div>
-                                <p>小明让小亮先跑2秒，然后小明跑6秒追上小亮。</p>
-                                <p>小亮总共跑了 \(2 + 6 = 8\) 秒，小明跑了6秒。</p>
-                                <p>因为追上时两人跑的路程相等，所以：</p>
-                                <p>\(6x = 8y\)</p>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-title">第二种情况分析：</div>
-                                <p>小明让小亮先跑16米，然后小明跑8秒追上小亮。</p>
-                                <p>小亮先跑16米，然后两人同时跑8秒。</p>
-                                <p>追上时两人跑的路程相等，所以：</p>
-                                <p>\(8x = 8y + 16\)</p>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-title">综合两种情况：</div>
-                                <p>得到方程组：</p>
-                                \[
-                                \begin{cases}
-                                6x = 8y \\
-                                8x = 8y + 16
-                                \end{cases}
-                                \]
-                            </div>
-                        </div>
+                        <p><strong>答案：</strong>A</p>
+                        <p><strong>解析：</strong>根据题意，建立方程组：</p>
+                        \[
+                        \begin{cases}
+                        6x = 8y \\
+                        8x = 8y + 16
+                        \end{cases}
+                        \]
+                        <p>即：</p>
+                        \[
+                        \begin{cases}
+                        6x = 2y + 6y \\
+                        8x = 8y + 16
+                        \end{cases}
+                        \]
+                        <p>因此正确答案是A。</p>
                     </div>
                 </div>
 
@@ -665,23 +650,22 @@
 
             <div class="explanation">
                 <h3>问题分析</h3>
-                <p>这是一个关于追及问题的应用题，需要根据题意建立方程组。</p>
+                <p>这是一个关于追及问题的应用题。追及问题的核心是：当追及发生时，两者经过的路程相等。</p>
 
                 <div class="step">
                     <div class="step-title">第一种情况：时间领先</div>
                     <p>小明让小亮先跑2秒，然后小明跑6秒追上小亮。</p>
                     <p>设小明每秒跑x米，小亮每秒跑y米。</p>
                     <p>小亮总共跑了 \(2 + 6 = 8\) 秒，小明跑了6秒。</p>
-                    <p>因为追上时两人跑的路程相等，所以：</p>
-                    <p>\(6x = 8y\)</p>
+                    <p>因为追上时两人跑的路程相等，所以：\(6x = 8y\)</p>
+                    <p>即：\(6x = 2y + 6y\)</p>
                 </div>
 
                 <div class="step">
                     <div class="step-title">第二种情况：距离领先</div>
                     <p>小明让小亮先跑16米，然后小明跑8秒追上小亮。</p>
                     <p>小亮先跑16米，然后两人同时跑8秒。</p>
-                    <p>追上时两人跑的路程相等，所以：</p>
-                    <p>\(8x = 8y + 16\)</p>
+                    <p>追上时两人跑的路程相等，所以：\(8x = 8y + 16\)</p>
                 </div>
 
                 <div class="step">
@@ -693,48 +677,16 @@
                     8x = 8y + 16
                     \end{cases}
                     \]
+                    <p>即：</p>
+                    \[
+                    \begin{cases}
+                    6x = 2y + 6y \\
+                    8x = 8y + 16
+                    \end{cases}
+                    \]
+                    <p>因此正确答案是A。</p>
                 </div>
             </div>
-
-            <div class="interactive-container">
-                <button class="toggle-btn" data-target="#answer-2">
-                    <span>查看解题步骤</span>
-                </button>
-                <div class="content" id="answer-2">
-                    <div class="solution">
-                        <h3>解题步骤</h3>
-
-                        <div class="step">
-                            <div class="step-title">步骤1：解方程组</div>
-                            <p>由第一个方程 \(6x = 8y\) 得：</p>
-                            <p>\(x = \frac{4}{3}y\)</p>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-title">步骤2：代入第二个方程</div>
-                            <p>将 \(x = \frac{4}{3}y\) 代入 \(8x = 8y + 16\)：</p>
-                            <p>\(8 \times \frac{4}{3}y = 8y + 16\)</p>
-                            <p>\(\frac{32}{3}y = 8y + 16\)</p>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-title">步骤3：求解y</div>
-                            <p>\(\frac{32}{3}y - 8y = 16\)</p>
-                            <p>\(\frac{32}{3}y - \frac{24}{3}y = 16\)</p>
-                            <p>\(\frac{8}{3}y = 16\)</p>
-                            <p>\(y = 16 \times \frac{3}{8} = 6\)</p>
-                            <p>所以小亮每秒跑6米。</p>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-title">步骤4：求解x</div>
-                            <p>\(x = \frac{4}{3} \times 6 = 8\)</p>
-                            <p>所以小明每秒跑8米。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 
         </div>
     </div>
@@ -770,34 +722,6 @@
                 </div>
             </div>
 
-            <div class="interactive-container">
-                <button class="toggle-btn" data-target="#answer-3">
-                    <span>查看类似题目</span>
-                </button>
-                <div class="content" id="answer-3">
-                    <div class="solution">
-                        <h3>类似题目练习</h3>
-
-                        <div class="step">
-                            <div class="step-title">题目1</div>
-                            <p>
-                                甲、乙两人从同一地点出发，甲先走10分钟，乙再出发。如果乙的速度是甲的1.5倍，那么乙需要多少分钟才能追上甲？</p>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-title">题目2</div>
-                            <p>
-                                两辆汽车从A、B两地同时出发相向而行，相遇后继续前进。当第二辆车到达A地时，第一辆车离B地还有35公里；当第一辆车到达B地时，第二辆车离A地还有70公里。求A、B两地之间的距离。</p>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-title">题目3</div>
-                            <p>
-                                甲、乙两人在环形跑道上跑步，甲每秒跑5米，乙每秒跑4.5米。如果他们从同一点同时出发，反向而行，那么他们每40秒相遇一次。求跑道的周长。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
@@ -842,7 +766,7 @@
                 // 检查答案
                 const selectedValue = this.getAttribute('data-value');
 
-                if (selectedValue === 'C') {
+                if (selectedValue === 'A') {
                     this.classList.add('correct');
                     correctFeedback.style.display = 'block';
                     incorrectFeedback.style.display = 'none';
@@ -856,9 +780,6 @@
                     this.classList.add('incorrect');
                     correctFeedback.style.display = 'none';
                     incorrectFeedback.style.display = 'block';
-
-                    // 显示正确答案
-                    document.querySelector('.option[data-value="C"]').classList.add('correct');
                 }
             });
         });

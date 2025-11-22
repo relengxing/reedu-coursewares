@@ -694,17 +694,8 @@
             <h2>📝 题目展示</h2>
             <div class="problem-text">
                 <!--                    <h3>汽车上下坡问题</h3>-->
-                <p><strong>题目：</strong>一辆汽车在山区公路上行驶（<span style="color: #E65100; font-style: italic;">地理知识：山区地形复杂，道路坡度影响车速</span>），在上下坡过程中，速度会发生变化：
+                <p><strong>题目：</strong>小聪一家人暑假决定去西藏自驾游，爸爸行驶到川藏公路时，发现地形较复杂，有一段上下坡。由于上坡需要克服重力，速度较慢，这时小聪看到表盘的速度是40km/h，而等到下坡时，在重力的辅助下，速度较快，此时表盘的速度变成了60km/h，整个过程用了3小时。旅行几天后小聪一家人准备返程又经过这段公路，上下坡的速度跟原来一样，这时返程用了13/4小时。爸爸问小聪：你可以算一下我们去的时候这段上坡路和下坡路各是多少千米？
                 </p>
-                <ul>
-                    <li>上坡时，速度为 \( 28 \, \text{km/h} \)（<span style="color: #E65100; font-style: italic;">上坡需要克服重力，速度较慢</span>）
-                    </li>
-                    <li>下坡时，速度为 \( 42 \, \text{km/h} \)（<span style="color: #E65100; font-style: italic;">重力帮助前进，速度较快</span>）
-                    </li>
-                    <li>从甲地到乙地用了 4 小时 30 分钟</li>
-                    <li>返回时用了 4 小时 40 分钟</li>
-                </ul>
-                <p><strong>问题：</strong>从甲地到乙地的上坡路和下坡路各是多少千米？</p>
                 <p style="margin-top: 15px; font-size: 0.95em; color: #666; font-style: italic;">💡
                     地理应用：我国山区公路（如川藏公路）设计时，工程师需要考虑坡度对车速的影响，确保行车安全。道路坡度通常用百分比表示，如5%表示每100米上升5米。</p>
             </div>
@@ -730,9 +721,9 @@
                         <circle cx="100" cy="200" fill="#e74c3c" r="5"/>
                         <circle cx="500" cy="50" fill="#e74c3c" r="5"/>
                         <circle cx="900" cy="200" fill="#e74c3c" r="5"/>
-                        <text class="path-marker" text-anchor="middle" x="100" y="190">甲地</text>
+                        <text class="path-marker" text-anchor="middle" x="100" y="190">起点</text>
                         <text class="path-marker" text-anchor="middle" x="500" y="40">最高点</text>
-                        <text class="path-marker" text-anchor="middle" x="900" y="190">乙地</text>
+                        <text class="path-marker" text-anchor="middle" x="900" y="190">终点</text>
 
                         <!-- 线段图图层 -->
                         <g id="diagramOverlay">
@@ -773,8 +764,8 @@
             <!--                <div class="controls-panel">-->
             <!--                    <h2>控制面板</h2>-->
             <div class="preset-buttons">
-                <button class="preset-btn active" data-preset="atob" id="presetAtoB">甲地到乙地</button>
-                <button class="preset-btn" data-preset="btoa" id="presetBtoA">乙地到甲地</button>
+                <button class="preset-btn active" data-preset="atob" id="presetAtoB">去程</button>
+                <button class="preset-btn" data-preset="btoa" id="presetBtoA">返程</button>
             </div>
             <div class="buttons">
                 <button id="startBtn">开始模拟</button>
@@ -795,32 +786,32 @@
                         <div class="control-group">
                             <div class="control-title">上坡速度 (km/h)</div>
                             <div class="slider-container">
-                                <input class="slider" id="uphillSpeed" max="50" min="10" type="range" value="28">
-                                <span class="slider-value" id="uphillSpeedValue">28</span>
+                                <input class="slider" id="uphillSpeed" max="100" min="10" type="range" value="40">
+                                <span class="slider-value" id="uphillSpeedValue">40</span>
                             </div>
                         </div>
 
                         <div class="control-group">
                             <div class="control-title">下坡速度 (km/h)</div>
                             <div class="slider-container">
-                                <input class="slider" id="downhillSpeed" max="50" min="10" type="range" value="42">
-                                <span class="slider-value" id="downhillSpeedValue">42</span>
+                                <input class="slider" id="downhillSpeed" max="100" min="10" type="range" value="60">
+                                <span class="slider-value" id="downhillSpeedValue">60</span>
                             </div>
                         </div>
 
                         <div class="control-group">
                             <div class="control-title">上坡距离 (km)</div>
                             <div class="slider-container">
-                                <input class="slider" id="uphillDistance" max="100" min="10" type="range" value="70">
-                                <span class="slider-value" id="uphillDistanceValue">70</span>
+                                <input class="slider" id="uphillDistance" max="100" min="10" type="range" value="60">
+                                <span class="slider-value" id="uphillDistanceValue">60</span>
                             </div>
                         </div>
 
                         <div class="control-group">
                             <div class="control-title">下坡距离 (km)</div>
                             <div class="slider-container">
-                                <input class="slider" id="downhillDistance" max="100" min="10" type="range" value="84">
-                                <span class="slider-value" id="downhillDistanceValue">84</span>
+                                <input class="slider" id="downhillDistance" max="100" min="10" type="range" value="90">
+                                <span class="slider-value" id="downhillDistanceValue">90</span>
                             </div>
                         </div>
 
@@ -845,20 +836,20 @@
             <div class="step">
                 <span class="step-number">1</span>
                 <strong>设未知数</strong>
-                <p>设从甲地到乙地的上坡路为 \( x \) 千米，下坡路为 \( y \) 千米。</p>
+                <p>设去程时的上坡路为 \( x \) 千米，下坡路为 \( y \) 千米。</p>
             </div>
 
             <div class="step">
                 <span class="step-number">2</span>
                 <strong>建立方程</strong>
-                <p>从甲地到乙地：上坡时间 \( \frac{x}{28} \) 小时，下坡时间 \( \frac{y}{42} \) 小时</p>
+                <p>去程：上坡时间 \( \frac{x}{40} \) 小时，下坡时间 \( \frac{y}{60} \) 小时</p>
                 <div class="equation">
-                    \[ \frac{x}{28} + \frac{y}{42} = 4.5 \]
+                    \[ \frac{x}{40} + \frac{y}{60} = 3 \]
                 </div>
 
-                <p>从乙地到甲地：上坡时间 \( \frac{y}{28} \) 小时，下坡时间 \( \frac{x}{42} \) 小时</p>
+                <p>返程：上坡时间 \( \frac{y}{40} \) 小时（原来的下坡变成上坡），下坡时间 \( \frac{x}{60} \) 小时（原来的上坡变成下坡）</p>
                 <div class="equation">
-                    \[ \frac{y}{28} + \frac{x}{42} = \frac{14}{3} \]
+                    \[ \frac{y}{40} + \frac{x}{60} = \frac{13}{4} \]
                 </div>
             </div>
         </div>
@@ -876,15 +867,15 @@
                 <div class="equation">
                     \[
                     \begin{cases}
-                    3x + 2y = 378 \\
-                    2x + 3y = 392
+                    3x + 2y = 360 \\
+                    2x + 3y = 390
                     \end{cases}
                     \]
                 </div>
 
                 <p>解得：</p>
                 <div class="equation">
-                    \[ x = 70, \quad y = 84 \]
+                    \[ x = 60, \quad y = 90 \]
                 </div>
             </div>
         </div>
@@ -980,27 +971,49 @@
         presetAtoB.addEventListener('click', function () {
             presetAtoB.classList.add('active');
             presetBtoA.classList.remove('active');
-            // 甲到乙：上坡距离x=70，下坡距离y=84
-            uphillDistanceSlider.value = 70;
-            downhillDistanceSlider.value = 84;
+            // 去程：上坡距离x=60，下坡距离y=90
+            uphillDistanceSlider.value = 60;
+            downhillDistanceSlider.value = 90;
             updateSliderValues();
-            // 重置动画位置
+            // 重置动画位置和状态
             currentPosition = 0;
+            currentDistance = 0;
+            currentTime = 0;
+            isAnimating = false;
+            isPaused = false;
+            lastTimestamp = 0;
+            cancelAnimationFrame(animationId);
             updateCarPosition();
+            updateInfoPanel(currentPosition, 0, 0);
             if (showFormula) updateDiagram();
+            // 重置按钮状态
+            startBtn.disabled = false;
+            pauseBtn.disabled = true;
+            pauseBtn.textContent = "暂停";
         });
 
         presetBtoA.addEventListener('click', function () {
             presetBtoA.classList.add('active');
             presetAtoB.classList.remove('active');
-            // 乙到甲：上坡距离y=84（原来的下坡），下坡距离x=70（原来的上坡）
-            uphillDistanceSlider.value = 84;
-            downhillDistanceSlider.value = 70;
+            // 返程：上坡距离y=90（原来的下坡），下坡距离x=60（原来的上坡）
+            uphillDistanceSlider.value = 90;
+            downhillDistanceSlider.value = 60;
             updateSliderValues();
-            // 重置动画位置（从右往左，所以位置从1开始）
+            // 重置动画位置和状态（从右往左，所以位置从1开始）
             currentPosition = 1;
+            currentDistance = 0;
+            currentTime = 0;
+            isAnimating = false;
+            isPaused = false;
+            lastTimestamp = 0;
+            cancelAnimationFrame(animationId);
             updateCarPosition();
+            updateInfoPanel(currentPosition, 0, 0);
             if (showFormula) updateDiagram();
+            // 重置按钮状态
+            startBtn.disabled = false;
+            pauseBtn.disabled = true;
+            pauseBtn.textContent = "暂停";
         });
 
         // 滑块事件监听
@@ -1056,6 +1069,66 @@
         }
 
 
+        // 根据位置计算已行驶距离
+        function calculateDistanceFromPosition(position) {
+            const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
+            const uphillRatio = parseFloat(uphillDistanceSlider.value) / totalDistance;
+
+            // 获取当前预设方向
+            const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+            const isBtoA = currentPreset === 'btoa';
+
+            let actualPosition = position;
+            if (isBtoA) {
+                // 从右往左：反转位置
+                actualPosition = 1 - position;
+            }
+
+            // 根据位置计算已行驶距离
+            const traveledDistance = actualPosition * totalDistance;
+            return traveledDistance;
+        }
+
+        // 根据距离计算时间
+        function calculateTimeFromDistance(position) {
+            const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
+            const uphillDistance = parseFloat(uphillDistanceSlider.value);
+            const downhillDistance = parseFloat(downhillDistanceSlider.value);
+            const uphillSpeed = parseFloat(uphillSpeedSlider.value);
+            const downhillSpeed = parseFloat(downhillSpeedSlider.value);
+            const uphillRatio = uphillDistance / totalDistance;
+
+            // 获取当前预设方向
+            const currentPreset = document.querySelector('.preset-btn.active')?.getAttribute('data-preset') || 'atob';
+            const isBtoA = currentPreset === 'btoa';
+
+            let actualPosition = position;
+            if (isBtoA) {
+                // 从右往左：反转位置
+                actualPosition = 1 - position;
+            }
+
+            let uphillDistTraveled = 0;
+            let downhillDistTraveled = 0;
+
+            if (actualPosition <= uphillRatio) {
+                // 还在上坡段
+                uphillDistTraveled = actualPosition * totalDistance;
+                downhillDistTraveled = 0;
+            } else {
+                // 已经进入下坡段
+                uphillDistTraveled = uphillDistance;
+                downhillDistTraveled = (actualPosition - uphillRatio) * totalDistance;
+            }
+
+            // 计算时间：时间 = 距离 / 速度
+            const uphillTime = uphillDistTraveled / uphillSpeed;
+            const downhillTime = downhillDistTraveled / downhillSpeed;
+            const totalTime = uphillTime + downhillTime;
+
+            return totalTime;
+        }
+
         // 更新信息面板
         function updateInfoPanel(position, distance, time) {
             const totalDistance = parseFloat(uphillDistanceSlider.value) + parseFloat(downhillDistanceSlider.value);
@@ -1074,9 +1147,9 @@
             // 更新位置
             if (position < 0.01 || position > 0.99) {
                 if (isBtoA) {
-                    positionElement.textContent = position < 0.01 ? "终点(甲地)" : "起点(乙地)";
+                    positionElement.textContent = position < 0.01 ? "终点" : "起点";
                 } else {
-                    positionElement.textContent = position < 0.01 ? "起点(甲地)" : "终点(乙地)";
+                    positionElement.textContent = position < 0.01 ? "起点" : "终点";
                 }
             } else if (actualPosition <= uphillRatio) {
                 positionElement.textContent = "上坡中";
@@ -1087,9 +1160,13 @@
             // 更新速度
             speedElement.textContent = `${getCurrentSpeed(position)} km/h`;
 
+            // 根据实际位置计算距离和时间，而不是使用累加的值
+            const calculatedDistance = calculateDistanceFromPosition(position);
+            const calculatedTime = calculateTimeFromDistance(position);
+
             // 更新时间和距离
-            timeElement.textContent = `${time.toFixed(2)} 小时`;
-            distanceElement.textContent = `${distance.toFixed(1)} km`;
+            timeElement.textContent = `${calculatedTime.toFixed(2)} 小时`;
+            distanceElement.textContent = `${calculatedDistance.toFixed(1)} km`;
         }
 
         // 更新数学关系显示
@@ -1224,11 +1301,11 @@
             let formulaY = pathPeakY - 15;
 
             if (isBtoA) {
-                // 乙到甲：y/28 + x/42 = 14/3
-                totalTimeFormula = `从乙到甲: t₁ + t₂ = y/${uphillSpeed} + x/${downhillSpeed} = 14/3`;
+                // 返程：y/40 + x/60 = 13/4
+                totalTimeFormula = `返程: t₁ + t₂ = y/${uphillSpeed} + x/${downhillSpeed} = 13/4`;
             } else {
-                // 甲到乙：x/28 + y/42 = 4.5
-                totalTimeFormula = `从甲到乙: t₁ + t₂ = x/${uphillSpeed} + y/${downhillSpeed} = 4.5`;
+                // 去程：x/40 + y/60 = 3
+                totalTimeFormula = `去程: t₁ + t₂ = x/${uphillSpeed} + y/${downhillSpeed} = 3`;
             }
 
             const totalFormula = document.createElementNS(svgNS, "text");

@@ -340,53 +340,11 @@
     </div>
 </section>
 
-<!-- 问题分析页 -->
-<section data-section="2" id="page2">
-    <div class="container">
-        <div class="card">
-            <h2>🔍问题分析</h2>
-            <div class="problem-box">
-                <p>这是一个典型的行程问题，我们需要找出汽车在普通公路和高速公路上分别行驶的距离。</p>
-                <p>已知条件：</p>
-                <ul style="font-size: 1.5rem; margin-left: 30px; margin-bottom: 20px;">
-                    <li>总路程：200 km</li>
-                    <li>总时间：3 h</li>
-                    <li>普通公路速度：60 km/h</li>
-                    <li>高速公路速度：100 km/h</li>
-                </ul>
-                <p>我们可以设未知数，建立方程来求解。</p>
-            </div>
-
-            <div class="interactive-container">
-                <button class="toggle-btn" data-target="#analysis-1">
-                    <span>查看问题分析思路</span>
-                </button>
-                <div class="content" id="analysis-1">
-                    <p>解决这类问题的关键是理解：<strong>总时间 = 普通公路时间 + 高速公路时间</strong></p>
-                    <div class="step">
-                        <p class="step-title">步骤1：设未知数</p>
-                        <p>设汽车在普通公路上行驶了 \( x \) km，在高速公路上行驶了 \( y \) km。</p>
-                    </div>
-                    <div class="step">
-                        <p class="step-title">步骤2：建立方程</p>
-                        <p>根据总路程：\( x + y = 200 \)</p>
-                        <p>根据总时间：\( \frac{x}{60} + \frac{y}{100} = 3 \)</p>
-                    </div>
-                    <div class="step">
-                        <p class="step-title">步骤3：解方程组</p>
-                        <p>我们可以使用代入法或消元法来解这个方程组。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- 填空题页 -->
 <section data-section="3" id="page3">
     <div class="container">
         <div class="card">
-            <h2>✏️课堂练习</h2>
+            <h2>✏️检查答案</h2>
             <div class="problem-box">
                 <p>请填写汽车在普通公路和高速公路上分别行驶的距离：</p>
 
@@ -422,6 +380,48 @@
     </div>
 </section>
 
+<!-- 问题分析页 -->
+<section data-section="2" id="page2">
+    <div class="container">
+        <div class="card">
+            <h2>🔍问题分析</h2>
+            <div class="problem-box">
+                <p>这是一个典型的行程问题，我们需要找出汽车在普通公路和高速公路上分别行驶的距离。</p>
+                <p>已知条件：</p>
+                <ul style="font-size: 1.5rem; margin-left: 30px; margin-bottom: 20px;">
+                    <li>总路程：200 km</li>
+                    <li>总时间：3 h</li>
+                    <li>普通公路速度：60 km/h</li>
+                    <li>高速公路速度：100 km/h</li>
+                </ul>
+                <p>我们可以设未知数，建立方程来求解。</p>
+            </div>
+
+<!--            <div class="interactive-container">-->
+<!--                <button class="toggle-btn" data-target="#analysis-1">-->
+<!--                    <span>问题分析</span>-->
+<!--                </button>-->
+<!--                <div class="content" id="analysis-1">-->
+<!--                    <p>解决这类问题的关键是理解：<strong>总时间 = 普通公路时间 + 高速公路时间</strong></p>-->
+<!--                    <div class="step">-->
+<!--                        <p class="step-title">步骤1：设未知数</p>-->
+<!--                        <p>设汽车在普通公路上行驶了 \( x \) km，在高速公路上行驶了 \( y \) km。</p>-->
+<!--                    </div>-->
+<!--                    <div class="step">-->
+<!--                        <p class="step-title">步骤2：建立方程</p>-->
+<!--                        <p>根据总路程：\( x + y = 200 \)</p>-->
+<!--                        <p>根据总时间：\( \frac{x}{60} + \frac{y}{100} = 3 \)</p>-->
+<!--                    </div>-->
+<!--                    <div class="step">-->
+<!--                        <p class="step-title">步骤3：解方程组</p>-->
+<!--                        <p>我们可以使用代入法或消元法来解这个方程组。</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</section>
+
 <!-- 解析页 -->
 <section data-section="4" id="page4">
     <div class="container">
@@ -431,36 +431,6 @@
             <div class="">
                 <div class="" id="solution-1">
                     <div class="step">
-                        <p class="step-title">解法一：设一个未知数</p>
-                        <p>设汽车在普通公路上行驶了 \( x \) km，则在高速公路上行驶了 \( 200 - x \) km。</p>
-                        <p>根据总时间建立方程：</p>
-                        <div class="formula">
-                            \( \frac{x}{60} + \frac{200 - x}{100} = 3 \)
-                        </div>
-                        <p>解方程：</p>
-                        <div class="formula">
-                            \( \frac{5x}{300} + \frac{3(200 - x)}{300} = 3 \)
-                        </div>
-                        <div class="formula">
-                            \( \frac{5x + 600 - 3x}{300} = 3 \)
-                        </div>
-                        <div class="formula">
-                            \( \frac{2x + 600}{300} = 3 \)
-                        </div>
-                        <div class="formula">
-                            \( 2x + 600 = 900 \)
-                        </div>
-                        <div class="formula">
-                            \( 2x = 300 \)
-                        </div>
-                        <div class="formula">
-                            \( x = 150 \)
-                        </div>
-                        <p>所以，普通公路行驶距离为 150 km，高速公路行驶距离为 \( 200 - 150 = 50 \) km。</p>
-                    </div>
-
-                    <div class="step">
-                        <p class="step-title">解法二：设两个未知数</p>
                         <p>设汽车在普通公路上行驶了 \( x \) km，在高速公路上行驶了 \( y \) km。</p>
                         <p>建立方程组：</p>
                         <div class="formula">
@@ -490,7 +460,7 @@
 <section data-section="5" id="page5">
     <div class="container">
         <div class="card">
-            <h2>✅总结与反思</h2>
+            <h2>✅结与反思</h2>
 
             <div class="summary">
                 <h3>本问题的关键点：</h3>
@@ -501,16 +471,16 @@
                 </ul>
             </div>
 
-            <div class="interactive-container">
-                <button class="toggle-btn" data-target="#reflection-1">
-                    <span>思考与拓展</span>
-                </button>
-                <div class="content" id="reflection-1">
-                    <p>1. 如果总时间变为2.5小时，其他条件不变，结果会如何变化？</p>
-                    <p>2. 如果普通公路速度变为70 km/h，高速公路速度变为120 km/h，结果会如何变化？</p>
-                    <p>3. 尝试用图表法表示这个问题，看看能否从图表中直观地找到答案。</p>
-                </div>
-            </div>
+<!--            <div class="interactive-container">-->
+<!--                <button class="toggle-btn" data-target="#reflection-1">-->
+<!--                    <span>思考与拓展</span>-->
+<!--                </button>-->
+<!--                <div class="content" id="reflection-1">-->
+<!--                    <p>1. 如果总时间变为2.5小时，其他条件不变，结果会如何变化？</p>-->
+<!--                    <p>2. 如果普通公路速度变为70 km/h，高速公路速度变为120 km/h，结果会如何变化？</p>-->
+<!--                    <p>3. 尝试用图表法表示这个问题，看看能否从图表中直观地找到答案。</p>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </section>
