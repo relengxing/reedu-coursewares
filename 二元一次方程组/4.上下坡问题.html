@@ -696,8 +696,8 @@
                 <!--                    <h3>汽车上下坡问题</h3>-->
                 <p><strong>题目：</strong>小聪一家人暑假决定去西藏自驾游，爸爸行驶到川藏公路时，发现地形较复杂，有一段上下坡。由于上坡需要克服重力，速度较慢，这时小聪看到表盘的速度是40km/h，而等到下坡时，在重力的辅助下，速度较快，此时表盘的速度变成了60km/h，整个过程用了3小时。旅行几天后小聪一家人准备返程又经过这段公路，上下坡的速度跟原来一样，这时返程用了13/4小时。爸爸问小聪：你可以算一下我们去的时候这段上坡路和下坡路各是多少千米？
                 </p>
-                <p style="margin-top: 15px; font-size: 0.95em; color: #666; font-style: italic;">💡
-                    地理应用：我国山区公路（如川藏公路）设计时，工程师需要考虑坡度对车速的影响，确保行车安全。道路坡度通常用百分比表示，如5%表示每100米上升5米。</p>
+<!--                <p style="margin-top: 15px; font-size: 0.95em; color: #666; font-style: italic;">💡-->
+<!--                    地理应用：我国山区公路（如川藏公路）设计时，工程师需要考虑坡度对车速的影响，确保行车安全。道路坡度通常用百分比表示，如5%表示每100米上升5米。</p>-->
             </div>
         </div>
     </div>
@@ -1216,7 +1216,7 @@
             const uphillFormula = document.createElementNS(svgNS, "text");
             uphillFormula.setAttribute("class", "formula-text");
             uphillFormula.setAttribute("x", uphillMidX);
-            uphillFormula.setAttribute("y", uphillMidY - 10);
+            uphillFormula.setAttribute("y", uphillMidY +15);
             uphillFormula.setAttribute("text-anchor", "middle");
             uphillFormula.setAttribute("font-size", "18px");
             if (isBtoA) {
@@ -1229,7 +1229,7 @@
             const uphillFormula2 = document.createElementNS(svgNS, "text");
             uphillFormula2.setAttribute("class", "formula-text");
             uphillFormula2.setAttribute("x", uphillMidX);
-            uphillFormula2.setAttribute("y", uphillMidY + 15);
+            uphillFormula2.setAttribute("y", uphillMidY -10);
             uphillFormula2.setAttribute("text-anchor", "middle");
             uphillFormula2.setAttribute("font-size", "16px");
             if (isBtoA) {
@@ -1264,7 +1264,7 @@
             const downhillFormula = document.createElementNS(svgNS, "text");
             downhillFormula.setAttribute("class", "formula-text");
             downhillFormula.setAttribute("x", downhillMidX);
-            downhillFormula.setAttribute("y", downhillMidY - 10);
+            downhillFormula.setAttribute("y", downhillMidY + 15);
             downhillFormula.setAttribute("text-anchor", "middle");
             downhillFormula.setAttribute("font-size", "18px");
             if (isBtoA) {
@@ -1277,7 +1277,7 @@
             const downhillFormula2 = document.createElementNS(svgNS, "text");
             downhillFormula2.setAttribute("class", "formula-text");
             downhillFormula2.setAttribute("x", downhillMidX);
-            downhillFormula2.setAttribute("y", downhillMidY + 15);
+            downhillFormula2.setAttribute("y", downhillMidY - 10);
             downhillFormula2.setAttribute("text-anchor", "middle");
             downhillFormula2.setAttribute("font-size", "16px");
             if (isBtoA) {
